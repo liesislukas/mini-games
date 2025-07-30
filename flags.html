@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flag Pro</title>
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Canvas-Confetti library for celebration effects -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <style>
         body {
@@ -26,7 +24,7 @@
         .score-pop {
             animation: score-pop-animation 0.3s ease-in-out;
         }
-        /* Style for the flag image */
+        /* Style for the main flag image */
         .flag-image {
             width: 128px;
             height: 85px;
@@ -34,15 +32,22 @@
             border-radius: 0.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
+        /* Style for the smaller flags inside the option buttons */
+        .option-flag-image {
+            width: 40px;  /* w-10 */
+            height: auto;
+            border-radius: 0.25rem; /* rounded-sm */
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 flex flex-col items-center min-h-screen p-4 pt-8 sm:pt-12">
 
 <main id="main-content" class="w-full max-w-md">
-    <!-- Level Selection View -->
     <div id="level-selection-view">
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
-            <h1 class="text-2xl font-bold text-gray-800 mb-6">Select a Continent</h1>
+            <h1 id="level-title" class="text-2xl font-bold text-gray-800 mb-6">Select a Continent</h1>
             <div class="grid grid-cols-1 gap-4">
                 <button data-level="europe" class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl">Europe</button>
                 <button data-level="africa" class="btn w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl">Africa</button>
@@ -54,7 +59,6 @@
         </div>
     </div>
 
-    <!-- Game View (hidden by default) -->
     <div id="game-view" class="hidden">
         <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg text-center">
             <div class="flex justify-between items-baseline mb-2 text-gray-500 text-sm">
@@ -62,9 +66,7 @@
                 <div>TIME: <span id="timer" class="font-bold text-lg text-gray-800">5</span>s</div>
             </div>
             <hr class="mb-6">
-            <!-- Flag Display -->
             <div id="problem-container" class="mb-8 min-h-[90px] flex items-center justify-center">
-                <!-- Flag image will be injected here -->
             </div>
             <div id="options-container" class="grid grid-cols-1 gap-3 sm:gap-4"></div>
             <div class="mt-6 h-7"><p id="feedback-text" class="text-lg font-medium"></p></div>
@@ -74,7 +76,6 @@
         </div>
     </div>
 
-    <!-- Results View (hidden by default) -->
     <div id="results-view" class="hidden">
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
             <h2 class="text-2xl font-bold text-gray-800 mb-2">Round Complete!</h2>
@@ -93,7 +94,6 @@
     </div>
 </main>
 
-<!-- High Scores Table -->
 <div id="high-scores-table-container" class="w-full max-w-md mt-8"></div>
 
 <script>
@@ -120,25 +120,37 @@
     // --- Game Constants & State ---
     const TOTAL_PROBLEMS = 20;
     const TIME_PER_QUESTION = 5;
-    const correctSound = new Audio('data:audio/mp3;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKrIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzU0UFRNRAAAAAAADAAAA1N3aXRjaCBQbHVzIMKrIE5DSCBTb2Z0d2FyZQBUWEJYAAAABgAAAzIyMzU0UFRNRAAAAAAADAAAA1N3aXRjaCBQbHVzIMKrIE5DSCBTb2Z0d2FyZQBNU0dJAAAACwAAAyAgO1U4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwB1bmdYAAAABAAAAFlrBiAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/8AAAATEAAABIYARGgAANARcAAAAA/+x3LgAABpYkH//v/99/91/923/9r/9y3/9y3/9t3/923/9s2/+23/+03/903/+13//23//23/+13/+33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//3-AAAARAAAAgAA/+x3LgAABpYkH//v/99/91/923/9r/9y3/9y3/9t3/923/9s2/+23/+03/903/+13//23//23/+13/+33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//3-AAAARAAAAg==');
+    const correctSound = new Audio('data:audio/mp3;base64,SUQzBAAAAAABEVRYWFgAAAAtAAADY29tbWVudABCaWdTb3VuZEJhbmsuY29tIC8gTGFTb25vdGhlcXVlLm9yZwBURU5DAAAAHQAAA1N3aXRjaCBQbHVzIMKrIE5DSCBTb2Z0d2FyZQBUSVQyAAAABgAAAzIyMzU0UFRNRAAAAAAADAAAA1N3aXRjaCBQbHVzIMKrIE5DSCBTb2Z0d2FyZQBUWEJYAAAABgAAAzIyMzU0UFRNRAAAAAAADAAAA1N3aXRjaCBQbHVzIMKrIE5DSCBTb2Z0d2FyZQBNU0dJAAAACwAAAyAgO1U4AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUwB1bmdYAAAABAAAAFlrBiAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD/8AAAATEAAABIYARGgAANARcAAAAA/+x3LgAABpYkH//v/99/91/923/9r/9y3/9y3/9t3/923/9s2/+23/+03/903/+13//23//23/+13/+33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//-AAAARAAAAgAA/+x3LgAABpYkH//v/99/91/923/9r/9y3/9y3/9t3/923/9s2/+23/+03/903/+13//23//23/+13/+33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//33//3-AAAARAAAAg==');
     let allCountries = [];
     let currentLevel = 'europe', currentProblemNumber = 0, correctAnswers = 0, totalTimeElapsed = 0;
     let isAcceptingInput = false, currentCorrectAnswer = '', timerInterval, highScores = {};
 
     // --- Data Loading & Initialization ---
     async function fetchCountryData() {
+        // Add a loading state to the UI
+        document.getElementById('level-title').textContent = 'Loading Data...';
+        levelSelectionView.querySelectorAll('button').forEach(b => b.disabled = true);
         try {
-            const response = await fetch('https://restcountries.com/v3.1/all?fields=name,cca2,region,subregion');
+            const response = await fetch('https://restcountries.com/v3.1/all?fields=name,cca2,region');
             if (!response.ok) throw new Error('Failed to load country data');
             const data = await response.json();
             allCountries = data.map(c => ({
                 code: c.cca2.toLowerCase(),
                 name: c.name.common,
                 continent: c.region
-            })).filter(c => c.cca2 !== 'RU').filter(c => c.continent); // Filter out entries without a continent and terrorist states as RU
+            })).filter(c => c.continent && c.code !== 'ru'); // Filter out entries without a continent and Russia
+
+            // Restore UI after successful loading
+            document.getElementById('level-title').textContent = 'Select a Continent';
+            levelSelectionView.querySelectorAll('button').forEach(b => b.disabled = false);
         } catch (error) {
             console.error("Could not fetch country data:", error);
-            problemContainer.innerHTML = `<p class="text-red-500">Could not load game data. Please refresh.</p>`;
+            // Update UI to show a clear error message
+            document.getElementById('level-title').textContent = 'Error Loading';
+            levelSelectionView.querySelectorAll('button').forEach(b => {
+                b.classList.add('bg-gray-400', 'hover:bg-gray-400', 'cursor-not-allowed');
+                b.textContent = 'Could not load data';
+            });
         }
     }
 
@@ -152,7 +164,9 @@
         renderHighScoresTable();
 
         levelSelectionView.querySelectorAll('button').forEach(button => {
-            button.onclick = () => { currentLevel = button.dataset.level; startGame(); };
+            if (!button.disabled) {
+                button.onclick = () => { currentLevel = button.dataset.level; startGame(); };
+            }
         });
         playAgainButton.addEventListener('click', startGame);
         changeLevelButton.addEventListener('click', init);
@@ -188,12 +202,8 @@
         timerEl.classList.remove('text-red-500', 'font-extrabold');
 
         // Get countries for the current level
-        let levelCountries;
-        if (currentLevel === 'all') {
-            levelCountries = [...allCountries];
-        } else {
-            levelCountries = allCountries.filter(c => c.continent.toLowerCase() === currentLevel);
-        }
+        const levelCountries = currentLevel === 'all' ? [...allCountries] : allCountries.filter(c => c.continent.toLowerCase() === currentLevel);
+
         if(levelCountries.length < 5) {
             problemContainer.innerHTML = `<p class="text-sm text-red-500">Not enough countries in this region to play.</p>`;
             return;
@@ -203,26 +213,28 @@
         const questionCountry = levelCountries[Math.floor(Math.random() * levelCountries.length)];
         currentCorrectAnswer = questionCountry.name;
 
-        // Display the flag
+        // Display the main flag
         const flagImg = document.createElement('img');
         flagImg.src = `https://flagcdn.com/w160/${questionCountry.code}.png`;
         flagImg.alt = "Country Flag";
         flagImg.className = "flag-image";
         problemContainer.appendChild(flagImg);
 
-        // Generate options
-        const options = new Set([questionCountry.name]);
-        while (options.size < 5) {
+        // Generate options as a map to store both name and code
+        const optionsMap = new Map();
+        optionsMap.set(questionCountry.name, questionCountry);
+        while (optionsMap.size < 5) {
             const randomCountry = levelCountries[Math.floor(Math.random() * levelCountries.length)];
-            options.add(randomCountry.name);
+            optionsMap.set(randomCountry.name, randomCountry);
         }
 
-        Array.from(options).sort(() => Math.random() - 0.5).forEach((opt, i) => {
+        Array.from(optionsMap.values()).sort(() => Math.random() - 0.5).forEach((country, i) => {
             const btn = document.createElement('button');
-            btn.innerHTML = `<span class="text-gray-400 mr-2 text-sm">${i+1}</span> ${opt}`;
-            btn.dataset.value = opt;
+            btn.innerHTML = `<span class="text-gray-400 mr-2 text-sm">${i+1}</span> ${country.name}`;
+            btn.dataset.value = country.name;
+            btn.dataset.code = country.code; // Store the flag code
             btn.classList.add('option-button', 'btn', 'w-full', 'bg-gray-100', 'hover:bg-gray-200', 'text-gray-700', 'font-semibold', 'text-left', 'py-3', 'px-4', 'rounded-xl', 'focus:outline-none');
-            btn.onclick = () => selectAnswer(opt, btn);
+            btn.onclick = () => selectAnswer(country.name, btn);
             optionsContainer.appendChild(btn);
         });
         startTimer();
@@ -255,6 +267,16 @@
             } else if (btn === selectedButton) {
                 btn.className = btn.className.replace(/bg-gray-100|hover:bg-gray-200/g, 'bg-red-500 text-white');
             }
+
+            // --- NEW: Reveal all flags after selection ---
+            const countryCode = btn.dataset.code;
+            const countryName = btn.dataset.value;
+            btn.innerHTML = `
+                    <div class="flex items-center w-full">
+                        <img src="https://flagcdn.com/w80/${countryCode}.png" alt="${countryName}" class="option-flag-image mr-4">
+                        <span class="truncate">${countryName}</span>
+                    </div>
+                `;
         });
 
         if (isCorrect && Math.random() < 0.2) {
@@ -265,7 +287,7 @@
         feedbackTextEl.classList.toggle('text-green-600', isCorrect);
         feedbackTextEl.classList.toggle('text-red-600', !isCorrect);
 
-        setTimeout(newProblem, 2000); // Increased delay to see the answer
+        setTimeout(newProblem, 2500); // Increased delay to see all flags
     }
 
     function endGame() {
