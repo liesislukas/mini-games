@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Games</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .game-link {
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+        }
+        .game-link:hover {
+            transform: translateY(-2px);
+        }
+        .game-link:active {
+            transform: scale(0.98) translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-900 flex items-center justify-center min-h-screen p-4">
+
+    <main class="w-full max-w-md">
+        <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-lg text-center">
+            
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Math Games</h1>
+            <p class="text-gray-500 mb-8">Choose your challenge and test your skills!</p>
+
+            <div class="grid grid-cols-1 gap-4">
+                
+                <!-- Link to Addition & Subtraction Game -->
+                <a href="addition-subtraction.html" 
+                   class="game-link group block bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
+                    <div class="flex items-center justify-center">
+                        <span class="text-2xl mr-3">+−</span>
+                        <span>Addition & Subtraction</span>
+                    </div>
+                </a>
+
+                <!-- Link to Multiplication Game -->
+                <a href="multiplication.html" 
+                   class="game-link group block bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
+                    <div class="flex items-center justify-center">
+                        <span class="text-2xl mr-3">×</span>
+                        <span>Multiplication</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
