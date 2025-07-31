@@ -113,6 +113,8 @@
 </main>
 
 <div id="high-scores-table-container" class="w-full max-w-md mt-8"></div>
+<div id="mistakes-table-container" class="w-full max-w-md mt-8"></div>
+
 
 <script>
     // --- DOM Elements ---
@@ -134,6 +136,7 @@
     const playAgainButton = document.getElementById('play-again-button');
     const changeLevelButton = document.getElementById('change-level-button');
     const highScoresTableContainer = document.getElementById('high-scores-table-container');
+    const mistakesTableContainer = document.getElementById('mistakes-table-container');
 
     // --- Game Constants & State ---
     const TOTAL_PROBLEMS = 20;
@@ -149,15 +152,22 @@
     let isAcceptingInput = false, currentCorrectAnswer = 0, timerInterval, highScores = {};
     let usedProblems;
     let zeroProblemCount;
+    let currentNum1, currentNum2;
+    let mistakes = [];
+    let mistakeReviewQueue = [];
+    let isReviewingMistake = false;
 
     // --- Game Flow & Initialization ---
     function init() {
         loadHighScores();
+        loadMistakes();
         levelSelectionView.classList.remove('hidden');
         gameView.classList.add('hidden');
         resultsView.classList.add('hidden');
         highScoresTableContainer.classList.remove('hidden');
+        mistakesTableContainer.classList.remove('hidden');
         renderHighScoresTable();
+        renderMistakesTable();
 
         levelSelectionView.querySelectorAll('button').forEach(button => {
             button.onclick = () => {
@@ -181,11 +191,14 @@
         totalTimeElapsed = 0;
         usedProblems = new Set();
         zeroProblemCount = 0;
+        mistakeReviewQueue = [...mistakes].sort(() => Math.random() - 0.5);
+
         levelSelectionView.classList.add('hidden');
         resultsView.classList.add('hidden');
         newHighScoreBanner.classList.add('hidden');
         gameView.classList.remove('hidden');
         highScoresTableContainer.classList.add('hidden');
+        mistakesTableContainer.classList.add('hidden');
         updateHighScoreUI();
         newProblem();
     }
@@ -196,74 +209,76 @@
             return;
         }
         currentProblemNumber++;
+        isReviewingMistake = false; // Reset flag for each new problem
         isAcceptingInput = true;
         feedbackTextEl.textContent = '';
         optionsContainer.innerHTML = '';
         progressEl.textContent = `${currentProblemNumber}/${TOTAL_PROBLEMS}`;
         timerEl.classList.remove('text-red-500', 'font-extrabold');
 
-        const nums = LEVEL_NUMBERS[currentLevel];
+        let num1, num2;
 
-        let num1, num2, problemKey;
-        let attempts = 0;
+        if (mistakeReviewQueue.length > 0) {
+            const mistakeProblem = mistakeReviewQueue.pop();
+            num1 = mistakeProblem.n1;
+            num2 = mistakeProblem.n2;
+            isReviewingMistake = true; // Set flag when reviewing a mistake
+        } else {
+            const nums = LEVEL_NUMBERS[currentLevel];
+            let attempts = 0;
+            const mistakeKeys = new Set(mistakes.map(m => `${Math.min(m.n1, m.n2)},${Math.max(m.n1, m.n2)}`));
 
-        do {
-            if (attempts++ > 100) {
-                console.warn("Problem generation stuck, resetting constraints.");
-                usedProblems.clear();
-                zeroProblemCount = 0;
-            }
-            num1 = nums[Math.floor(Math.random() * nums.length)];
-            num2 = nums[Math.floor(Math.random() * nums.length)];
-            problemKey = [Math.min(num1, num2), Math.max(num1, num2)].join(',');
-        } while (usedProblems.has(problemKey) || ((num1 === 0 || num2 === 0) && zeroProblemCount >= 2));
+            do {
+                if (attempts++ > 100) {
+                    console.warn("Problem generation stuck, resetting constraints.");
+                    usedProblems.clear();
+                    zeroProblemCount = 0;
+                }
+                num1 = nums[Math.floor(Math.random() * nums.length)];
+                num2 = nums[Math.floor(Math.random() * nums.length)];
+                const problemKey = [Math.min(num1, num2), Math.max(num1, num2)].join(',');
+
+                if (usedProblems.has(problemKey) || mistakeKeys.has(problemKey)) continue;
+                if ((num1 === 0 || num2 === 0) && zeroProblemCount >= 2) continue;
+
+                break;
+            } while (true);
+        }
 
         if (num1 === 0 || num2 === 0) {
             zeroProblemCount++;
         }
 
+        const problemKey = [Math.min(num1, num2), Math.max(num1, num2)].join(',');
         usedProblems.add(problemKey);
 
+        currentNum1 = num1;
+        currentNum2 = num2;
         currentCorrectAnswer = num1 * num2;
         problemEl.textContent = `${num1} × ${num2}`;
 
-        // --- MODIFIED: Smart answer generation ---
         const options = new Set([currentCorrectAnswer]);
         const distractors = new Set();
-
-        // Strategy 1: "Off-by-one" operand errors
         if (num1 > 0) distractors.add((num1 - 1) * num2);
         distractors.add((num1 + 1) * num2);
         if (num2 > 0) distractors.add(num1 * (num2 - 1));
         distractors.add(num1 * (num2 + 1));
-
-        // Strategy 2: Add/subtract 10
         distractors.add(currentCorrectAnswer + 10);
         if (currentCorrectAnswer >= 10) distractors.add(currentCorrectAnswer - 10);
-
-        // Clean up the generated distractors
         distractors.delete(currentCorrectAnswer);
-
-        const finalDistractors = Array.from(distractors)
-            .filter(d => d >= 0) // Ensure all are non-negative
-            .sort(() => Math.random() - 0.5);
-
-        // Add the best distractors to the options
+        const finalDistractors = Array.from(distractors).filter(d => d >= 0).sort(() => Math.random() - 0.5);
         for (const d of finalDistractors) {
             if (options.size < 5) options.add(d);
         }
-
-        // Fallback: If we still don't have 5 options, add random nearby values
         let fallbackAttempts = 0;
         while (options.size < 5 && fallbackAttempts < 20) {
-            const offset = Math.floor(Math.random() * 10) + 1; // 1 to 10
+            const offset = Math.floor(Math.random() * 10) + 1;
             const randomOption = currentCorrectAnswer + (Math.random() < 0.5 ? offset : -offset);
             if (randomOption >= 0 && !options.has(randomOption)) {
                 options.add(randomOption);
             }
             fallbackAttempts++;
         }
-        // --- End of modification ---
 
         Array.from(options).sort(() => Math.random() - 0.5).forEach((opt, i) => {
             const btn = document.createElement('button');
@@ -290,6 +305,15 @@
             correctAnswers++;
             progressEl.classList.add('score-pop');
             setTimeout(() => progressEl.classList.remove('score-pop'), 300);
+
+            // If the correct answer was a mistake being reviewed, remove it
+            if (isReviewingMistake) {
+                const problemKey = `${Math.min(currentNum1, currentNum2)},${Math.max(currentNum1, currentNum2)}`;
+                removeMistake(problemKey);
+            }
+        } else {
+            // If the answer is wrong, add it to mistakes (if not already there)
+            addMistake(currentNum1, currentNum2);
         }
 
         optionsContainer.querySelectorAll('button').forEach(btn => {
@@ -318,13 +342,64 @@
         gameView.classList.add('hidden');
         resultsView.classList.remove('hidden');
         highScoresTableContainer.classList.remove('hidden');
+        mistakesTableContainer.classList.remove('hidden');
+        renderMistakesTable(); // Show updated mistakes after game
         finalScoreEl.textContent = correctAnswers;
         finalTimeEl.textContent = totalTimeElapsed.toFixed(1);
         resultsLevelEl.textContent = currentLevel;
         checkAndSaveHighScore();
     }
 
-    // --- Effects, High Scores, and Event Handlers ---
+    // --- Mistake Tracking Functions ---
+    function loadMistakes() {
+        mistakes = JSON.parse(localStorage.getItem('multiplicationMistakes')) || [];
+    }
+
+    function saveMistakes() {
+        localStorage.setItem('multiplicationMistakes', JSON.stringify(mistakes));
+    }
+
+    function addMistake(n1, n2) {
+        const problemKey = `${Math.min(n1, n2)},${Math.max(n1, n2)}`;
+        const exists = mistakes.some(m => `${Math.min(m.n1, m.n2)},${Math.max(m.n1, m.n2)}` === problemKey);
+        if (!exists) {
+            mistakes.push({ n1, n2 });
+            saveMistakes();
+        }
+    }
+
+    function removeMistake(problemKey) {
+        mistakes = mistakes.filter(m => `${Math.min(m.n1, m.n2)},${Math.max(m.n1, m.n2)}` !== problemKey);
+        saveMistakes();
+        // No need to re-render here, it will happen after the round ends.
+    }
+
+    function renderMistakesTable() {
+        if (mistakes.length === 0) {
+            mistakesTableContainer.innerHTML = '';
+            return;
+        }
+        let tableHTML = `
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+                <h3 class="text-center font-bold text-gray-700 mb-3">Mistakes to Practice</h3>
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs text-gray-500 uppercase">
+                        <tr><th class="py-2 px-2">Problem</th><th class="py-2 px-2 text-right">Answer</th></tr>
+                    </thead>
+                    <tbody>`;
+        mistakes.forEach(m => {
+            tableHTML += `
+                <tr class="border-t border-gray-200">
+                    <td class="py-2 px-2 font-mono">${m.n1} × ${m.n2}</td>
+                    <td class="py-2 px-2 text-right font-mono font-bold">${m.n1 * m.n2}</td>
+                </tr>`;
+        });
+        tableHTML += `</tbody></table></div>`;
+        mistakesTableContainer.innerHTML = tableHTML;
+    }
+
+
+    // --- High Scores and Event Handlers ---
     function triggerConfetti(button) {
         const rect = button.getBoundingClientRect();
         const x = (rect.left + rect.right) / 2 / window.innerWidth;
