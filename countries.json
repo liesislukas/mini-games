@@ -1,4127 +1,1496 @@
 [
   {
-    "name": {
-      "common": "Moldova",
-      "official": "Republic of Moldova",
-      "nativeName": {
-        "ron": {
-          "official": "Republica Moldova",
-          "common": "Moldova"
-        }
-      }
-    },
+    "name": "Moldova",
     "cca2": "MD",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Moldova"
   },
   {
-    "name": {
-      "common": "Comoros",
-      "official": "Union of the Comoros",
-      "nativeName": {
-        "ara": {
-          "official": "الاتحاد القمري",
-          "common": "القمر‎"
-        },
-        "fra": {
-          "official": "Union des Comores",
-          "common": "Comores"
-        },
-        "zdj": {
-          "official": "Udzima wa Komori",
-          "common": "Komori"
-        }
-      }
-    },
+    "name": "Comoros",
     "cca2": "KM",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Komorai"
   },
   {
-    "name": {
-      "common": "Malaysia",
-      "official": "Malaysia",
-      "nativeName": {
-        "eng": {
-          "official": "Malaysia",
-          "common": "Malaysia"
-        },
-        "msa": {
-          "official": "مليسيا",
-          "common": "مليسيا"
-        }
-      }
-    },
+    "name": "Malaysia",
     "cca2": "MY",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Malaizija"
   },
   {
-    "name": {
-      "common": "Algeria",
-      "official": "People's Democratic Republic of Algeria",
-      "nativeName": {
-        "ara": {
-          "official": "الجمهورية الديمقراطية الشعبية الجزائرية",
-          "common": "الجزائر"
-        }
-      }
-    },
+    "name": "Algeria",
     "cca2": "DZ",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Alžyras"
   },
   {
-    "name": {
-      "common": "Norfolk Island",
-      "official": "Territory of Norfolk Island",
-      "nativeName": {
-        "eng": {
-          "official": "Territory of Norfolk Island",
-          "common": "Norfolk Island"
-        },
-        "pih": {
-          "official": "Teratri of Norf'k Ailen",
-          "common": "Norf'k Ailen"
-        }
-      }
-    },
+    "name": "Norfolk Island",
     "cca2": "NF",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Norfolko sala"
   },
   {
-    "name": {
-      "common": "Slovenia",
-      "official": "Republic of Slovenia",
-      "nativeName": {
-        "slv": {
-          "official": "Republika Slovenija",
-          "common": "Slovenija"
-        }
-      }
-    },
+    "name": "Slovenia",
     "cca2": "SI",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Slovėnija"
   },
   {
-    "name": {
-      "common": "Guyana",
-      "official": "Co-operative Republic of Guyana",
-      "nativeName": {
-        "eng": {
-          "official": "Co-operative Republic of Guyana",
-          "common": "Guyana"
-        }
-      }
-    },
+    "name": "Guyana",
     "cca2": "GY",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Gajana"
   },
   {
-    "name": {
-      "common": "South Georgia",
-      "official": "South Georgia and the South Sandwich Islands",
-      "nativeName": {
-        "eng": {
-          "official": "South Georgia and the South Sandwich Islands",
-          "common": "South Georgia"
-        }
-      }
-    },
+    "name": "South Georgia",
     "cca2": "GS",
-    "region": "Antarctic"
+    "region": "Antarctic",
+    "lithuanian": "Pietų Džordžija"
   },
   {
-    "name": {
-      "common": "Christmas Island",
-      "official": "Territory of Christmas Island",
-      "nativeName": {
-        "eng": {
-          "official": "Territory of Christmas Island",
-          "common": "Christmas Island"
-        }
-      }
-    },
+    "name": "Christmas Island",
     "cca2": "CX",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Kalėdų sala"
   },
   {
-    "name": {
-      "common": "France",
-      "official": "French Republic",
-      "nativeName": {
-        "fra": {
-          "official": "République française",
-          "common": "France"
-        }
-      }
-    },
+    "name": "France",
     "cca2": "FR",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Prancūzija"
   },
   {
-    "name": {
-      "common": "Denmark",
-      "official": "Kingdom of Denmark",
-      "nativeName": {
-        "dan": {
-          "official": "Kongeriget Danmark",
-          "common": "Danmark"
-        }
-      }
-    },
+    "name": "Denmark",
     "cca2": "DK",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Danija"
   },
   {
-    "name": {
-      "common": "Kazakhstan",
-      "official": "Republic of Kazakhstan",
-      "nativeName": {
-        "kaz": {
-          "official": "Қазақстан Республикасы",
-          "common": "Қазақстан"
-        },
-        "rus": {
-          "official": "Республика Казахстан",
-          "common": "Казахстан"
-        }
-      }
-    },
+    "name": "Kazakhstan",
     "cca2": "KZ",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Kazachstanas"
   },
   {
-    "name": {
-      "common": "Vanuatu",
-      "official": "Republic of Vanuatu",
-      "nativeName": {
-        "bis": {
-          "official": "Ripablik blong Vanuatu",
-          "common": "Vanuatu"
-        },
-        "eng": {
-          "official": "Republic of Vanuatu",
-          "common": "Vanuatu"
-        },
-        "fra": {
-          "official": "République de Vanuatu",
-          "common": "Vanuatu"
-        }
-      }
-    },
+    "name": "Vanuatu",
     "cca2": "VU",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Vanuatu"
   },
   {
-    "name": {
-      "common": "Ukraine",
-      "official": "Ukraine",
-      "nativeName": {
-        "ukr": {
-          "official": "Україна",
-          "common": "Україна"
-        }
-      }
-    },
+    "name": "Ukraine",
     "cca2": "UA",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Ukraina"
   },
   {
-    "name": {
-      "common": "Liechtenstein",
-      "official": "Principality of Liechtenstein",
-      "nativeName": {
-        "deu": {
-          "official": "Fürstentum Liechtenstein",
-          "common": "Liechtenstein"
-        }
-      }
-    },
+    "name": "Liechtenstein",
     "cca2": "LI",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Lichtenšteinas"
   },
   {
-    "name": {
-      "common": "Austria",
-      "official": "Republic of Austria",
-      "nativeName": {
-        "bar": {
-          "official": "Republik Österreich",
-          "common": "Österreich"
-        }
-      }
-    },
+    "name": "Austria",
     "cca2": "AT",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Austrija"
   },
   {
-    "name": {
-      "common": "Kuwait",
-      "official": "State of Kuwait",
-      "nativeName": {
-        "ara": {
-          "official": "دولة الكويت",
-          "common": "الكويت"
-        }
-      }
-    },
+    "name": "Kuwait",
     "cca2": "KW",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Kuveitas"
   },
   {
-    "name": {
-      "common": "Andorra",
-      "official": "Principality of Andorra",
-      "nativeName": {
-        "cat": {
-          "official": "Principat d'Andorra",
-          "common": "Andorra"
-        }
-      }
-    },
+    "name": "Andorra",
     "cca2": "AD",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Andora"
   },
   {
-    "name": {
-      "common": "Botswana",
-      "official": "Republic of Botswana",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Botswana",
-          "common": "Botswana"
-        },
-        "tsn": {
-          "official": "Lefatshe la Botswana",
-          "common": "Botswana"
-        }
-      }
-    },
+    "name": "Botswana",
     "cca2": "BW",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Botsvana"
   },
   {
-    "name": {
-      "common": "Faroe Islands",
-      "official": "Faroe Islands",
-      "nativeName": {
-        "dan": {
-          "official": "Færøerne",
-          "common": "Færøerne"
-        },
-        "fao": {
-          "official": "Føroyar",
-          "common": "Føroyar"
-        }
-      }
-    },
+    "name": "Faroe Islands",
     "cca2": "FO",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Farerų Salos"
   },
   {
-    "name": {
-      "common": "United Arab Emirates",
-      "official": "United Arab Emirates",
-      "nativeName": {
-        "ara": {
-          "official": "الإمارات العربية المتحدة",
-          "common": "دولة الإمارات العربية المتحدة"
-        }
-      }
-    },
+    "name": "United Arab Emirates",
     "cca2": "AE",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Jungtiniai Arabų Emyratai"
   },
   {
-    "name": {
-      "common": "Cameroon",
-      "official": "Republic of Cameroon",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Cameroon",
-          "common": "Cameroon"
-        },
-        "fra": {
-          "official": "République du Cameroun",
-          "common": "Cameroun"
-        }
-      }
-    },
+    "name": "Cameroon",
     "cca2": "CM",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Kamerūnas"
   },
   {
-    "name": {
-      "common": "Jamaica",
-      "official": "Jamaica",
-      "nativeName": {
-        "eng": {
-          "official": "Jamaica",
-          "common": "Jamaica"
-        },
-        "jam": {
-          "official": "Jamaica",
-          "common": "Jamaica"
-        }
-      }
-    },
+    "name": "Jamaica",
     "cca2": "JM",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Jamaika"
   },
   {
-    "name": {
-      "common": "Palestine",
-      "official": "State of Palestine",
-      "nativeName": {
-        "ara": {
-          "official": "دولة فلسطين",
-          "common": "فلسطين"
-        }
-      }
-    },
+    "name": "Palestine",
     "cca2": "PS",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Palestina"
   },
   {
-    "name": {
-      "common": "Djibouti",
-      "official": "Republic of Djibouti",
-      "nativeName": {
-        "ara": {
-          "official": "جمهورية جيبوتي",
-          "common": "جيبوتي‎"
-        },
-        "fra": {
-          "official": "République de Djibouti",
-          "common": "Djibouti"
-        }
-      }
-    },
+    "name": "Djibouti",
     "cca2": "DJ",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Džibutis"
   },
   {
-    "name": {
-      "common": "Kenya",
-      "official": "Republic of Kenya",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Kenya",
-          "common": "Kenya"
-        },
-        "swa": {
-          "official": "Republic of Kenya",
-          "common": "Kenya"
-        }
-      }
-    },
+    "name": "Kenya",
     "cca2": "KE",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Kenija"
   },
   {
-    "name": {
-      "common": "Belize",
-      "official": "Belize",
-      "nativeName": {
-        "bjz": {
-          "official": "Belize",
-          "common": "Belize"
-        },
-        "eng": {
-          "official": "Belize",
-          "common": "Belize"
-        },
-        "spa": {
-          "official": "Belice",
-          "common": "Belice"
-        }
-      }
-    },
+    "name": "Belize",
     "cca2": "BZ",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Belizas"
   },
   {
-    "name": {
-      "common": "French Polynesia",
-      "official": "French Polynesia",
-      "nativeName": {
-        "fra": {
-          "official": "Polynésie française",
-          "common": "Polynésie française"
-        }
-      }
-    },
+    "name": "French Polynesia",
     "cca2": "PF",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Prancūzijos Polinezija"
   },
   {
-    "name": {
-      "common": "Myanmar",
-      "official": "Republic of the Union of Myanmar",
-      "nativeName": {
-        "mya": {
-          "official": "ပြည်ထောင်စု သမ္မတ မြန်မာနိုင်ငံတော်",
-          "common": "မြန်မာ"
-        }
-      }
-    },
+    "name": "Myanmar",
     "cca2": "MM",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Mianmaras"
   },
   {
-    "name": {
-      "common": "Gibraltar",
-      "official": "Gibraltar",
-      "nativeName": {
-        "eng": {
-          "official": "Gibraltar",
-          "common": "Gibraltar"
-        }
-      }
-    },
+    "name": "Gibraltar",
     "cca2": "GI",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Gibraltaras"
   },
   {
-    "name": {
-      "common": "Singapore",
-      "official": "Republic of Singapore",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Singapore",
-          "common": "Singapore"
-        },
-        "zho": {
-          "official": "新加坡共和国",
-          "common": "新加坡"
-        },
-        "msa": {
-          "official": "Republik Singapura",
-          "common": "Singapura"
-        },
-        "tam": {
-          "official": "சிங்கப்பூர் குடியரசு",
-          "common": "சிங்கப்பூர்"
-        }
-      }
-    },
+    "name": "Singapore",
     "cca2": "SG",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Singapūras"
   },
   {
-    "name": {
-      "common": "Slovakia",
-      "official": "Slovak Republic",
-      "nativeName": {
-        "slk": {
-          "official": "Slovenská republika",
-          "common": "Slovensko"
-        }
-      }
-    },
+    "name": "Slovakia",
     "cca2": "SK",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Slovakija"
   },
   {
-    "name": {
-      "common": "Iceland",
-      "official": "Iceland",
-      "nativeName": {
-        "isl": {
-          "official": "Ísland",
-          "common": "Ísland"
-        }
-      }
-    },
+    "name": "Iceland",
     "cca2": "IS",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Islandija"
   },
   {
-    "name": {
-      "common": "Bhutan",
-      "official": "Kingdom of Bhutan",
-      "nativeName": {
-        "dzo": {
-          "official": "འབྲུག་རྒྱལ་ཁབ་",
-          "common": "འབྲུག་ཡུལ་"
-        }
-      }
-    },
+    "name": "Bhutan",
     "cca2": "BT",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Butanas"
   },
   {
-    "name": {
-      "common": "North Macedonia",
-      "official": "Republic of North Macedonia",
-      "nativeName": {
-        "mkd": {
-          "official": "Република Северна Македонија",
-          "common": "Македонија"
-        }
-      }
-    },
+    "name": "North Macedonia",
     "cca2": "MK",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Šiaurės Makedonija"
   },
   {
-    "name": {
-      "common": "United States Virgin Islands",
-      "official": "Virgin Islands of the United States",
-      "nativeName": {
-        "eng": {
-          "official": "Virgin Islands of the United States",
-          "common": "United States Virgin Islands"
-        }
-      }
-    },
+    "name": "United States Virgin Islands",
     "cca2": "VI",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "JAV Mergelių Salos"
   },
   {
-    "name": {
-      "common": "Guinea",
-      "official": "Republic of Guinea",
-      "nativeName": {
-        "fra": {
-          "official": "République de Guinée",
-          "common": "Guinée"
-        }
-      }
-    },
+    "name": "Guinea",
     "cca2": "GN",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Gvinėja"
   },
   {
-    "name": {
-      "common": "Hong Kong",
-      "official": "Hong Kong Special Administrative Region of the People's Republic of China",
-      "nativeName": {
-        "eng": {
-          "official": "Hong Kong Special Administrative Region of the People's Republic of China",
-          "common": "Hong Kong"
-        },
-        "zho": {
-          "official": "中华人民共和国香港特别行政区",
-          "common": "香港"
-        }
-      }
-    },
+    "name": "Hong Kong",
     "cca2": "HK",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Honkongas"
   },
   {
-    "name": {
-      "common": "Malta",
-      "official": "Republic of Malta",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Malta",
-          "common": "Malta"
-        },
-        "mlt": {
-          "official": "Repubblika ta ' Malta",
-          "common": "Malta"
-        }
-      }
-    },
+    "name": "Malta",
     "cca2": "MT",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Malta"
   },
   {
-    "name": {
-      "common": "Afghanistan",
-      "official": "Islamic Republic of Afghanistan",
-      "nativeName": {
-        "prs": {
-          "official": "جمهوری اسلامی افغانستان",
-          "common": "افغانستان"
-        },
-        "pus": {
-          "official": "د افغانستان اسلامي جمهوریت",
-          "common": "افغانستان"
-        },
-        "tuk": {
-          "official": "Owganystan Yslam Respublikasy",
-          "common": "Owganystan"
-        }
-      }
-    },
+    "name": "Afghanistan",
     "cca2": "AF",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Afganistanas"
   },
   {
-    "name": {
-      "common": "United States",
-      "official": "United States of America",
-      "nativeName": {
-        "eng": {
-          "official": "United States of America",
-          "common": "United States"
-        }
-      }
-    },
+    "name": "United States",
     "cca2": "US",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Jungtinės Amerikos Valstijos"
   },
   {
-    "name": {
-      "common": "Suriname",
-      "official": "Republic of Suriname",
-      "nativeName": {
-        "nld": {
-          "official": "Republiek Suriname",
-          "common": "Suriname"
-        }
-      }
-    },
+    "name": "Suriname",
     "cca2": "SR",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Surinamas"
   },
   {
-    "name": {
-      "common": "Guernsey",
-      "official": "Bailiwick of Guernsey",
-      "nativeName": {
-        "eng": {
-          "official": "Bailiwick of Guernsey",
-          "common": "Guernsey"
-        },
-        "fra": {
-          "official": "Bailliage de Guernesey",
-          "common": "Guernesey"
-        },
-        "nfr": {
-          "official": "Dgèrnésiais",
-          "common": "Dgèrnésiais"
-        }
-      }
-    },
+    "name": "Guernsey",
     "cca2": "GG",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Gernsis"
   },
   {
-    "name": {
-      "common": "Curaçao",
-      "official": "Country of Curaçao",
-      "nativeName": {
-        "eng": {
-          "official": "Country of Curaçao",
-          "common": "Curaçao"
-        },
-        "nld": {
-          "official": "Land Curaçao",
-          "common": "Curaçao"
-        },
-        "pap": {
-          "official": "Pais Kòrsou",
-          "common": "Pais Kòrsou"
-        }
-      }
-    },
+    "name": "Curaçao",
     "cca2": "CW",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Kiurasao"
   },
   {
-    "name": {
-      "common": "Vatican City",
-      "official": "Vatican City State",
-      "nativeName": {
-        "ita": {
-          "official": "Stato della Città del Vaticano",
-          "common": "Vaticano"
-        },
-        "lat": {
-          "official": "Status Civitatis Vaticanæ",
-          "common": "Vaticanæ"
-        }
-      }
-    },
+    "name": "Vatican City",
     "cca2": "VA",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Vatikanas"
   },
   {
-    "name": {
-      "common": "Papua New Guinea",
-      "official": "Independent State of Papua New Guinea",
-      "nativeName": {
-        "eng": {
-          "official": "Independent State of Papua New Guinea",
-          "common": "Papua New Guinea"
-        },
-        "hmo": {
-          "official": "Independen Stet bilong Papua Niugini",
-          "common": "Papua Niu Gini"
-        },
-        "tpi": {
-          "official": "Independen Stet bilong Papua Niugini",
-          "common": "Papua Niugini"
-        }
-      }
-    },
+    "name": "Papua New Guinea",
     "cca2": "PG",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Papua Naujoji Gvinėja"
   },
   {
-    "name": {
-      "common": "Malawi",
-      "official": "Republic of Malawi",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Malawi",
-          "common": "Malawi"
-        },
-        "nya": {
-          "official": "Chalo cha Malawi, Dziko la Malaŵi",
-          "common": "Malaŵi"
-        }
-      }
-    },
+    "name": "Malawi",
     "cca2": "MW",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Malavis"
   },
   {
-    "name": {
-      "common": "Hungary",
-      "official": "Hungary",
-      "nativeName": {
-        "hun": {
-          "official": "Magyarország",
-          "common": "Magyarország"
-        }
-      }
-    },
+    "name": "Hungary",
     "cca2": "HU",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Vengrija"
   },
   {
-    "name": {
-      "common": "Cambodia",
-      "official": "Kingdom of Cambodia",
-      "nativeName": {
-        "khm": {
-          "official": "ព្រះរាជាណាចក្រកម្ពុជា",
-          "common": "Kâmpŭchéa"
-        }
-      }
-    },
+    "name": "Cambodia",
     "cca2": "KH",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Kambodža"
   },
   {
-    "name": {
-      "common": "Ecuador",
-      "official": "Republic of Ecuador",
-      "nativeName": {
-        "spa": {
-          "official": "República del Ecuador",
-          "common": "Ecuador"
-        }
-      }
-    },
+    "name": "Ecuador",
     "cca2": "EC",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Ekvadoras"
   },
   {
-    "name": {
-      "common": "Canada",
-      "official": "Canada",
-      "nativeName": {
-        "eng": {
-          "official": "Canada",
-          "common": "Canada"
-        },
-        "fra": {
-          "official": "Canada",
-          "common": "Canada"
-        }
-      }
-    },
+    "name": "Canada",
     "cca2": "CA",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Kanada"
   },
   {
-    "name": {
-      "common": "Norway",
-      "official": "Kingdom of Norway",
-      "nativeName": {
-        "nno": {
-          "official": "Kongeriket Noreg",
-          "common": "Noreg"
-        },
-        "nob": {
-          "official": "Kongeriket Norge",
-          "common": "Norge"
-        },
-        "smi": {
-          "official": "Norgga gonagasriika",
-          "common": "Norgga"
-        }
-      }
-    },
+    "name": "Norway",
     "cca2": "NO",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Norvegija"
   },
   {
-    "name": {
-      "common": "Cayman Islands",
-      "official": "Cayman Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Cayman Islands",
-          "common": "Cayman Islands"
-        }
-      }
-    },
+    "name": "Cayman Islands",
     "cca2": "KY",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Kaimanų Salos"
   },
   {
-    "name": {
-      "common": "Martinique",
-      "official": "Martinique",
-      "nativeName": {
-        "fra": {
-          "official": "Martinique",
-          "common": "Martinique"
-        }
-      }
-    },
+    "name": "Martinique",
     "cca2": "MQ",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Martinika"
   },
   {
-    "name": {
-      "common": "Sint Maarten",
-      "official": "Sint Maarten",
-      "nativeName": {
-        "eng": {
-          "official": "Sint Maarten",
-          "common": "Sint Maarten"
-        },
-        "fra": {
-          "official": "Saint-Martin",
-          "common": "Saint-Martin"
-        },
-        "nld": {
-          "official": "Sint Maarten",
-          "common": "Sint Maarten"
-        }
-      }
-    },
+    "name": "Sint Maarten",
     "cca2": "SX",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Sint Martenas"
   },
   {
-    "name": {
-      "common": "Mali",
-      "official": "Republic of Mali",
-      "nativeName": {
-        "fra": {
-          "official": "République du Mali",
-          "common": "Mali"
-        }
-      }
-    },
+    "name": "Mali",
     "cca2": "ML",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Malis"
   },
   {
-    "name": {
-      "common": "Samoa",
-      "official": "Independent State of Samoa",
-      "nativeName": {
-        "eng": {
-          "official": "Independent State of Samoa",
-          "common": "Samoa"
-        },
-        "smo": {
-          "official": "Malo Saʻoloto Tutoʻatasi o Sāmoa",
-          "common": "Sāmoa"
-        }
-      }
-    },
+    "name": "Samoa",
     "cca2": "WS",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Samoa"
   },
   {
-    "name": {
-      "common": "Fiji",
-      "official": "Republic of Fiji",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Fiji",
-          "common": "Fiji"
-        },
-        "fij": {
-          "official": "Matanitu Tugalala o Viti",
-          "common": "Viti"
-        },
-        "hif": {
-          "official": "रिपब्लिक ऑफ फीजी",
-          "common": "फिजी"
-        }
-      }
-    },
+    "name": "Fiji",
     "cca2": "FJ",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Fidžis"
   },
   {
-    "name": {
-      "common": "Colombia",
-      "official": "Republic of Colombia",
-      "nativeName": {
-        "spa": {
-          "official": "República de Colombia",
-          "common": "Colombia"
-        }
-      }
-    },
+    "name": "Colombia",
     "cca2": "CO",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Kolumbija"
   },
   {
-    "name": {
-      "common": "Cuba",
-      "official": "Republic of Cuba",
-      "nativeName": {
-        "spa": {
-          "official": "República de Cuba",
-          "common": "Cuba"
-        }
-      }
-    },
+    "name": "Cuba",
     "cca2": "CU",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Kuba"
   },
   {
-    "name": {
-      "common": "Thailand",
-      "official": "Kingdom of Thailand",
-      "nativeName": {
-        "tha": {
-          "official": "ราชอาณาจักรไทย",
-          "common": "ประเทศไทย"
-        }
-      }
-    },
+    "name": "Thailand",
     "cca2": "TH",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Tailandas"
   },
   {
-    "name": {
-      "common": "Mongolia",
-      "official": "Mongolia",
-      "nativeName": {
-        "mon": {
-          "official": "Монгол улс",
-          "common": "Монгол улс"
-        }
-      }
-    },
+    "name": "Mongolia",
     "cca2": "MN",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Mongolija"
   },
   {
-    "name": {
-      "common": "Réunion",
-      "official": "Réunion Island",
-      "nativeName": {
-        "fra": {
-          "official": "Ile de la Réunion",
-          "common": "La Réunion"
-        }
-      }
-    },
+    "name": "Réunion",
     "cca2": "RE",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Reunjonas"
   },
   {
-    "name": {
-      "common": "Guinea-Bissau",
-      "official": "Republic of Guinea-Bissau",
-      "nativeName": {
-        "por": {
-          "official": "República da Guiné-Bissau",
-          "common": "Guiné-Bissau"
-        },
-        "pov": {
-          "official": "República da Guiné-Bissau",
-          "common": "Guiné-Bissau"
-        }
-      }
-    },
+    "name": "Guinea-Bissau",
     "cca2": "GW",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Bisau Gvinėja"
   },
   {
-    "name": {
-      "common": "Argentina",
-      "official": "Argentine Republic",
-      "nativeName": {
-        "grn": {
-          "official": "Argentine Republic",
-          "common": "Argentina"
-        },
-        "spa": {
-          "official": "República Argentina",
-          "common": "Argentina"
-        }
-      }
-    },
+    "name": "Argentina",
     "cca2": "AR",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Argentina"
   },
   {
-    "name": {
-      "common": "Mexico",
-      "official": "United Mexican States",
-      "nativeName": {
-        "spa": {
-          "official": "Estados Unidos Mexicanos",
-          "common": "México"
-        }
-      }
-    },
+    "name": "Mexico",
     "cca2": "MX",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Meksika"
   },
   {
-    "name": {
-      "common": "Turkmenistan",
-      "official": "Turkmenistan",
-      "nativeName": {
-        "rus": {
-          "official": "Туркменистан",
-          "common": "Туркмения"
-        },
-        "tuk": {
-          "official": "Türkmenistan",
-          "common": "Türkmenistan"
-        }
-      }
-    },
+    "name": "Turkmenistan",
     "cca2": "TM",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Turkmėnistanas"
   },
   {
-    "name": {
-      "common": "French Southern and Antarctic Lands",
-      "official": "Territory of the French Southern and Antarctic Lands",
-      "nativeName": {
-        "fra": {
-          "official": "Territoire des Terres australes et antarctiques françaises",
-          "common": "Terres australes et antarctiques françaises"
-        }
-      }
-    },
+    "name": "French Southern and Antarctic Lands",
     "cca2": "TF",
-    "region": "Antarctic"
+    "region": "Antarctic",
+    "lithuanian": "Prancūzijos Pietų Sritys"
   },
   {
-    "name": {
-      "common": "Ethiopia",
-      "official": "Federal Democratic Republic of Ethiopia",
-      "nativeName": {
-        "amh": {
-          "official": "የኢትዮጵያ ፌዴራላዊ ዲሞክራሲያዊ ሪፐብሊክ",
-          "common": "ኢትዮጵያ"
-        }
-      }
-    },
+    "name": "Ethiopia",
     "cca2": "ET",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Etiopija"
   },
   {
-    "name": {
-      "common": "Gabon",
-      "official": "Gabonese Republic",
-      "nativeName": {
-        "fra": {
-          "official": "République gabonaise",
-          "common": "Gabon"
-        }
-      }
-    },
+    "name": "Gabon",
     "cca2": "GA",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Gabonas"
   },
   {
-    "name": {
-      "common": "South Korea",
-      "official": "Republic of Korea",
-      "nativeName": {
-        "kor": {
-          "official": "대한민국",
-          "common": "한국"
-        }
-      }
-    },
+    "name": "South Korea",
     "cca2": "KR",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Pietų Korėja"
   },
   {
-    "name": {
-      "common": "Togo",
-      "official": "Togolese Republic",
-      "nativeName": {
-        "fra": {
-          "official": "République togolaise",
-          "common": "Togo"
-        }
-      }
-    },
+    "name": "Togo",
     "cca2": "TG",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Togas"
   },
   {
-    "name": {
-      "common": "Ghana",
-      "official": "Republic of Ghana",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Ghana",
-          "common": "Ghana"
-        }
-      }
-    },
+    "name": "Ghana",
     "cca2": "GH",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Gana"
   },
   {
-    "name": {
-      "common": "Zambia",
-      "official": "Republic of Zambia",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Zambia",
-          "common": "Zambia"
-        }
-      }
-    },
+    "name": "Zambia",
     "cca2": "ZM",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Zambija"
   },
   {
-    "name": {
-      "common": "New Zealand",
-      "official": "New Zealand",
-      "nativeName": {
-        "eng": {
-          "official": "New Zealand",
-          "common": "New Zealand"
-        },
-        "mri": {
-          "official": "Aotearoa",
-          "common": "Aotearoa"
-        },
-        "nzs": {
-          "official": "New Zealand",
-          "common": "New Zealand"
-        }
-      }
-    },
+    "name": "New Zealand",
     "cca2": "NZ",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Naujoji Zelandija"
   },
   {
-    "name": {
-      "common": "Laos",
-      "official": "Lao People's Democratic Republic",
-      "nativeName": {
-        "lao": {
-          "official": "ສາທາລະນະ ຊາທິປະໄຕ ຄົນລາວ ຂອງ",
-          "common": "ສປປລາວ"
-        }
-      }
-    },
+    "name": "Laos",
     "cca2": "LA",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Laosas"
   },
   {
-    "name": {
-      "common": "Burundi",
-      "official": "Republic of Burundi",
-      "nativeName": {
-        "fra": {
-          "official": "République du Burundi",
-          "common": "Burundi"
-        },
-        "run": {
-          "official": "Republika y'Uburundi ",
-          "common": "Uburundi"
-        }
-      }
-    },
+    "name": "Burundi",
     "cca2": "BI",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Burundis"
   },
   {
-    "name": {
-      "common": "Pakistan",
-      "official": "Islamic Republic of Pakistan",
-      "nativeName": {
-        "eng": {
-          "official": "Islamic Republic of Pakistan",
-          "common": "Pakistan"
-        },
-        "urd": {
-          "official": "اسلامی جمہوریۂ پاكستان",
-          "common": "پاكستان"
-        }
-      }
-    },
+    "name": "Pakistan",
     "cca2": "PK",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Pakistanas"
   },
   {
-    "name": {
-      "common": "Armenia",
-      "official": "Republic of Armenia",
-      "nativeName": {
-        "hye": {
-          "official": "Հայաստանի Հանրապետություն",
-          "common": "Հայաստան"
-        }
-      }
-    },
+    "name": "Armenia",
     "cca2": "AM",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Armėnija"
   },
   {
-    "name": {
-      "common": "Czechia",
-      "official": "Czech Republic",
-      "nativeName": {
-        "ces": {
-          "official": "Česká republika",
-          "common": "Česko"
-        },
-        "slk": {
-          "official": "Česká republika",
-          "common": "Česko"
-        }
-      }
-    },
+    "name": "Czechia",
     "cca2": "CZ",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Čekija"
   },
   {
-    "name": {
-      "common": "San Marino",
-      "official": "Republic of San Marino",
-      "nativeName": {
-        "ita": {
-          "official": "Repubblica di San Marino",
-          "common": "San Marino"
-        }
-      }
-    },
+    "name": "San Marino",
     "cca2": "SM",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "San Marinas"
   },
   {
-    "name": {
-      "common": "São Tomé and Príncipe",
-      "official": "Democratic Republic of São Tomé and Príncipe",
-      "nativeName": {
-        "por": {
-          "official": "República Democrática do São Tomé e Príncipe",
-          "common": "São Tomé e Príncipe"
-        }
-      }
-    },
+    "name": "São Tomé and Príncipe",
     "cca2": "ST",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "San Tomė ir Prinsipė"
   },
   {
-    "name": {
-      "common": "Niue",
-      "official": "Niue",
-      "nativeName": {
-        "eng": {
-          "official": "Niue",
-          "common": "Niue"
-        },
-        "niu": {
-          "official": "Niuē",
-          "common": "Niuē"
-        }
-      }
-    },
+    "name": "Niue",
     "cca2": "NU",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Niujė"
   },
   {
-    "name": {
-      "common": "Bahamas",
-      "official": "Commonwealth of the Bahamas",
-      "nativeName": {
-        "eng": {
-          "official": "Commonwealth of the Bahamas",
-          "common": "Bahamas"
-        }
-      }
-    },
+    "name": "Bahamas",
     "cca2": "BS",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Bahamos"
   },
   {
-    "name": {
-      "common": "Finland",
-      "official": "Republic of Finland",
-      "nativeName": {
-        "fin": {
-          "official": "Suomen tasavalta",
-          "common": "Suomi"
-        },
-        "swe": {
-          "official": "Republiken Finland",
-          "common": "Finland"
-        }
-      }
-    },
+    "name": "Finland",
     "cca2": "FI",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Suomija"
   },
   {
-    "name": {
-      "common": "Guatemala",
-      "official": "Republic of Guatemala",
-      "nativeName": {
-        "spa": {
-          "official": "República de Guatemala",
-          "common": "Guatemala"
-        }
-      }
-    },
+    "name": "Guatemala",
     "cca2": "GT",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Gvatemala"
   },
   {
-    "name": {
-      "common": "Sierra Leone",
-      "official": "Republic of Sierra Leone",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Sierra Leone",
-          "common": "Sierra Leone"
-        }
-      }
-    },
+    "name": "Sierra Leone",
     "cca2": "SL",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Siera Leonė"
   },
   {
-    "name": {
-      "common": "Luxembourg",
-      "official": "Grand Duchy of Luxembourg",
-      "nativeName": {
-        "deu": {
-          "official": "Großherzogtum Luxemburg",
-          "common": "Luxemburg"
-        },
-        "fra": {
-          "official": "Grand-Duché de Luxembourg",
-          "common": "Luxembourg"
-        },
-        "ltz": {
-          "official": "Groussherzogtum Lëtzebuerg",
-          "common": "Lëtzebuerg"
-        }
-      }
-    },
+    "name": "Luxembourg",
     "cca2": "LU",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Liuksemburgas"
   },
   {
-    "name": {
-      "common": "Tuvalu",
-      "official": "Tuvalu",
-      "nativeName": {
-        "eng": {
-          "official": "Tuvalu",
-          "common": "Tuvalu"
-        },
-        "tvl": {
-          "official": "Tuvalu",
-          "common": "Tuvalu"
-        }
-      }
-    },
+    "name": "Tuvalu",
     "cca2": "TV",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Tuvalu"
   },
   {
-    "name": {
-      "common": "Eritrea",
-      "official": "State of Eritrea",
-      "nativeName": {
-        "ara": {
-          "official": "دولة إرتريا",
-          "common": "إرتريا‎"
-        },
-        "eng": {
-          "official": "State of Eritrea",
-          "common": "Eritrea"
-        },
-        "tir": {
-          "official": "ሃገረ ኤርትራ",
-          "common": "ኤርትራ"
-        }
-      }
-    },
+    "name": "Eritrea",
     "cca2": "ER",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Eritrėja"
   },
   {
-    "name": {
-      "common": "Jersey",
-      "official": "Bailiwick of Jersey",
-      "nativeName": {
-        "eng": {
-          "official": "Bailiwick of Jersey",
-          "common": "Jersey"
-        },
-        "fra": {
-          "official": "Bailliage de Jersey",
-          "common": "Jersey"
-        },
-        "nrf": {
-          "official": "Bailliage dé Jèrri",
-          "common": "Jèrri"
-        }
-      }
-    },
+    "name": "Jersey",
     "cca2": "JE",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Džersis"
   },
   {
-    "name": {
-      "common": "Honduras",
-      "official": "Republic of Honduras",
-      "nativeName": {
-        "spa": {
-          "official": "República de Honduras",
-          "common": "Honduras"
-        }
-      }
-    },
+    "name": "Honduras",
     "cca2": "HN",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Hondūras"
   },
   {
-    "name": {
-      "common": "Western Sahara",
-      "official": "Sahrawi Arab Democratic Republic",
-      "nativeName": {
-        "ber": {
-          "official": "Sahrawi Arab Democratic Republic",
-          "common": "Western Sahara"
-        },
-        "mey": {
-          "official": "الجمهورية العربية الصحراوية الديمقراطية",
-          "common": "الصحراء الغربية"
-        },
-        "spa": {
-          "official": "República Árabe Saharaui Democrática",
-          "common": "Sahara Occidental"
-        }
-      }
-    },
+    "name": "Western Sahara",
     "cca2": "EH",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Vakarų Sachara"
   },
   {
-    "name": {
-      "common": "Senegal",
-      "official": "Republic of Senegal",
-      "nativeName": {
-        "fra": {
-          "official": "République du Sénégal",
-          "common": "Sénégal"
-        }
-      }
-    },
+    "name": "Senegal",
     "cca2": "SN",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Senegalas"
   },
   {
-    "name": {
-      "common": "Svalbard and Jan Mayen",
-      "official": "Svalbard og Jan Mayen",
-      "nativeName": {
-        "nor": {
-          "official": "Svalbard og Jan Mayen",
-          "common": "Svalbard og Jan Mayen"
-        }
-      }
-    },
+    "name": "Svalbard and Jan Mayen",
     "cca2": "SJ",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Svalbardas ir Jan Majenas"
   },
   {
-    "name": {
-      "common": "Nepal",
-      "official": "Federal Democratic Republic of Nepal",
-      "nativeName": {
-        "nep": {
-          "official": "नेपाल संघीय लोकतान्त्रिक गणतन्त्र",
-          "common": "नेपाल"
-        }
-      }
-    },
+    "name": "Nepal",
     "cca2": "NP",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Nepalas"
   },
   {
-    "name": {
-      "common": "Antigua and Barbuda",
-      "official": "Antigua and Barbuda",
-      "nativeName": {
-        "eng": {
-          "official": "Antigua and Barbuda",
-          "common": "Antigua and Barbuda"
-        }
-      }
-    },
+    "name": "Antigua and Barbuda",
     "cca2": "AG",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Antigva ir Barbuda"
   },
   {
-    "name": {
-      "common": "Cape Verde",
-      "official": "Republic of Cabo Verde",
-      "nativeName": {
-        "por": {
-          "official": "República de Cabo Verde",
-          "common": "Cabo Verde"
-        }
-      }
-    },
+    "name": "Cape Verde",
     "cca2": "CV",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Žaliasis Kyšulys"
   },
   {
-    "name": {
-      "common": "Bangladesh",
-      "official": "People's Republic of Bangladesh",
-      "nativeName": {
-        "ben": {
-          "official": "বাংলাদেশ গণপ্রজাতন্ত্রী",
-          "common": "বাংলাদেশ"
-        }
-      }
-    },
+    "name": "Bangladesh",
     "cca2": "BD",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Bangladešas"
   },
   {
-    "name": {
-      "common": "Kyrgyzstan",
-      "official": "Kyrgyz Republic",
-      "nativeName": {
-        "kir": {
-          "official": "Кыргыз Республикасы",
-          "common": "Кыргызстан"
-        },
-        "rus": {
-          "official": "Кыргызская Республика",
-          "common": "Киргизия"
-        }
-      }
-    },
+    "name": "Kyrgyzstan",
     "cca2": "KG",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Kirgizija"
   },
   {
-    "name": {
-      "common": "Anguilla",
-      "official": "Anguilla",
-      "nativeName": {
-        "eng": {
-          "official": "Anguilla",
-          "common": "Anguilla"
-        }
-      }
-    },
+    "name": "Anguilla",
     "cca2": "AI",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Angilija"
   },
   {
-    "name": {
-      "common": "Nigeria",
-      "official": "Federal Republic of Nigeria",
-      "nativeName": {
-        "eng": {
-          "official": "Federal Republic of Nigeria",
-          "common": "Nigeria"
-        }
-      }
-    },
+    "name": "Nigeria",
     "cca2": "NG",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Nigerija"
   },
   {
-    "name": {
-      "common": "Spain",
-      "official": "Kingdom of Spain",
-      "nativeName": {
-        "spa": {
-          "official": "Reino de España",
-          "common": "España"
-        }
-      }
-    },
+    "name": "Spain",
     "cca2": "ES",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Ispanija"
   },
   {
-    "name": {
-      "common": "British Virgin Islands",
-      "official": "Virgin Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Virgin Islands",
-          "common": "British Virgin Islands"
-        }
-      }
-    },
+    "name": "British Virgin Islands",
     "cca2": "VG",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Britų Mergelių Salos"
   },
   {
-    "name": {
-      "common": "Marshall Islands",
-      "official": "Republic of the Marshall Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of the Marshall Islands",
-          "common": "Marshall Islands"
-        },
-        "mah": {
-          "official": "Republic of the Marshall Islands",
-          "common": "M̧ajeļ"
-        }
-      }
-    },
+    "name": "Marshall Islands",
     "cca2": "MH",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Maršalo Salos"
   },
   {
-    "name": {
-      "common": "Mayotte",
-      "official": "Department of Mayotte",
-      "nativeName": {
-        "fra": {
-          "official": "Département de Mayotte",
-          "common": "Mayotte"
-        }
-      }
-    },
+    "name": "Mayotte",
     "cca2": "YT",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Majotas"
   },
   {
-    "name": {
-      "common": "Qatar",
-      "official": "State of Qatar",
-      "nativeName": {
-        "ara": {
-          "official": "دولة قطر",
-          "common": "قطر"
-        }
-      }
-    },
+    "name": "Qatar",
     "cca2": "QA",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Kataras"
   },
   {
-    "name": {
-      "common": "Venezuela",
-      "official": "Bolivarian Republic of Venezuela",
-      "nativeName": {
-        "spa": {
-          "official": "República Bolivariana de Venezuela",
-          "common": "Venezuela"
-        }
-      }
-    },
+    "name": "Venezuela",
     "cca2": "VE",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Venesuela"
   },
   {
-    "name": {
-      "common": "Tunisia",
-      "official": "Tunisian Republic",
-      "nativeName": {
-        "ara": {
-          "official": "الجمهورية التونسية",
-          "common": "تونس"
-        }
-      }
-    },
+    "name": "Tunisia",
     "cca2": "TN",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Tunisas"
   },
   {
-    "name": {
-      "common": "Monaco",
-      "official": "Principality of Monaco",
-      "nativeName": {
-        "fra": {
-          "official": "Principauté de Monaco",
-          "common": "Monaco"
-        }
-      }
-    },
+    "name": "Monaco",
     "cca2": "MC",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Monakas"
   },
   {
-    "name": {
-      "common": "United States Minor Outlying Islands",
-      "official": "United States Minor Outlying Islands",
-      "nativeName": {
-        "eng": {
-          "official": "United States Minor Outlying Islands",
-          "common": "United States Minor Outlying Islands"
-        }
-      }
-    },
+    "name": "United States Minor Outlying Islands",
     "cca2": "UM",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "JAV Mažosios Tolimosios Salos"
   },
   {
-    "name": {
-      "common": "Central African Republic",
-      "official": "Central African Republic",
-      "nativeName": {
-        "fra": {
-          "official": "République centrafricaine",
-          "common": "République centrafricaine"
-        },
-        "sag": {
-          "official": "Ködörösêse tî Bêafrîka",
-          "common": "Bêafrîka"
-        }
-      }
-    },
+    "name": "Central African Republic",
     "cca2": "CF",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Centrinės Afrikos Respublika"
   },
   {
-    "name": {
-      "common": "Macau",
-      "official": "Macao Special Administrative Region of the People's Republic of China",
-      "nativeName": {
-        "por": {
-          "official": "Região Administrativa Especial de Macau da República Popular da China",
-          "common": "Macau"
-        },
-        "zho": {
-          "official": "中华人民共和国澳门特别行政区",
-          "common": "澳门"
-        }
-      }
-    },
+    "name": "Macau",
     "cca2": "MO",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Makao"
   },
   {
-    "name": {
-      "common": "Latvia",
-      "official": "Republic of Latvia",
-      "nativeName": {
-        "lav": {
-          "official": "Latvijas Republikas",
-          "common": "Latvija"
-        }
-      }
-    },
+    "name": "Latvia",
     "cca2": "LV",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Latvija"
   },
   {
-    "name": {
-      "common": "Uzbekistan",
-      "official": "Republic of Uzbekistan",
-      "nativeName": {
-        "rus": {
-          "official": "Республика Узбекистан",
-          "common": "Узбекистан"
-        },
-        "uzb": {
-          "official": "O'zbekiston Respublikasi",
-          "common": "O‘zbekiston"
-        }
-      }
-    },
+    "name": "Uzbekistan",
     "cca2": "UZ",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Uzbekistanas"
   },
   {
-    "name": {
-      "common": "Brazil",
-      "official": "Federative Republic of Brazil",
-      "nativeName": {
-        "por": {
-          "official": "República Federativa do Brasil",
-          "common": "Brasil"
-        }
-      }
-    },
+    "name": "Brazil",
     "cca2": "BR",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Brazilija"
   },
   {
-    "name": {
-      "common": "Cyprus",
-      "official": "Republic of Cyprus",
-      "nativeName": {
-        "ell": {
-          "official": "Δημοκρατία της Κύπρος",
-          "common": "Κύπρος"
-        },
-        "tur": {
-          "official": "Kıbrıs Cumhuriyeti",
-          "common": "Kıbrıs"
-        }
-      }
-    },
+    "name": "Cyprus",
     "cca2": "CY",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Kipras"
   },
   {
-    "name": {
-      "common": "North Korea",
-      "official": "Democratic People's Republic of Korea",
-      "nativeName": {
-        "kor": {
-          "official": "조선민주주의인민공화국",
-          "common": "조선"
-        }
-      }
-    },
+    "name": "North Korea",
     "cca2": "KP",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Šiaurės Korėja"
   },
   {
-    "name": {
-      "common": "Dominica",
-      "official": "Commonwealth of Dominica",
-      "nativeName": {
-        "eng": {
-          "official": "Commonwealth of Dominica",
-          "common": "Dominica"
-        }
-      }
-    },
+    "name": "Dominica",
     "cca2": "DM",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Dominika"
   },
   {
-    "name": {
-      "common": "Bosnia and Herzegovina",
-      "official": "Bosnia and Herzegovina",
-      "nativeName": {
-        "bos": {
-          "official": "Bosna i Hercegovina",
-          "common": "Bosna i Hercegovina"
-        },
-        "hrv": {
-          "official": "Bosna i Hercegovina",
-          "common": "Bosna i Hercegovina"
-        },
-        "srp": {
-          "official": "Босна и Херцеговина",
-          "common": "Босна и Херцеговина"
-        }
-      }
-    },
+    "name": "Bosnia and Herzegovina",
     "cca2": "BA",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Bosnija ir Hercegovina"
   },
   {
-    "name": {
-      "common": "Cocos (Keeling) Islands",
-      "official": "Territory of the Cocos (Keeling) Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Territory of the Cocos (Keeling) Islands",
-          "common": "Cocos (Keeling) Islands"
-        }
-      }
-    },
+    "name": "Cocos (Keeling) Islands",
     "cca2": "CC",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Kokosų (Kilingo) Salos"
   },
   {
-    "name": {
-      "common": "Sri Lanka",
-      "official": "Democratic Socialist Republic of Sri Lanka",
-      "nativeName": {
-        "sin": {
-          "official": "ශ්‍රී ලංකා ප්‍රජාතාන්ත්‍රික සමාජවාදී ජනරජය",
-          "common": "ශ්‍රී ලංකාව"
-        },
-        "tam": {
-          "official": "இலங்கை சனநாயக சோசலிசக் குடியரசு",
-          "common": "இலங்கை"
-        }
-      }
-    },
+    "name": "Sri Lanka",
     "cca2": "LK",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Šri Lanka"
   },
   {
-    "name": {
-      "common": "Republic of the Congo",
-      "official": "Republic of the Congo",
-      "nativeName": {
-        "fra": {
-          "official": "République du Congo",
-          "common": "République du Congo"
-        },
-        "kon": {
-          "official": "Repubilika ya Kongo",
-          "common": "Repubilika ya Kongo"
-        },
-        "lin": {
-          "official": "Republíki ya Kongó",
-          "common": "Republíki ya Kongó"
-        }
-      }
-    },
+    "name": "Republic of the Congo",
     "cca2": "CG",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Kongo Respublika"
   },
   {
-    "name": {
-      "common": "Israel",
-      "official": "State of Israel",
-      "nativeName": {
-        "ara": {
-          "official": "دولة إسرائيل",
-          "common": "إسرائيل"
-        },
-        "heb": {
-          "official": "מדינת ישראל",
-          "common": "ישראל"
-        }
-      }
-    },
+    "name": "Israel",
     "cca2": "IL",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Izraelis"
   },
   {
-    "name": {
-      "common": "Namibia",
-      "official": "Republic of Namibia",
-      "nativeName": {
-        "afr": {
-          "official": "Republiek van Namibië",
-          "common": "Namibië"
-        },
-        "deu": {
-          "official": "Republik Namibia",
-          "common": "Namibia"
-        },
-        "eng": {
-          "official": "Republic of Namibia",
-          "common": "Namibia"
-        },
-        "her": {
-          "official": "Republic of Namibia",
-          "common": "Namibia"
-        },
-        "hgm": {
-          "official": "Republic of Namibia",
-          "common": "Namibia"
-        },
-        "kwn": {
-          "official": "Republic of Namibia",
-          "common": "Namibia"
-        },
-        "loz": {
-          "official": "Republic of Namibia",
-          "common": "Namibia"
-        },
-        "ndo": {
-          "official": "Republic of Namibia",
-          "common": "Namibia"
-        },
-        "tsn": {
-          "official": "Lefatshe la Namibia",
-          "common": "Namibia"
-        }
-      }
-    },
+    "name": "Namibia",
     "cca2": "NA",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Namibija"
   },
   {
-    "name": {
-      "common": "Micronesia",
-      "official": "Federated States of Micronesia",
-      "nativeName": {
-        "eng": {
-          "official": "Federated States of Micronesia",
-          "common": "Micronesia"
-        }
-      }
-    },
+    "name": "Micronesia",
     "cca2": "FM",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Mikronezija"
   },
   {
-    "name": {
-      "common": "Heard Island and McDonald Islands",
-      "official": "Heard Island and McDonald Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Heard Island and McDonald Islands",
-          "common": "Heard Island and McDonald Islands"
-        }
-      }
-    },
+    "name": "Heard Island and McDonald Islands",
     "cca2": "HM",
-    "region": "Antarctic"
+    "region": "Antarctic",
+    "lithuanian": "Herdo ir Makdonaldo Salos"
   },
   {
-    "name": {
-      "common": "South Sudan",
-      "official": "Republic of South Sudan",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of South Sudan",
-          "common": "South Sudan"
-        }
-      }
-    },
+    "name": "South Sudan",
     "cca2": "SS",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Pietų Sudanas"
   },
   {
-    "name": {
-      "common": "Rwanda",
-      "official": "Republic of Rwanda",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Rwanda",
-          "common": "Rwanda"
-        },
-        "fra": {
-          "official": "République rwandaise",
-          "common": "Rwanda"
-        },
-        "kin": {
-          "official": "Repubulika y'u Rwanda",
-          "common": "Rwanda"
-        }
-      }
-    },
+    "name": "Rwanda",
     "cca2": "RW",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Ruanda"
   },
   {
-    "name": {
-      "common": "Uganda",
-      "official": "Republic of Uganda",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Uganda",
-          "common": "Uganda"
-        },
-        "swa": {
-          "official": "Republic of Uganda",
-          "common": "Uganda"
-        }
-      }
-    },
+    "name": "Uganda",
     "cca2": "UG",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Uganda"
   },
   {
-    "name": {
-      "common": "Portugal",
-      "official": "Portuguese Republic",
-      "nativeName": {
-        "por": {
-          "official": "República Portuguesa",
-          "common": "Portugal"
-        }
-      }
-    },
+    "name": "Portugal",
     "cca2": "PT",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Portugalija"
   },
   {
-    "name": {
-      "common": "Bolivia",
-      "official": "Plurinational State of Bolivia",
-      "nativeName": {
-        "aym": {
-          "official": "Wuliwya Suyu",
-          "common": "Wuliwya"
-        },
-        "grn": {
-          "official": "Tetã Volívia",
-          "common": "Volívia"
-        },
-        "que": {
-          "official": "Buliwya Mamallaqta",
-          "common": "Buliwya"
-        },
-        "spa": {
-          "official": "Estado Plurinacional de Bolivia",
-          "common": "Bolivia"
-        }
-      }
-    },
+    "name": "Bolivia",
     "cca2": "BO",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Bolivija"
   },
   {
-    "name": {
-      "common": "Lesotho",
-      "official": "Kingdom of Lesotho",
-      "nativeName": {
-        "eng": {
-          "official": "Kingdom of Lesotho",
-          "common": "Lesotho"
-        },
-        "sot": {
-          "official": "Kingdom of Lesotho",
-          "common": "Lesotho"
-        }
-      }
-    },
+    "name": "Lesotho",
     "cca2": "LS",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Lesotas"
   },
   {
-    "name": {
-      "common": "Chad",
-      "official": "Republic of Chad",
-      "nativeName": {
-        "ara": {
-          "official": "جمهورية تشاد",
-          "common": "تشاد‎"
-        },
-        "fra": {
-          "official": "République du Tchad",
-          "common": "Tchad"
-        }
-      }
-    },
+    "name": "Chad",
     "cca2": "TD",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Čadas"
   },
   {
-    "name": {
-      "common": "Saint Helena, Ascension and Tristan da Cunha",
-      "official": "Saint Helena, Ascension and Tristan da Cunha",
-      "nativeName": {
-        "eng": {
-          "official": "Saint Helena, Ascension and Tristan da Cunha",
-          "common": "Saint Helena, Ascension and Tristan da Cunha"
-        }
-      }
-    },
+    "name": "Saint Helena, Ascension and Tristan da Cunha",
     "cca2": "SH",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Šv. Elenos, Dangun Žengimo ir Tristano da Kunjos Salos"
   },
   {
-    "name": {
-      "common": "Cook Islands",
-      "official": "Cook Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Cook Islands",
-          "common": "Cook Islands"
-        },
-        "rar": {
-          "official": "Kūki 'Āirani",
-          "common": "Kūki 'Āirani"
-        }
-      }
-    },
+    "name": "Cook Islands",
     "cca2": "CK",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Kuko Salos"
   },
   {
-    "name": {
-      "common": "Saint Pierre and Miquelon",
-      "official": "Saint Pierre and Miquelon",
-      "nativeName": {
-        "fra": {
-          "official": "Collectivité territoriale de Saint-Pierre-et-Miquelon",
-          "common": "Saint-Pierre-et-Miquelon"
-        }
-      }
-    },
+    "name": "Saint Pierre and Miquelon",
     "cca2": "PM",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Sen Pjeras ir Mikelonas"
   },
   {
-    "name": {
-      "common": "Lithuania",
-      "official": "Republic of Lithuania",
-      "nativeName": {
-        "lit": {
-          "official": "Lietuvos Respublikos",
-          "common": "Lietuva"
-        }
-      }
-    },
+    "name": "Lithuania",
     "cca2": "LT",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Lietuva"
   },
   {
-    "name": {
-      "common": "Montenegro",
-      "official": "Montenegro",
-      "nativeName": {
-        "cnr": {
-          "official": "Црна Гора",
-          "common": "Црна Гора"
-        }
-      }
-    },
+    "name": "Montenegro",
     "cca2": "ME",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Juodkalnija"
   },
   {
-    "name": {
-      "common": "Oman",
-      "official": "Sultanate of Oman",
-      "nativeName": {
-        "ara": {
-          "official": "سلطنة عمان",
-          "common": "عمان"
-        }
-      }
-    },
+    "name": "Oman",
     "cca2": "OM",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Omanas"
   },
   {
-    "name": {
-      "common": "Sudan",
-      "official": "Republic of the Sudan",
-      "nativeName": {
-        "ara": {
-          "official": "جمهورية السودان",
-          "common": "السودان"
-        },
-        "eng": {
-          "official": "Republic of the Sudan",
-          "common": "Sudan"
-        }
-      }
-    },
+    "name": "Sudan",
     "cca2": "SD",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Sudanas"
   },
   {
-    "name": {
-      "common": "Brunei",
-      "official": "Nation of Brunei, Abode of Peace",
-      "nativeName": {
-        "msa": {
-          "official": "Nation of Brunei, Abode Damai",
-          "common": "Negara Brunei Darussalam"
-        }
-      }
-    },
+    "name": "Brunei",
     "cca2": "BN",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Brunėjus"
   },
   {
-    "name": {
-      "common": "DR Congo",
-      "official": "Democratic Republic of the Congo",
-      "nativeName": {
-        "fra": {
-          "official": "République démocratique du Congo",
-          "common": "RD Congo"
-        },
-        "kon": {
-          "official": "Repubilika ya Kongo Demokratiki",
-          "common": "Repubilika ya Kongo Demokratiki"
-        },
-        "lin": {
-          "official": "Republiki ya Kongó Demokratiki",
-          "common": "Republiki ya Kongó Demokratiki"
-        },
-        "lua": {
-          "official": "Ditunga dia Kongu wa Mungalaata",
-          "common": "Ditunga dia Kongu wa Mungalaata"
-        },
-        "swa": {
-          "official": "Jamhuri ya Kidemokrasia ya Kongo",
-          "common": "Jamhuri ya Kidemokrasia ya Kongo"
-        }
-      }
-    },
+    "name": "DR Congo",
     "cca2": "CD",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Kongo Demokratinė Respublika"
   },
   {
-    "name": {
-      "common": "Greece",
-      "official": "Hellenic Republic",
-      "nativeName": {
-        "ell": {
-          "official": "Ελληνική Δημοκρατία",
-          "common": "Ελλάδα"
-        }
-      }
-    },
+    "name": "Greece",
     "cca2": "GR",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Graikija"
   },
   {
-    "name": {
-      "common": "Albania",
-      "official": "Republic of Albania",
-      "nativeName": {
-        "sqi": {
-          "official": "Republika e Shqipërisë",
-          "common": "Shqipëria"
-        }
-      }
-    },
+    "name": "Albania",
     "cca2": "AL",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Albanija"
   },
   {
-    "name": {
-      "common": "Tanzania",
-      "official": "United Republic of Tanzania",
-      "nativeName": {
-        "eng": {
-          "official": "United Republic of Tanzania",
-          "common": "Tanzania"
-        },
-        "swa": {
-          "official": "Jamhuri ya Muungano wa Tanzania",
-          "common": "Tanzania"
-        }
-      }
-    },
+    "name": "Tanzania",
     "cca2": "TZ",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Tanzanija"
   },
   {
-    "name": {
-      "common": "Georgia",
-      "official": "Georgia",
-      "nativeName": {
-        "kat": {
-          "official": "საქართველო",
-          "common": "საქართველო"
-        }
-      }
-    },
+    "name": "Georgia",
     "cca2": "GE",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Sakartvelas"
   },
   {
-    "name": {
-      "common": "Japan",
-      "official": "Japan",
-      "nativeName": {
-        "jpn": {
-          "official": "日本",
-          "common": "日本"
-        }
-      }
-    },
+    "name": "Japan",
     "cca2": "JP",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Japonija"
   },
   {
-    "name": {
-      "common": "Saudi Arabia",
-      "official": "Kingdom of Saudi Arabia",
-      "nativeName": {
-        "ara": {
-          "official": "المملكة العربية السعودية",
-          "common": "العربية السعودية"
-        }
-      }
-    },
+    "name": "Saudi Arabia",
     "cca2": "SA",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Saudo Arabija"
   },
   {
-    "name": {
-      "common": "Croatia",
-      "official": "Republic of Croatia",
-      "nativeName": {
-        "hrv": {
-          "official": "Republika Hrvatska",
-          "common": "Hrvatska"
-        }
-      }
-    },
+    "name": "Croatia",
     "cca2": "HR",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Kroatija"
   },
   {
-    "name": {
-      "common": "Solomon Islands",
-      "official": "Solomon Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Solomon Islands",
-          "common": "Solomon Islands"
-        }
-      }
-    },
+    "name": "Solomon Islands",
     "cca2": "SB",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Saliamono Salos"
   },
   {
-    "name": {
-      "common": "Yemen",
-      "official": "Republic of Yemen",
-      "nativeName": {
-        "ara": {
-          "official": "الجمهورية اليمنية",
-          "common": "اليَمَن"
-        }
-      }
-    },
+    "name": "Yemen",
     "cca2": "YE",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Jemenas"
   },
   {
-    "name": {
-      "common": "Somalia",
-      "official": "Federal Republic of Somalia",
-      "nativeName": {
-        "ara": {
-          "official": "جمهورية الصومال‎‎",
-          "common": "الصومال‎‎"
-        },
-        "som": {
-          "official": "Jamhuuriyadda Federaalka Soomaaliya",
-          "common": "Soomaaliya"
-        }
-      }
-    },
+    "name": "Somalia",
     "cca2": "SO",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Somalis"
   },
   {
-    "name": {
-      "common": "Grenada",
-      "official": "Grenada",
-      "nativeName": {
-        "eng": {
-          "official": "Grenada",
-          "common": "Grenada"
-        }
-      }
-    },
+    "name": "Grenada",
     "cca2": "GD",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Grenada"
   },
   {
-    "name": {
-      "common": "Tonga",
-      "official": "Kingdom of Tonga",
-      "nativeName": {
-        "eng": {
-          "official": "Kingdom of Tonga",
-          "common": "Tonga"
-        },
-        "ton": {
-          "official": "Kingdom of Tonga",
-          "common": "Tonga"
-        }
-      }
-    },
+    "name": "Tonga",
     "cca2": "TO",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Tonga"
   },
   {
-    "name": {
-      "common": "Nicaragua",
-      "official": "Republic of Nicaragua",
-      "nativeName": {
-        "spa": {
-          "official": "República de Nicaragua",
-          "common": "Nicaragua"
-        }
-      }
-    },
+    "name": "Nicaragua",
     "cca2": "NI",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Nikaragva"
   },
   {
-    "name": {
-      "common": "Paraguay",
-      "official": "Republic of Paraguay",
-      "nativeName": {
-        "grn": {
-          "official": "Tetã Paraguái",
-          "common": "Paraguái"
-        },
-        "spa": {
-          "official": "República de Paraguay",
-          "common": "Paraguay"
-        }
-      }
-    },
+    "name": "Paraguay",
     "cca2": "PY",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Paragvajus"
   },
   {
-    "name": {
-      "common": "India",
-      "official": "Republic of India",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of India",
-          "common": "India"
-        },
-        "hin": {
-          "official": "भारत गणराज्य",
-          "common": "भारत"
-        },
-        "tam": {
-          "official": "இந்தியக் குடியரசு",
-          "common": "இந்தியா"
-        }
-      }
-    },
+    "name": "India",
     "cca2": "IN",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Indija"
   },
   {
-    "name": {
-      "common": "United Kingdom",
-      "official": "United Kingdom of Great Britain and Northern Ireland",
-      "nativeName": {
-        "eng": {
-          "official": "United Kingdom of Great Britain and Northern Ireland",
-          "common": "United Kingdom"
-        }
-      }
-    },
+    "name": "United Kingdom",
     "cca2": "GB",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Jungtinė Karalystė"
   },
   {
-    "name": {
-      "common": "Eswatini",
-      "official": "Kingdom of Eswatini",
-      "nativeName": {
-        "eng": {
-          "official": "Kingdom of Eswatini",
-          "common": "Eswatini"
-        },
-        "ssw": {
-          "official": "Umbuso weSwatini",
-          "common": "eSwatini"
-        }
-      }
-    },
+    "name": "Eswatini",
     "cca2": "SZ",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Esvatinis"
   },
   {
-    "name": {
-      "common": "Madagascar",
-      "official": "Republic of Madagascar",
-      "nativeName": {
-        "fra": {
-          "official": "République de Madagascar",
-          "common": "Madagascar"
-        },
-        "mlg": {
-          "official": "Repoblikan'i Madagasikara",
-          "common": "Madagasikara"
-        }
-      }
-    },
+    "name": "Madagascar",
     "cca2": "MG",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Madagaskaras"
   },
   {
-    "name": {
-      "common": "Equatorial Guinea",
-      "official": "Republic of Equatorial Guinea",
-      "nativeName": {
-        "fra": {
-          "official": "République de la Guinée Équatoriale",
-          "common": "Guinée équatoriale"
-        },
-        "por": {
-          "official": "República da Guiné Equatorial",
-          "common": "Guiné Equatorial"
-        },
-        "spa": {
-          "official": "República de Guinea Ecuatorial",
-          "common": "Guinea Ecuatorial"
-        }
-      }
-    },
+    "name": "Equatorial Guinea",
     "cca2": "GQ",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Pusiaujo Gvinėja"
   },
   {
-    "name": {
-      "common": "Jordan",
-      "official": "Hashemite Kingdom of Jordan",
-      "nativeName": {
-        "ara": {
-          "official": "المملكة الأردنية الهاشمية",
-          "common": "الأردن"
-        }
-      }
-    },
+    "name": "Jordan",
     "cca2": "JO",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Jordanija"
   },
   {
-    "name": {
-      "common": "Guadeloupe",
-      "official": "Guadeloupe",
-      "nativeName": {
-        "fra": {
-          "official": "Guadeloupe",
-          "common": "Guadeloupe"
-        }
-      }
-    },
+    "name": "Guadeloupe",
     "cca2": "GP",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Gvadelupa"
   },
   {
-    "name": {
-      "common": "Belarus",
-      "official": "Republic of Belarus",
-      "nativeName": {
-        "bel": {
-          "official": "Рэспубліка Беларусь",
-          "common": "Белару́сь"
-        },
-        "rus": {
-          "official": "Республика Беларусь",
-          "common": "Беларусь"
-        }
-      }
-    },
+    "name": "Belarus",
     "cca2": "BY",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Baltarusija"
   },
   {
-    "name": {
-      "common": "Maldives",
-      "official": "Republic of the Maldives",
-      "nativeName": {
-        "div": {
-          "official": "ދިވެހިރާއްޖޭގެ ޖުމްހޫރިއްޔާ",
-          "common": "ދިވެހިރާއްޖޭގެ"
-        }
-      }
-    },
+    "name": "Maldives",
     "cca2": "MV",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Maldyvai"
   },
   {
-    "name": {
-      "common": "Timor-Leste",
-      "official": "Democratic Republic of Timor-Leste",
-      "nativeName": {
-        "por": {
-          "official": "República Democrática de Timor-Leste",
-          "common": "Timor-Leste"
-        },
-        "tet": {
-          "official": "Repúblika Demokrátika Timór-Leste",
-          "common": "Timór-Leste"
-        }
-      }
-    },
+    "name": "Timor-Leste",
     "cca2": "TL",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Rytų Timoras"
   },
   {
-    "name": {
-      "common": "Serbia",
-      "official": "Republic of Serbia",
-      "nativeName": {
-        "srp": {
-          "official": "Република Србија",
-          "common": "Србија"
-        }
-      }
-    },
+    "name": "Serbia",
     "cca2": "RS",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Serbija"
   },
   {
-    "name": {
-      "common": "Ireland",
-      "official": "Republic of Ireland",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Ireland",
-          "common": "Ireland"
-        },
-        "gle": {
-          "official": "Poblacht na hÉireann",
-          "common": "Éire"
-        }
-      }
-    },
+    "name": "Ireland",
     "cca2": "IE",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Airija"
   },
   {
-    "name": {
-      "common": "Chile",
-      "official": "Republic of Chile",
-      "nativeName": {
-        "spa": {
-          "official": "República de Chile",
-          "common": "Chile"
-        }
-      }
-    },
+    "name": "Chile",
     "cca2": "CL",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Čilė"
   },
   {
-    "name": {
-      "common": "Iraq",
-      "official": "Republic of Iraq",
-      "nativeName": {
-        "ara": {
-          "official": "جمهورية العراق",
-          "common": "العراق"
-        },
-        "arc": {
-          "official": "ܩܘܼܛܢܵܐ ܐܝܼܪܲܩ",
-          "common": "ܩܘܼܛܢܵܐ"
-        },
-        "ckb": {
-          "official": "کۆماری عێراق",
-          "common": "کۆماری"
-        }
-      }
-    },
+    "name": "Iraq",
     "cca2": "IQ",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Irakas"
   },
   {
-    "name": {
-      "common": "Philippines",
-      "official": "Republic of the Philippines",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of the Philippines",
-          "common": "Philippines"
-        },
-        "fil": {
-          "official": "Republic of the Philippines",
-          "common": "Pilipinas"
-        }
-      }
-    },
+    "name": "Philippines",
     "cca2": "PH",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Filipinai"
   },
   {
-    "name": {
-      "common": "South Africa",
-      "official": "Republic of South Africa",
-      "nativeName": {
-        "afr": {
-          "official": "Republiek van Suid-Afrika",
-          "common": "South Africa"
-        },
-        "eng": {
-          "official": "Republic of South Africa",
-          "common": "South Africa"
-        },
-        "nbl": {
-          "official": "IRiphabliki yeSewula Afrika",
-          "common": "Sewula Afrika"
-        },
-        "nso": {
-          "official": "Rephaboliki ya Afrika-Borwa ",
-          "common": "Afrika-Borwa"
-        },
-        "sot": {
-          "official": "Rephaboliki ya Afrika Borwa",
-          "common": "Afrika Borwa"
-        },
-        "ssw": {
-          "official": "IRiphabhulikhi yeNingizimu Afrika",
-          "common": "Ningizimu Afrika"
-        },
-        "tsn": {
-          "official": "Rephaboliki ya Aforika Borwa",
-          "common": "Aforika Borwa"
-        },
-        "tso": {
-          "official": "Riphabliki ra Afrika Dzonga",
-          "common": "Afrika Dzonga"
-        },
-        "ven": {
-          "official": "Riphabuḽiki ya Afurika Tshipembe",
-          "common": "Afurika Tshipembe"
-        },
-        "xho": {
-          "official": "IRiphabliki yaseMzantsi Afrika",
-          "common": "Mzantsi Afrika"
-        },
-        "zul": {
-          "official": "IRiphabliki yaseNingizimu Afrika",
-          "common": "Ningizimu Afrika"
-        }
-      }
-    },
+    "name": "South Africa",
     "cca2": "ZA",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Pietų Afrika"
   },
   {
-    "name": {
-      "common": "Benin",
-      "official": "Republic of Benin",
-      "nativeName": {
-        "fra": {
-          "official": "République du Bénin",
-          "common": "Bénin"
-        }
-      }
-    },
+    "name": "Benin",
     "cca2": "BJ",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Beninas"
   },
   {
-    "name": {
-      "common": "Bulgaria",
-      "official": "Republic of Bulgaria",
-      "nativeName": {
-        "bul": {
-          "official": "Република България",
-          "common": "България"
-        }
-      }
-    },
+    "name": "Bulgaria",
     "cca2": "BG",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Bulgarija"
   },
   {
-    "name": {
-      "common": "Indonesia",
-      "official": "Republic of Indonesia",
-      "nativeName": {
-        "ind": {
-          "official": "Republik Indonesia",
-          "common": "Indonesia"
-        }
-      }
-    },
+    "name": "Indonesia",
     "cca2": "ID",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Indonezija"
   },
   {
-    "name": {
-      "common": "Mauritania",
-      "official": "Islamic Republic of Mauritania",
-      "nativeName": {
-        "ara": {
-          "official": "الجمهورية الإسلامية الموريتانية",
-          "common": "موريتانيا"
-        }
-      }
-    },
+    "name": "Mauritania",
     "cca2": "MR",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Mauritanija"
   },
   {
-    "name": {
-      "common": "Seychelles",
-      "official": "Republic of Seychelles",
-      "nativeName": {
-        "crs": {
-          "official": "Repiblik Sesel",
-          "common": "Sesel"
-        },
-        "eng": {
-          "official": "Republic of Seychelles",
-          "common": "Seychelles"
-        },
-        "fra": {
-          "official": "République des Seychelles",
-          "common": "Seychelles"
-        }
-      }
-    },
+    "name": "Seychelles",
     "cca2": "SC",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Seišeliai"
   },
   {
-    "name": {
-      "common": "Romania",
-      "official": "Romania",
-      "nativeName": {
-        "ron": {
-          "official": "România",
-          "common": "România"
-        }
-      }
-    },
+    "name": "Romania",
     "cca2": "RO",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Rumunija"
   },
   {
-    "name": {
-      "common": "Turkey",
-      "official": "Republic of Turkey",
-      "nativeName": {
-        "tur": {
-          "official": "Türkiye Cumhuriyeti",
-          "common": "Türkiye"
-        }
-      }
-    },
+    "name": "Turkey",
     "cca2": "TR",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Turkija"
   },
   {
-    "name": {
-      "common": "Burkina Faso",
-      "official": "Burkina Faso",
-      "nativeName": {
-        "fra": {
-          "official": "République du Burkina",
-          "common": "Burkina Faso"
-        }
-      }
-    },
+    "name": "Burkina Faso",
     "cca2": "BF",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Burkina Fasas"
   },
   {
-    "name": {
-      "common": "Bermuda",
-      "official": "Bermuda",
-      "nativeName": {
-        "eng": {
-          "official": "Bermuda",
-          "common": "Bermuda"
-        }
-      }
-    },
+    "name": "Bermuda",
     "cca2": "BM",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Bermuda"
   },
   {
-    "name": {
-      "common": "New Caledonia",
-      "official": "New Caledonia",
-      "nativeName": {
-        "fra": {
-          "official": "Nouvelle-Calédonie",
-          "common": "Nouvelle-Calédonie"
-        }
-      }
-    },
+    "name": "New Caledonia",
     "cca2": "NC",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Naujoji Kaledonija"
   },
   {
-    "name": {
-      "common": "Antarctica",
-      "official": "Antarctica",
-      "nativeName": {}
-    },
+    "name": "Antarctica",
     "cca2": "AQ",
-    "region": "Antarctic"
+    "region": "Antarctic",
+    "lithuanian": "Antarktida"
   },
   {
-    "name": {
-      "common": "Egypt",
-      "official": "Arab Republic of Egypt",
-      "nativeName": {
-        "ara": {
-          "official": "جمهورية مصر العربية",
-          "common": "مصر"
-        }
-      }
-    },
+    "name": "Egypt",
     "cca2": "EG",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Egiptas"
   },
   {
-    "name": {
-      "common": "Vietnam",
-      "official": "Socialist Republic of Vietnam",
-      "nativeName": {
-        "vie": {
-          "official": "Cộng hòa xã hội chủ nghĩa Việt Nam",
-          "common": "Việt Nam"
-        }
-      }
-    },
+    "name": "Vietnam",
     "cca2": "VN",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Vietnamas"
   },
   {
-    "name": {
-      "common": "Puerto Rico",
-      "official": "Commonwealth of Puerto Rico",
-      "nativeName": {
-        "eng": {
-          "official": "Commonwealth of Puerto Rico",
-          "common": "Puerto Rico"
-        },
-        "spa": {
-          "official": "Estado Libre Asociado de Puerto Rico",
-          "common": "Puerto Rico"
-        }
-      }
-    },
+    "name": "Puerto Rico",
     "cca2": "PR",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Puerto Rikas"
   },
   {
-    "name": {
-      "common": "Trinidad and Tobago",
-      "official": "Republic of Trinidad and Tobago",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Trinidad and Tobago",
-          "common": "Trinidad and Tobago"
-        }
-      }
-    },
+    "name": "Trinidad and Tobago",
     "cca2": "TT",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Trinidadas ir Tobagas"
   },
   {
-    "name": {
-      "common": "Falkland Islands",
-      "official": "Falkland Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Falkland Islands",
-          "common": "Falkland Islands"
-        }
-      }
-    },
+    "name": "Falkland Islands",
     "cca2": "FK",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Folklando Salos"
   },
   {
-    "name": {
-      "common": "Angola",
-      "official": "Republic of Angola",
-      "nativeName": {
-        "por": {
-          "official": "República de Angola",
-          "common": "Angola"
-        }
-      }
-    },
+    "name": "Angola",
     "cca2": "AO",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Angola"
   },
   {
-    "name": {
-      "common": "China",
-      "official": "People's Republic of China",
-      "nativeName": {
-        "zho": {
-          "official": "中华人民共和国",
-          "common": "中国"
-        }
-      }
-    },
+    "name": "China",
     "cca2": "CN",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Kinija"
   },
   {
-    "name": {
-      "common": "Montserrat",
-      "official": "Montserrat",
-      "nativeName": {
-        "eng": {
-          "official": "Montserrat",
-          "common": "Montserrat"
-        }
-      }
-    },
+    "name": "Montserrat",
     "cca2": "MS",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Montseratas"
   },
   {
-    "name": {
-      "common": "Turks and Caicos Islands",
-      "official": "Turks and Caicos Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Turks and Caicos Islands",
-          "common": "Turks and Caicos Islands"
-        }
-      }
-    },
+    "name": "Turks and Caicos Islands",
     "cca2": "TC",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Terkso ir Kaikoso Salos"
   },
   {
-    "name": {
-      "common": "Åland Islands",
-      "official": "Åland Islands",
-      "nativeName": {
-        "swe": {
-          "official": "Landskapet Åland",
-          "common": "Åland"
-        }
-      }
-    },
+    "name": "Åland Islands",
     "cca2": "AX",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Alandų Salos"
   },
   {
-    "name": {
-      "common": "Costa Rica",
-      "official": "Republic of Costa Rica",
-      "nativeName": {
-        "spa": {
-          "official": "República de Costa Rica",
-          "common": "Costa Rica"
-        }
-      }
-    },
+    "name": "Costa Rica",
     "cca2": "CR",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Kosta Rika"
   },
   {
-    "name": {
-      "common": "Uruguay",
-      "official": "Oriental Republic of Uruguay",
-      "nativeName": {
-        "spa": {
-          "official": "República Oriental del Uruguay",
-          "common": "Uruguay"
-        }
-      }
-    },
+    "name": "Uruguay",
     "cca2": "UY",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Urugvajus"
   },
   {
-    "name": {
-      "common": "Morocco",
-      "official": "Kingdom of Morocco",
-      "nativeName": {
-        "ara": {
-          "official": "المملكة المغربية",
-          "common": "المغرب"
-        },
-        "ber": {
-          "official": "ⵜⴰⴳⵍⴷⵉⵜ ⵏ ⵍⵎⵖⵔⵉⴱ",
-          "common": "ⵍⵎⴰⵖⵔⵉⴱ"
-        }
-      }
-    },
+    "name": "Morocco",
     "cca2": "MA",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Marokas"
   },
   {
-    "name": {
-      "common": "Bouvet Island",
-      "official": "Bouvet Island",
-      "nativeName": {
-        "nor": {
-          "official": "Bouvetøya",
-          "common": "Bouvetøya"
-        }
-      }
-    },
+    "name": "Bouvet Island",
     "cca2": "BV",
-    "region": "Antarctic"
+    "region": "Antarctic",
+    "lithuanian": "Buvė Sala"
   },
   {
-    "name": {
-      "common": "Estonia",
-      "official": "Republic of Estonia",
-      "nativeName": {
-        "est": {
-          "official": "Eesti Vabariik",
-          "common": "Eesti"
-        }
-      }
-    },
+    "name": "Estonia",
     "cca2": "EE",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Estija"
   },
   {
-    "name": {
-      "common": "Saint Lucia",
-      "official": "Saint Lucia",
-      "nativeName": {
-        "eng": {
-          "official": "Saint Lucia",
-          "common": "Saint Lucia"
-        }
-      }
-    },
+    "name": "Saint Lucia",
     "cca2": "LC",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Sent Lusija"
   },
   {
-    "name": {
-      "common": "Taiwan",
-      "official": "Republic of China (Taiwan)",
-      "nativeName": {
-        "zho": {
-          "official": "中華民國",
-          "common": "台灣"
-        }
-      }
-    },
+    "name": "Taiwan",
     "cca2": "TW",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Taivanas"
   },
   {
-    "name": {
-      "common": "Haiti",
-      "official": "Republic of Haiti",
-      "nativeName": {
-        "fra": {
-          "official": "République d'Haïti",
-          "common": "Haïti"
-        },
-        "hat": {
-          "official": "Repiblik Ayiti",
-          "common": "Ayiti"
-        }
-      }
-    },
+    "name": "Haiti",
     "cca2": "HT",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Haitis"
   },
   {
-    "name": {
-      "common": "Tajikistan",
-      "official": "Republic of Tajikistan",
-      "nativeName": {
-        "rus": {
-          "official": "Республика Таджикистан",
-          "common": "Таджикистан"
-        },
-        "tgk": {
-          "official": "Ҷумҳурии Тоҷикистон",
-          "common": "Тоҷикистон"
-        }
-      }
-    },
+    "name": "Tajikistan",
     "cca2": "TJ",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Tadžikistanas"
   },
   {
-    "name": {
-      "common": "Niger",
-      "official": "Republic of Niger",
-      "nativeName": {
-        "fra": {
-          "official": "République du Niger",
-          "common": "Niger"
-        }
-      }
-    },
+    "name": "Niger",
     "cca2": "NE",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Nigeris"
   },
   {
-    "name": {
-      "common": "Lebanon",
-      "official": "Lebanese Republic",
-      "nativeName": {
-        "ara": {
-          "official": "الجمهورية اللبنانية",
-          "common": "لبنان"
-        },
-        "fra": {
-          "official": "République libanaise",
-          "common": "Liban"
-        }
-      }
-    },
+    "name": "Lebanon",
     "cca2": "LB",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Libanas"
   },
   {
-    "name": {
-      "common": "Australia",
-      "official": "Commonwealth of Australia",
-      "nativeName": {
-        "eng": {
-          "official": "Commonwealth of Australia",
-          "common": "Australia"
-        }
-      }
-    },
+    "name": "Australia",
     "cca2": "AU",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Australija"
   },
   {
-    "name": {
-      "common": "Liberia",
-      "official": "Republic of Liberia",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Liberia",
-          "common": "Liberia"
-        }
-      }
-    },
+    "name": "Liberia",
     "cca2": "LR",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Liberija"
   },
   {
-    "name": {
-      "common": "Italy",
-      "official": "Italian Republic",
-      "nativeName": {
-        "ita": {
-          "official": "Repubblica italiana",
-          "common": "Italia"
-        }
-      }
-    },
+    "name": "Italy",
     "cca2": "IT",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Italija"
   },
   {
-    "name": {
-      "common": "Northern Mariana Islands",
-      "official": "Commonwealth of the Northern Mariana Islands",
-      "nativeName": {
-        "cal": {
-          "official": "Commonwealth of the Northern Mariana Islands",
-          "common": "Northern Mariana Islands"
-        },
-        "cha": {
-          "official": "Sankattan Siha Na Islas Mariånas",
-          "common": "Na Islas Mariånas"
-        },
-        "eng": {
-          "official": "Commonwealth of the Northern Mariana Islands",
-          "common": "Northern Mariana Islands"
-        }
-      }
-    },
+    "name": "Northern Mariana Islands",
     "cca2": "MP",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Šiaurės Marianų Salos"
   },
   {
-    "name": {
-      "common": "Saint Martin",
-      "official": "Saint Martin",
-      "nativeName": {
-        "fra": {
-          "official": "Saint-Martin",
-          "common": "Saint-Martin"
-        }
-      }
-    },
+    "name": "Saint Martin",
     "cca2": "MF",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Sen Martenas (Pranc.)"
   },
   {
-    "name": {
-      "common": "Nauru",
-      "official": "Republic of Nauru",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Nauru",
-          "common": "Nauru"
-        },
-        "nau": {
-          "official": "Republic of Nauru",
-          "common": "Nauru"
-        }
-      }
-    },
+    "name": "Nauru",
     "cca2": "NR",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Nauru"
   },
   {
-    "name": {
-      "common": "Switzerland",
-      "official": "Swiss Confederation",
-      "nativeName": {
-        "fra": {
-          "official": "Confédération suisse",
-          "common": "Suisse"
-        },
-        "gsw": {
-          "official": "Schweizerische Eidgenossenschaft",
-          "common": "Schweiz"
-        },
-        "ita": {
-          "official": "Confederazione Svizzera",
-          "common": "Svizzera"
-        },
-        "roh": {
-          "official": "Confederaziun svizra",
-          "common": "Svizra"
-        }
-      }
-    },
+    "name": "Switzerland",
     "cca2": "CH",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Šveicarija"
   },
   {
-    "name": {
-      "common": "Peru",
-      "official": "Republic of Peru",
-      "nativeName": {
-        "aym": {
-          "official": "Piruw Suyu",
-          "common": "Piruw"
-        },
-        "que": {
-          "official": "Piruw Ripuwlika",
-          "common": "Piruw"
-        },
-        "spa": {
-          "official": "República del Perú",
-          "common": "Perú"
-        }
-      }
-    },
+    "name": "Peru",
     "cca2": "PE",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Peru"
   },
   {
-    "name": {
-      "common": "Libya",
-      "official": "State of Libya",
-      "nativeName": {
-        "ara": {
-          "official": "الدولة ليبيا",
-          "common": "‏ليبيا"
-        }
-      }
-    },
+    "name": "Libya",
     "cca2": "LY",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Libija"
   },
   {
-    "name": {
-      "common": "Germany",
-      "official": "Federal Republic of Germany",
-      "nativeName": {
-        "deu": {
-          "official": "Bundesrepublik Deutschland",
-          "common": "Deutschland"
-        }
-      }
-    },
+    "name": "Germany",
     "cca2": "DE",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Vokietija"
   },
   {
-    "name": {
-      "common": "Kosovo",
-      "official": "Republic of Kosovo",
-      "nativeName": {
-        "sqi": {
-          "official": "Republika e Kosovës",
-          "common": "Kosova"
-        },
-        "srp": {
-          "official": "Република Косово",
-          "common": "Косово"
-        }
-      }
-    },
+    "name": "Kosovo",
     "cca2": "XK",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Kosovas"
   },
   {
-    "name": {
-      "common": "Guam",
-      "official": "Guam",
-      "nativeName": {
-        "cha": {
-          "official": "Guåhån",
-          "common": "Guåhån"
-        },
-        "eng": {
-          "official": "Guam",
-          "common": "Guam"
-        },
-        "spa": {
-          "official": "Guam",
-          "common": "Guam"
-        }
-      }
-    },
+    "name": "Guam",
     "cca2": "GU",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Guamas"
   },
   {
-    "name": {
-      "common": "Bahrain",
-      "official": "Kingdom of Bahrain",
-      "nativeName": {
-        "ara": {
-          "official": "مملكة البحرين",
-          "common": "‏البحرين"
-        }
-      }
-    },
+    "name": "Bahrain",
     "cca2": "BH",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Bahreinas"
   },
   {
-    "name": {
-      "common": "Wallis and Futuna",
-      "official": "Territory of the Wallis and Futuna Islands",
-      "nativeName": {
-        "fra": {
-          "official": "Territoire des îles Wallis et Futuna",
-          "common": "Wallis et Futuna"
-        }
-      }
-    },
+    "name": "Wallis and Futuna",
     "cca2": "WF",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Volisas ir Futūna"
   },
   {
-    "name": {
-      "common": "Iran",
-      "official": "Islamic Republic of Iran",
-      "nativeName": {
-        "fas": {
-          "official": "جمهوری اسلامی ایران",
-          "common": "ایران"
-        }
-      }
-    },
+    "name": "Iran",
     "cca2": "IR",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Iranas"
   },
   {
-    "name": {
-      "common": "Panama",
-      "official": "Republic of Panama",
-      "nativeName": {
-        "spa": {
-          "official": "República de Panamá",
-          "common": "Panamá"
-        }
-      }
-    },
+    "name": "Panama",
     "cca2": "PA",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Panama"
   },
   {
-    "name": {
-      "common": "Tokelau",
-      "official": "Tokelau",
-      "nativeName": {
-        "eng": {
-          "official": "Tokelau",
-          "common": "Tokelau"
-        },
-        "smo": {
-          "official": "Tokelau",
-          "common": "Tokelau"
-        },
-        "tkl": {
-          "official": "Tokelau",
-          "common": "Tokelau"
-        }
-      }
-    },
+    "name": "Tokelau",
     "cca2": "TK",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Tokelau"
   },
   {
-    "name": {
-      "common": "Syria",
-      "official": "Syrian Arab Republic",
-      "nativeName": {
-        "ara": {
-          "official": "الجمهورية العربية السورية",
-          "common": "سوريا"
-        }
-      }
-    },
+    "name": "Syria",
     "cca2": "SY",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Sirija"
   },
   {
-    "name": {
-      "common": "Saint Kitts and Nevis",
-      "official": "Federation of Saint Christopher and Nevis",
-      "nativeName": {
-        "eng": {
-          "official": "Federation of Saint Christopher and Nevis",
-          "common": "Saint Kitts and Nevis"
-        }
-      }
-    },
+    "name": "Saint Kitts and Nevis",
     "cca2": "KN",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Sent Kitsas ir Nevis"
   },
   {
-    "name": {
-      "common": "Gambia",
-      "official": "Republic of the Gambia",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of the Gambia",
-          "common": "Gambia"
-        }
-      }
-    },
+    "name": "Gambia",
     "cca2": "GM",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Gambija"
   },
   {
-    "name": {
-      "common": "Caribbean Netherlands",
-      "official": "Bonaire, Sint Eustatius and Saba",
-      "nativeName": {
-        "nld": {
-          "official": "Bonaire, Sint Eustatius en Saba",
-          "common": "Caribisch Nederland"
-        },
-        "pap": {
-          "official": "Boneiru, Sint Eustatius y Saba",
-          "common": "Boneiru, Sint Eustatius y Saba"
-        }
-      }
-    },
+    "name": "Caribbean Netherlands",
     "cca2": "BQ",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Karibų Nyderlandai"
   },
   {
-    "name": {
-      "common": "British Indian Ocean Territory",
-      "official": "British Indian Ocean Territory",
-      "nativeName": {
-        "eng": {
-          "official": "British Indian Ocean Territory",
-          "common": "British Indian Ocean Territory"
-        }
-      }
-    },
+    "name": "British Indian Ocean Territory",
     "cca2": "IO",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Britų Indijos Vandenyno Teritorija"
   },
   {
-    "name": {
-      "common": "Netherlands",
-      "official": "Kingdom of the Netherlands",
-      "nativeName": {
-        "nld": {
-          "official": "Koninkrijk der Nederlanden",
-          "common": "Nederland"
-        }
-      }
-    },
+    "name": "Netherlands",
     "cca2": "NL",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Nyderlandai"
   },
   {
-    "name": {
-      "common": "El Salvador",
-      "official": "Republic of El Salvador",
-      "nativeName": {
-        "spa": {
-          "official": "República de El Salvador",
-          "common": "El Salvador"
-        }
-      }
-    },
+    "name": "El Salvador",
     "cca2": "SV",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Salvadoras"
   },
   {
-    "name": {
-      "common": "Ivory Coast",
-      "official": "Republic of Côte d'Ivoire",
-      "nativeName": {
-        "fra": {
-          "official": "République de Côte d'Ivoire",
-          "common": "Côte d'Ivoire"
-        }
-      }
-    },
+    "name": "Ivory Coast",
     "cca2": "CI",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Dramblio Kaulo Krantas"
   },
   {
-    "name": {
-      "common": "Kiribati",
-      "official": "Independent and Sovereign Republic of Kiribati",
-      "nativeName": {
-        "eng": {
-          "official": "Independent and Sovereign Republic of Kiribati",
-          "common": "Kiribati"
-        },
-        "gil": {
-          "official": "Ribaberiki Kiribati",
-          "common": "Kiribati"
-        }
-      }
-    },
+    "name": "Kiribati",
     "cca2": "KI",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Kiribatis"
   },
   {
-    "name": {
-      "common": "Saint Barthélemy",
-      "official": "Collectivity of Saint Barthélemy",
-      "nativeName": {
-        "fra": {
-          "official": "Collectivité de Saint-Barthélemy",
-          "common": "Saint-Barthélemy"
-        }
-      }
-    },
+    "name": "Saint Barthélemy",
     "cca2": "BL",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Sen Bartelemi"
   },
   {
-    "name": {
-      "common": "American Samoa",
-      "official": "American Samoa",
-      "nativeName": {
-        "eng": {
-          "official": "American Samoa",
-          "common": "American Samoa"
-        },
-        "smo": {
-          "official": "Sāmoa Amelika",
-          "common": "Sāmoa Amelika"
-        }
-      }
-    },
+    "name": "American Samoa",
     "cca2": "AS",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Amerikos Samoa"
   },
   {
-    "name": {
-      "common": "Aruba",
-      "official": "Aruba",
-      "nativeName": {
-        "nld": {
-          "official": "Aruba",
-          "common": "Aruba"
-        },
-        "pap": {
-          "official": "Aruba",
-          "common": "Aruba"
-        }
-      }
-    },
+    "name": "Aruba",
     "cca2": "AW",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Aruba"
   },
   {
-    "name": {
-      "common": "French Guiana",
-      "official": "Guiana",
-      "nativeName": {
-        "fra": {
-          "official": "Guyane",
-          "common": "Guyane française"
-        }
-      }
-    },
+    "name": "French Guiana",
     "cca2": "GF",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Prancūzijos Gviana"
   },
   {
-    "name": {
-      "common": "Palau",
-      "official": "Republic of Palau",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Palau",
-          "common": "Palau"
-        },
-        "pau": {
-          "official": "Beluu er a Belau",
-          "common": "Belau"
-        }
-      }
-    },
+    "name": "Palau",
     "cca2": "PW",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Palau"
   },
   {
-    "name": {
-      "common": "Saint Vincent and the Grenadines",
-      "official": "Saint Vincent and the Grenadines",
-      "nativeName": {
-        "eng": {
-          "official": "Saint Vincent and the Grenadines",
-          "common": "Saint Vincent and the Grenadines"
-        }
-      }
-    },
+    "name": "Saint Vincent and the Grenadines",
     "cca2": "VC",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Sent Vinsentas ir Grenadinai"
   },
   {
-    "name": {
-      "common": "Poland",
-      "official": "Republic of Poland",
-      "nativeName": {
-        "pol": {
-          "official": "Rzeczpospolita Polska",
-          "common": "Polska"
-        }
-      }
-    },
+    "name": "Poland",
     "cca2": "PL",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Lenkija"
   },
   {
-    "name": {
-      "common": "Barbados",
-      "official": "Barbados",
-      "nativeName": {
-        "eng": {
-          "official": "Barbados",
-          "common": "Barbados"
-        }
-      }
-    },
+    "name": "Barbados",
     "cca2": "BB",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Barbadosas"
   },
   {
-    "name": {
-      "common": "Isle of Man",
-      "official": "Isle of Man",
-      "nativeName": {
-        "eng": {
-          "official": "Isle of Man",
-          "common": "Isle of Man"
-        },
-        "glv": {
-          "official": "Ellan Vannin or Mannin",
-          "common": "Mannin"
-        }
-      }
-    },
+    "name": "Isle of Man",
     "cca2": "IM",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Meno Sala"
   },
   {
-    "name": {
-      "common": "Greenland",
-      "official": "Greenland",
-      "nativeName": {
-        "kal": {
-          "official": "Kalaallit Nunaat",
-          "common": "Kalaallit Nunaat"
-        }
-      }
-    },
+    "name": "Greenland",
     "cca2": "GL",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Grenlandija"
   },
   {
-    "name": {
-      "common": "Zimbabwe",
-      "official": "Republic of Zimbabwe",
-      "nativeName": {
-        "bwg": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "eng": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "kck": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "khi": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "ndc": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "nde": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "nya": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "sna": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "sot": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "toi": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "tsn": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "tso": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "ven": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "xho": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        },
-        "zib": {
-          "official": "Republic of Zimbabwe",
-          "common": "Zimbabwe"
-        }
-      }
-    },
+    "name": "Zimbabwe",
     "cca2": "ZW",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Zimbabvė"
   },
   {
-    "name": {
-      "common": "Pitcairn Islands",
-      "official": "Pitcairn Group of Islands",
-      "nativeName": {
-        "eng": {
-          "official": "Pitcairn Group of Islands",
-          "common": "Pitcairn Islands"
-        }
-      }
-    },
+    "name": "Pitcairn Islands",
     "cca2": "PN",
-    "region": "Oceania"
+    "region": "Oceania",
+    "lithuanian": "Pitkerno salos"
   },
   {
-    "name": {
-      "common": "Sweden",
-      "official": "Kingdom of Sweden",
-      "nativeName": {
-        "swe": {
-          "official": "Konungariket Sverige",
-          "common": "Sverige"
-        }
-      }
-    },
+    "name": "Sweden",
     "cca2": "SE",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Švedija"
   },
   {
-    "name": {
-      "common": "Dominican Republic",
-      "official": "Dominican Republic",
-      "nativeName": {
-        "spa": {
-          "official": "República Dominicana",
-          "common": "República Dominicana"
-        }
-      }
-    },
+    "name": "Dominican Republic",
     "cca2": "DO",
-    "region": "Americas"
+    "region": "Americas",
+    "lithuanian": "Dominikos Respublika"
   },
   {
-    "name": {
-      "common": "Belgium",
-      "official": "Kingdom of Belgium",
-      "nativeName": {
-        "deu": {
-          "official": "Königreich Belgien",
-          "common": "Belgien"
-        },
-        "fra": {
-          "official": "Royaume de Belgique",
-          "common": "Belgique"
-        },
-        "nld": {
-          "official": "Koninkrijk België",
-          "common": "België"
-        }
-      }
-    },
+    "name": "Belgium",
     "cca2": "BE",
-    "region": "Europe"
+    "region": "Europe",
+    "lithuanian": "Belgija"
   },
   {
-    "name": {
-      "common": "Mozambique",
-      "official": "Republic of Mozambique",
-      "nativeName": {
-        "por": {
-          "official": "República de Moçambique",
-          "common": "Moçambique"
-        }
-      }
-    },
+    "name": "Mozambique",
     "cca2": "MZ",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Mozambikas"
   },
   {
-    "name": {
-      "common": "Mauritius",
-      "official": "Republic of Mauritius",
-      "nativeName": {
-        "eng": {
-          "official": "Republic of Mauritius",
-          "common": "Mauritius"
-        },
-        "fra": {
-          "official": "République de Maurice",
-          "common": "Maurice"
-        },
-        "mfe": {
-          "official": "Republik Moris",
-          "common": "Moris"
-        }
-      }
-    },
+    "name": "Mauritius",
     "cca2": "MU",
-    "region": "Africa"
+    "region": "Africa",
+    "lithuanian": "Mauricijus"
   },
   {
-    "name": {
-      "common": "Azerbaijan",
-      "official": "Republic of Azerbaijan",
-      "nativeName": {
-        "aze": {
-          "official": "Azərbaycan Respublikası",
-          "common": "Azərbaycan"
-        }
-      }
-    },
+    "name": "Azerbaijan",
     "cca2": "AZ",
-    "region": "Asia"
+    "region": "Asia",
+    "lithuanian": "Azerbaidžanas"
   }
 ]
