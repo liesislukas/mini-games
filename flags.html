@@ -6,6 +6,76 @@
     <title>Flag Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script>
+        const translations = {
+            en: {
+                htmlLang: "en",
+                levelTitle: "Select a Continent",
+                continentEurope: "Europe",
+                continentAfrica: "Africa",
+                continentAsia: "Asia",
+                continentAmericas: "Americas",
+                continentOceania: "Oceania",
+                continentAll: "All",
+                progressLabel: "PROGRESS:",
+                timeLabel: "TIME:",
+                highScoreLabel: "High Score",
+                roundComplete: "Round Complete!",
+                levelLabel: "Level:",
+                totalTimeLabel: "Total Time:",
+                newHighScore: "🎉 New High Score!",
+                currentHighScoreLabel: "Current High Score:",
+                playAgain: "Play Again",
+                changeLevel: "Change Level",
+                allHighScores: "All High Scores",
+                tableHeaderLevel: "Level",
+                tableHeaderScore: "Score",
+                tableHeaderAction: "Action",
+                reset: "Reset",
+                loading: "Loading Data...",
+                errorLoading: "Error Loading",
+                errorCouldNotLoad: "Could not load data",
+                notEnoughCountries: "Not enough countries in this region to play.",
+                correctAnswer: "Correct answer:",
+                scoreInSeconds: "in",
+                timeUnit: "s",
+                notAvailable: "N/A"
+            },
+            lt: {
+                htmlLang: "lt",
+                levelTitle: "Pasirinkite žemyną",
+                continentEurope: "Europa",
+                continentAfrica: "Afrika",
+                continentAsia: "Azija",
+                continentAmericas: "Amerika",
+                continentOceania: "Okeanija",
+                continentAll: "Visos",
+                progressLabel: "PROGRESAS:",
+                timeLabel: "LAIKAS:",
+                highScoreLabel: "Rekordas",
+                roundComplete: "Raundas baigtas!",
+                levelLabel: "Lygis:",
+                totalTimeLabel: "Visas laikas:",
+                newHighScore: "🎉 Naujas rekordas!",
+                currentHighScoreLabel: "Dabartinis rekordas:",
+                playAgain: "Žaisti dar kartą",
+                changeLevel: "Keisti lygį",
+                allHighScores: "Visi rekordai",
+                tableHeaderLevel: "Lygis",
+                tableHeaderScore: "Rezultatas",
+                tableHeaderAction: "Veiksmas",
+                reset: "Ištrinti",
+                loading: "Kraunami duomenys...",
+                errorLoading: "Krovimo klaida",
+                errorCouldNotLoad: "Nepavyko įkelti duomenų",
+                notEnoughCountries: "Šiame regione nepakanka šalių žaidimui.",
+                correctAnswer: "Teisingas atsakymas:",
+                scoreInSeconds: "per",
+                timeUnit: "s",
+                notAvailable: "Nėra"
+            }
+        };
+    </script>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -32,53 +102,61 @@
             animation: score-pop-animation 0.3s ease-in-out;
         }
 
-        /* Style for the main flag image */
         .flag-image {
             width: 128px;
             height: 85px;
-            /* Changed from 'cover' to 'contain' to ensure the full flag is visible */
             object-fit: contain;
             border-radius: 0.5rem;
-            /* Adjusted shadow to be more subtle with 'contain' */
             box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.08), 0 1px 2px -2px rgb(0 0 0 / 0.05);
         }
 
-        /* Style for the smaller flags inside the option buttons */
         .option-flag-image {
-            width: 40px; /* w-10 */
+            width: 40px;
             height: auto;
-            border-radius: 0.25rem; /* rounded-sm */
+            border-radius: 0.25rem;
             box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
             flex-shrink: 0;
         }
+
+        .lang-flag {
+            cursor: pointer;
+            height: 1.5rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+        }
+        .lang-flag:hover {
+            transform: scale(1.1);
+        }
+        .lang-flag.active {
+            border-color: #2563eb; /* blue-600 */
+            transform: scale(1.05);
+            opacity: 1;
+        }
+        .lang-flag:not(.active) {
+            opacity: 0.5;
+        }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-900 flex flex-col items-center min-h-screen p-4 pt-8 sm:pt-12 select-none">
+<body class="bg-gray-100 text-gray-900 flex flex-col items-center min-h-screen p-4 pt-4 sm:pt-6 select-none">
+
+<div class="w-full max-w-md mx-auto flex justify-end gap-x-3 mb-2 px-2">
+    <img id="lang-lt" data-lang="lt" src="https://flagcdn.com/w40/lt.png" alt="Lietuvių" class="lang-flag">
+    <img id="lang-en" data-lang="en" src="https://flagcdn.com/w40/gb.png" alt="English" class="lang-flag">
+</div>
 
 <main id="main-content" class="w-full max-w-md">
     <div id="level-selection-view">
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
-            <h1 id="level-title" class="text-2xl font-bold text-gray-800 mb-6">Select a Continent</h1>
+            <h1 id="level-title" data-translate="levelTitle" class="text-2xl font-bold text-gray-800 mb-6"></h1>
             <div class="grid grid-cols-1 gap-4">
-                <button data-level="europe"
-                        class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl">Europe
-                </button>
-                <button data-level="africa"
-                        class="btn w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl">Africa
-                </button>
-                <button data-level="asia"
-                        class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl">Asia
-                </button>
-                <button data-level="americas"
-                        class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl">Americas
-                </button>
-                <button data-level="oceania"
-                        class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl">
-                    Oceania
-                </button>
-                <button data-level="all"
-                        class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl">All
-                </button>
+                <button data-level="europe" data-translate="continentEurope" class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="africa" data-translate="continentAfrica" class="btn w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="asia" data-translate="continentAsia" class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="americas" data-translate="continentAmericas" class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="oceania" data-translate="continentOceania" class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="all" data-translate="continentAll" class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl"></button>
             </div>
         </div>
     </div>
@@ -86,42 +164,32 @@
     <div id="game-view" class="hidden">
         <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg text-center">
             <div class="flex justify-between items-baseline mb-2 text-gray-500 text-sm">
-                <div>PROGRESS: <span id="progress" class="font-bold text-lg text-gray-800">0/20</span></div>
-                <div>TIME: <span id="timer" class="font-bold text-lg text-gray-800">5</span>s</div>
+                <div><span data-translate="progressLabel"></span> <span id="progress" class="font-bold text-lg text-gray-800">0/20</span></div>
+                <div><span data-translate="timeLabel"></span> <span id="timer" class="font-bold text-lg text-gray-800">5</span>s</div>
             </div>
             <hr class="mb-6">
-            <div id="problem-container" class="mb-8 min-h-[90px] flex items-center justify-center">
-            </div>
+            <div id="problem-container" class="mb-8 min-h-[90px] flex items-center justify-center"></div>
             <div id="options-container" class="grid grid-cols-1 gap-3 sm:gap-4"></div>
             <div class="mt-6 h-7"><p id="feedback-text" class="text-lg font-medium"></p></div>
         </div>
         <div class="text-center mt-4 text-gray-500 text-sm">
-            High Score (<span id="game-level-display" class="capitalize"></span>): <span id="high-score-display"
-                                                                                         class="font-semibold"></span>
+            <span data-translate="highScoreLabel"></span> (<span id="game-level-display" class="capitalize"></span>): <span id="high-score-display" class="font-semibold"></span>
         </div>
     </div>
 
     <div id="results-view" class="hidden">
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">Round Complete!</h2>
-            <p class="text-gray-600 mb-4">Level: <span id="results-level" class="font-semibold capitalize"></span></p>
+            <h2 data-translate="roundComplete" class="text-2xl font-bold text-gray-800 mb-2"></h2>
+            <p class="text-gray-600 mb-4"><span data-translate="levelLabel"></span> <span id="results-level" class="font-semibold capitalize"></span></p>
             <div class="bg-gray-50 rounded-xl p-4 mb-5">
                 <div class="text-4xl font-bold text-blue-600"><span id="final-score">0</span> / 20</div>
-                <div class="text-sm text-gray-500 mt-1">Total Time: <span id="final-time">0.0</span>s</div>
+                <div class="text-sm text-gray-500 mt-1"><span data-translate="totalTimeLabel"></span> <span id="final-time">0.0</span>s</div>
             </div>
-            <div id="new-high-score-banner"
-                 class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5">🎉 New High Score!
-            </div>
-            <p class="text-gray-500 text-sm">Current High Score: <span id="final-high-score-display"
-                                                                       class="font-semibold"></span></p>
+            <div id="new-high-score-banner" class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5" data-translate="newHighScore"></div>
+            <p class="text-gray-500 text-sm"><span data-translate="currentHighScoreLabel"></span> <span id="final-high-score-display" class="font-semibold"></span></p>
             <div class="mt-6 flex flex-col gap-3">
-                <button id="play-again-button"
-                        class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl">Play Again
-                </button>
-                <button id="change-level-button"
-                        class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl">Change
-                    Level
-                </button>
+                <button id="play-again-button" data-translate="playAgain" class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl"></button>
+                <button id="change-level-button" data-translate="changeLevel" class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl"></button>
             </div>
         </div>
     </div>
@@ -153,49 +221,107 @@
     // --- Game Constants & State ---
     const TOTAL_PROBLEMS = 20;
     const TIME_PER_QUESTION = 5;
-    // Removed the correctSound variable to disable audio
+    let rawCountryData = [];
     let allCountries = [];
+    let currentLanguage;
     let currentLevel = 'europe', currentProblemNumber = 0, correctAnswers = 0, totalTimeElapsed = 0;
     let isAcceptingInput = false, currentCorrectAnswer = '', timerInterval, highScores = {};
+    let usedQuestions = new Set();
 
-    // --- Data Loading & Initialization ---
-    async function fetchCountryData() {
-        // Add a loading state to the UI
-        document.getElementById('level-title').textContent = 'Loading Data...';
+    // --- Language Functions ---
+    function setLanguage(lang) {
+        currentLanguage = lang;
+        localStorage.setItem('userLanguage', lang);
+        document.documentElement.lang = translations[lang].htmlLang;
+
+        document.querySelectorAll('.lang-flag').forEach(flag => {
+            flag.classList.toggle('active', flag.dataset.lang === lang);
+        });
+
+        updateUIText();
+        processCountryData();
+
+        if (gameView.classList.contains('hidden') && resultsView.classList.contains('hidden')) {
+            // Already on main menu, do nothing
+        } else {
+            // If in game or on results, go back to main menu
+            changeLevelButton.click();
+        }
+    }
+
+    function updateUIText() {
+        const t = translations[currentLanguage];
+        document.querySelectorAll('[data-translate]').forEach(el => {
+            const key = el.dataset.translate;
+            if (t[key]) el.textContent = t[key];
+        });
+        updateHighScoreUI();
+        renderHighScoresTable();
+    }
+
+    function loadLanguage() {
+        const savedLang = localStorage.getItem('userLanguage');
+        const browserLang = navigator.language.split('-')[0];
+        const lang = savedLang || (translations[browserLang] ? browserLang : 'en');
+        setLanguage(lang);
+    }
+
+    // --- Data Processing ---
+    function processCountryData() {
+        if (rawCountryData.length === 0) return;
+        allCountries = rawCountryData.map(c => ({
+            code: c.cca2.toLowerCase(),
+            name: currentLanguage === 'lt' ? c.lithuanian : c.name,
+            continent: c.region
+        })).filter(c => c.continent && c.name);
+    }
+
+    async function fetchAndProcessData() {
+        const levelTitleEl = document.getElementById('level-title');
+        if (rawCountryData.length > 0) {
+            processCountryData();
+            return;
+        }
+
+        levelTitleEl.textContent = translations[currentLanguage].loading;
         levelSelectionView.querySelectorAll('button').forEach(b => b.disabled = true);
+
         try {
             const response = await fetch('https://liesislukas.github.io/mini-games/countries.json');
             if (!response.ok) throw new Error('Failed to load country data');
-            const data = await response.json();
-
-            allCountries = data.map(c => ({
-                code: c.cca2.toLowerCase(),
-                name: c.name, // Changed from c.name.common to c.name
-                continent: c.region
-            })).filter(c => c.continent); // Filter out entries without a continent
-
-            // Restore UI after successful loading
-            document.getElementById('level-title').textContent = 'Select a Continent';
+            rawCountryData = await response.json();
+            processCountryData();
+            levelTitleEl.textContent = translations[currentLanguage].levelTitle;
             levelSelectionView.querySelectorAll('button').forEach(b => b.disabled = false);
         } catch (error) {
             console.error("Could not fetch country data:", error);
-            // Update UI to show a clear error message
-            document.getElementById('level-title').textContent = 'Error Loading';
+            levelTitleEl.textContent = translations[currentLanguage].errorLoading;
             levelSelectionView.querySelectorAll('button').forEach(b => {
                 b.classList.add('bg-gray-400', 'hover:bg-gray-400', 'cursor-not-allowed');
-                b.textContent = 'Could not load data';
+                b.setAttribute('data-translate', 'errorCouldNotLoad');
+                b.textContent = translations[currentLanguage].errorCouldNotLoad;
             });
         }
     }
 
     async function init() {
-        await fetchCountryData();
+        loadLanguage();
+        document.querySelectorAll('.lang-flag').forEach(flag => {
+            flag.addEventListener('click', (e) => {
+                setLanguage(e.target.dataset.lang);
+                location.reload();
+            });
+        });
+
+        await fetchAndProcessData();
         loadHighScores();
+
         levelSelectionView.classList.remove('hidden');
         gameView.classList.add('hidden');
         resultsView.classList.add('hidden');
         highScoresTableContainer.classList.remove('hidden');
-        renderHighScoresTable();
+
+        updateUIText();
 
         levelSelectionView.querySelectorAll('button').forEach(button => {
             if (!button.disabled) {
@@ -206,7 +332,13 @@
             }
         });
         playAgainButton.addEventListener('click', startGame);
-        changeLevelButton.addEventListener('click', init);
+        changeLevelButton.addEventListener('click', () => {
+            levelSelectionView.classList.remove('hidden');
+            gameView.classList.add('hidden');
+            resultsView.classList.add('hidden');
+            highScoresTableContainer.classList.remove('hidden');
+            updateUIText();
+        });
         document.addEventListener('keydown', handleKeyPress);
         highScoresTableContainer.addEventListener('click', (e) => {
             if (e.target.classList.contains('reset-score-btn')) {
@@ -221,6 +353,7 @@
         currentProblemNumber = 0;
         correctAnswers = 0;
         totalTimeElapsed = 0;
+        usedQuestions.clear();
         levelSelectionView.classList.add('hidden');
         resultsView.classList.add('hidden');
         newHighScoreBanner.classList.add('hidden');
@@ -243,26 +376,32 @@
         progressEl.textContent = `${currentProblemNumber}/${TOTAL_PROBLEMS}`;
         timerEl.classList.remove('text-red-500', 'font-extrabold');
 
-        // Get countries for the current level
         const levelCountries = currentLevel === 'all' ? [...allCountries] : allCountries.filter(c => c.continent.toLowerCase() === currentLevel);
+        const availableCountries = levelCountries.filter(c => !usedQuestions.has(c.code));
 
-        if (levelCountries.length < 5) {
-            problemContainer.innerHTML = `<p class="text-sm text-red-500">Not enough countries in this region to play.</p>`;
+        if (availableCountries.length === 0 || levelCountries.length < 5) {
+            if (availableCountries.length === 0) {
+                console.log("No more unique countries available for this level.");
+            }
+            if (levelCountries.length < 5) {
+                problemContainer.innerHTML = `<p class="text-sm text-red-500">${translations[currentLanguage].notEnoughCountries}</p>`;
+                setTimeout(endGame, 2000);
+            } else {
+                endGame();
+            }
             return;
         }
 
-        // Select a random country for the question
-        const questionCountry = levelCountries[Math.floor(Math.random() * levelCountries.length)];
+        const questionCountry = availableCountries[Math.floor(Math.random() * availableCountries.length)];
+        usedQuestions.add(questionCountry.code);
         currentCorrectAnswer = questionCountry.name;
 
-        // Display the main flag
         const flagImg = document.createElement('img');
         flagImg.src = `https://flagcdn.com/w160/${questionCountry.code}.png`;
         flagImg.alt = "Country Flag";
         flagImg.className = "flag-image";
         problemContainer.appendChild(flagImg);
 
-        // Generate options as a map to store both name and code
         const optionsMap = new Map();
         optionsMap.set(questionCountry.name, questionCountry);
         while (optionsMap.size < 5) {
@@ -274,7 +413,7 @@
             const btn = document.createElement('button');
             btn.innerHTML = `<span class="text-gray-400 mr-2 text-sm">${i + 1}</span> ${country.name}`;
             btn.dataset.value = country.name;
-            btn.dataset.code = country.code; // Store the flag code
+            btn.dataset.code = country.code;
             btn.classList.add('option-button', 'btn', 'w-full', 'bg-gray-100', 'hover:bg-gray-200', 'text-gray-700', 'font-semibold', 'text-left', 'py-3', 'px-4', 'rounded-xl', 'focus:outline-none');
             btn.onclick = () => selectAnswer(country.name, btn);
             optionsContainer.appendChild(btn);
@@ -294,7 +433,6 @@
         let correctButton;
         if (isCorrect) {
             correctAnswers++;
-            // Removed sound playback
             progressEl.classList.add('score-pop');
             setTimeout(() => progressEl.classList.remove('score-pop'), 300);
         }
@@ -309,7 +447,6 @@
                 btn.className = btn.className.replace(/bg-gray-100|hover:bg-gray-200/g, 'bg-red-500 text-white');
             }
 
-            // --- NEW: Reveal all flags after selection ---
             const countryCode = btn.dataset.code;
             const countryName = btn.dataset.value;
             btn.innerHTML = `
@@ -324,11 +461,11 @@
             triggerConfetti(correctButton);
         }
 
-        feedbackTextEl.textContent = `Correct answer: ${currentCorrectAnswer}`;
+        feedbackTextEl.textContent = `${translations[currentLanguage].correctAnswer} ${currentCorrectAnswer}`;
         feedbackTextEl.classList.toggle('text-green-600', isCorrect);
         feedbackTextEl.classList.toggle('text-red-600', !isCorrect);
 
-        setTimeout(newProblem, 2500); // Increased delay to see all flags
+        setTimeout(newProblem, 2500);
     }
 
     function endGame() {
@@ -346,29 +483,32 @@
         const rect = button.getBoundingClientRect();
         const x = (rect.left + rect.right) / 2 / window.innerWidth;
         const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
-        confetti({
-            particleCount: 40,
-            spread: 50,
-            origin: {x, y},
-            scalar: 0.8,
-            ticks: 150,
-            disableForReducedMotion: true
-        });
+        confetti({ particleCount: 40, spread: 50, origin: { x, y }, scalar: 0.8, ticks: 150, disableForReducedMotion: true });
     }
 
     function startTimer() {
         let timeLeft = TIME_PER_QUESTION;
         timerEl.textContent = timeLeft;
         timerEl.dataset.timeLeft = timeLeft;
+
         timerInterval = setInterval(() => {
             timeLeft -= 0.1;
-            timerEl.dataset.timeLeft = timeLeft;
-            timerEl.textContent = Math.ceil(timeLeft);
-            if (timeLeft <= 2) timerEl.classList.add('text-red-500', 'font-extrabold');
+
+            // First, check if time has run out to prevent negative display.
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
+                timerEl.textContent = 0; // Set display to 0 definitively.
                 timerInterval = null;
-                selectAnswer(null, null);
+                selectAnswer(null, null); // End the turn.
+                return; // Exit the interval callback.
+            }
+
+            // If time has not run out, update the display.
+            timerEl.dataset.timeLeft = timeLeft;
+            timerEl.textContent = Math.ceil(timeLeft);
+
+            if (timeLeft <= 2) {
+                timerEl.classList.add('text-red-500', 'font-extrabold');
             }
         }, 100);
     }
@@ -378,9 +518,9 @@
     }
 
     function checkAndSaveHighScore() {
-        const levelHighScore = highScores[currentLevel] || {accuracy: 0, time: Infinity};
+        const levelHighScore = highScores[currentLevel] || { accuracy: 0, time: Infinity };
         if (correctAnswers > levelHighScore.accuracy || (correctAnswers === levelHighScore.accuracy && totalTimeElapsed < levelHighScore.time)) {
-            highScores[currentLevel] = {accuracy: correctAnswers, time: totalTimeElapsed};
+            highScores[currentLevel] = { accuracy: correctAnswers, time: totalTimeElapsed };
             localStorage.setItem('flagHighScores', JSON.stringify(highScores));
             newHighScoreBanner.classList.remove('hidden');
         }
@@ -398,30 +538,46 @@
     }
 
     function updateHighScoreUI() {
+        const t = translations[currentLanguage];
+        if (!t) return;
+
         gameLevelDisplay.textContent = currentLevel;
         const levelHighScore = highScores[currentLevel];
-        const text = levelHighScore ? `${levelHighScore.accuracy}/${TOTAL_PROBLEMS} in ${levelHighScore.time.toFixed(1)}s` : 'N/A';
+        const text = levelHighScore ? `${levelHighScore.accuracy}/${TOTAL_PROBLEMS} ${t.scoreInSeconds} ${levelHighScore.time.toFixed(1)}${t.timeUnit}` : t.notAvailable;
         highScoreDisplay.textContent = text;
         finalHighScoreDisplay.textContent = text;
     }
 
+    function capitalizeFirstLetter(str) {
+        if (!str) return '';
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+
     function renderHighScoresTable() {
+        const t = translations[currentLanguage];
+        if (!t) return;
         let tableHTML = `
                 <div class="bg-white p-4 rounded-2xl shadow-lg">
-                    <h3 class="text-center font-bold text-gray-700 mb-3">All High Scores</h3>
+                    <h3 class="text-center font-bold text-gray-700 mb-3">${t.allHighScores}</h3>
                     <table class="w-full text-sm text-left">
                         <thead class="text-xs text-gray-500 uppercase">
-                            <tr><th class="py-2 px-2">Level</th><th class="py-2 px-2">Score</th><th class="py-2 px-2">Action</th></tr>
+                            <tr>
+                                <th class="py-2 px-2">${t.tableHeaderLevel}</th>
+                                <th class="py-2 px-2">${t.tableHeaderScore}</th>
+                                <th class="py-2 px-2">${t.tableHeaderAction}</th>
+                            </tr>
                         </thead>
                         <tbody>`;
         const levels = ['europe', 'africa', 'asia', 'americas', 'oceania', 'all'];
         for (const level of levels) {
             const score = highScores[level];
-            const scoreText = score ? `${score.accuracy}/${TOTAL_PROBLEMS} in ${score.time.toFixed(1)}s` : 'N/A';
-            const buttonHTML = score ? `<button class="reset-score-btn text-red-500 hover:text-red-700 text-xs" data-level="${level}">Reset</button>` : '';
+            const scoreText = score ? `${score.accuracy}/${TOTAL_PROBLEMS} ${t.scoreInSeconds} ${score.time.toFixed(1)}${t.timeUnit}` : t.notAvailable;
+            const buttonHTML = score ? `<button class="reset-score-btn text-red-500 hover:text-red-700 text-xs" data-level="${level}">${t.reset}</button>` : '';
+            const translatedLevel = t[`continent${capitalizeFirstLetter(level)}`]
             tableHTML += `
                     <tr class="border-t border-gray-200">
-                        <td class="py-2 px-2 capitalize font-medium">${level}</td>
+                        <td class="py-2 px-2 capitalize font-medium">${translatedLevel}</td>
                         <td class="py-2 px-2">${scoreText}</td>
                         <td class="py-2 px-2">${buttonHTML}</td>
                     </tr>`;
