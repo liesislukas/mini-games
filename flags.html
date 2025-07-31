@@ -93,17 +93,72 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-        .btn { transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out; }
-        .btn:active, .option-button.active-key { transform: scale(0.98); }
-        @keyframes score-pop-animation { 50% { transform: scale(1.3); color: #2563eb; } }
-        .score-pop { animation: score-pop-animation 0.3s ease-in-out; }
-        .flag-image { width: 128px; height: 85px; object-fit: contain; border-radius: 0.5rem; box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.08), 0 1px 2px -2px rgb(0 0 0 / 0.05); }
-        .option-flag-image { width: 40px; height: auto; border-radius: 0.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); flex-shrink: 0; }
-        .lang-flag { cursor: pointer; height: 1.5rem; border-radius: 0.25rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); transition: all 0.2s ease-in-out; border: 2px solid transparent; }
-        .lang-flag:hover { transform: scale(1.1); }
-        .lang-flag.active { border-color: #2563eb; transform: scale(1.05); opacity: 1; }
-        .lang-flag:not(.active) { opacity: 0.5; }
-        .mistake-flag { width: 30px; height: auto; border-radius: 0.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); flex-shrink: 0; }
+
+        .btn {
+            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+        }
+
+        .btn:active, .option-button.active-key {
+            transform: scale(0.98);
+        }
+
+        @keyframes score-pop-animation {
+            50% {
+                transform: scale(1.3);
+                color: #2563eb;
+            }
+        }
+
+        .score-pop {
+            animation: score-pop-animation 0.3s ease-in-out;
+        }
+
+        .flag-image {
+            width: 128px;
+            height: 85px;
+            object-fit: contain;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.08), 0 1px 2px -2px rgb(0 0 0 / 0.05);
+        }
+
+        .option-flag-image {
+            width: 40px;
+            height: auto;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            flex-shrink: 0;
+        }
+
+        .lang-flag {
+            cursor: pointer;
+            height: 1.5rem;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+        }
+
+        .lang-flag:hover {
+            transform: scale(1.1);
+        }
+
+        .lang-flag.active {
+            border-color: #2563eb;
+            transform: scale(1.05);
+            opacity: 1;
+        }
+
+        .lang-flag:not(.active) {
+            opacity: 0.5;
+        }
+
+        .mistake-flag {
+            width: 30px;
+            height: auto;
+            border-radius: 0.25rem;
+            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            flex-shrink: 0;
+        }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 flex flex-col items-center min-h-screen p-4 pt-4 sm:pt-6 select-none">
@@ -125,12 +180,18 @@
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
             <h1 id="level-title" data-translate="levelTitle" class="text-2xl font-bold text-gray-800 mb-6"></h1>
             <div class="grid grid-cols-1 gap-4">
-                <button data-level="europe" data-translate="continentEurope" class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl"></button>
-                <button data-level="africa" data-translate="continentAfrica" class="btn w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl"></button>
-                <button data-level="asia" data-translate="continentAsia" class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl"></button>
-                <button data-level="americas" data-translate="continentAmericas" class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl"></button>
-                <button data-level="oceania" data-translate="continentOceania" class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl"></button>
-                <button data-level="all" data-translate="continentAll" class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="europe" data-translate="continentEurope"
+                        class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="africa" data-translate="continentAfrica"
+                        class="btn w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="asia" data-translate="continentAsia"
+                        class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="americas" data-translate="continentAmericas"
+                        class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="oceania" data-translate="continentOceania"
+                        class="btn w-full bg-indigo-500 hover:bg-indigo-600 text-white font-bold py-3 rounded-xl"></button>
+                <button data-level="all" data-translate="continentAll"
+                        class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl"></button>
             </div>
         </div>
     </div>
@@ -138,8 +199,12 @@
     <div id="game-view" class="hidden">
         <div class="bg-white p-6 sm:p-8 rounded-2xl shadow-lg text-center">
             <div class="flex justify-between items-baseline mb-2 text-gray-500 text-sm">
-                <div><span data-translate="progressLabel"></span> <span id="progress" class="font-bold text-lg text-gray-800">0/20</span></div>
-                <div><span data-translate="timeLabel"></span> <span id="timer" class="font-bold text-lg text-gray-800">5</span>s</div>
+                <div><span data-translate="progressLabel"></span> <span id="progress"
+                                                                        class="font-bold text-lg text-gray-800">0/20</span>
+                </div>
+                <div><span data-translate="timeLabel"></span> <span id="timer"
+                                                                    class="font-bold text-lg text-gray-800">5</span>s
+                </div>
             </div>
             <hr class="mb-6">
             <div id="problem-container" class="mb-8 min-h-[90px] flex items-center justify-center"></div>
@@ -147,23 +212,32 @@
             <div class="mt-6 h-7"><p id="feedback-text" class="text-lg font-medium"></p></div>
         </div>
         <div class="text-center mt-4 text-gray-500 text-sm">
-            <span data-translate="highScoreLabel"></span> (<span id="game-level-display" class="capitalize"></span>): <span id="high-score-display" class="font-semibold"></span>
+            <span data-translate="highScoreLabel"></span> (<span id="game-level-display" class="capitalize"></span>):
+            <span id="high-score-display" class="font-semibold"></span>
         </div>
     </div>
 
     <div id="results-view" class="hidden">
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
             <h2 data-translate="roundComplete" class="text-2xl font-bold text-gray-800 mb-2"></h2>
-            <p class="text-gray-600 mb-4"><span data-translate="levelLabel"></span> <span id="results-level" class="font-semibold capitalize"></span></p>
+            <p class="text-gray-600 mb-4"><span data-translate="levelLabel"></span> <span id="results-level"
+                                                                                          class="font-semibold capitalize"></span>
+            </p>
             <div class="bg-gray-50 rounded-xl p-4 mb-5">
                 <div class="text-4xl font-bold text-blue-600"><span id="final-score">0</span> / 20</div>
-                <div class="text-sm text-gray-500 mt-1"><span data-translate="totalTimeLabel"></span> <span id="final-time">0.0</span>s</div>
+                <div class="text-sm text-gray-500 mt-1"><span data-translate="totalTimeLabel"></span> <span
+                        id="final-time">0.0</span>s
+                </div>
             </div>
-            <div id="new-high-score-banner" class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5" data-translate="newHighScore"></div>
-            <p class="text-gray-500 text-sm"><span data-translate="currentHighScoreLabel"></span> <span id="final-high-score-display" class="font-semibold"></span></p>
+            <div id="new-high-score-banner" class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5"
+                 data-translate="newHighScore"></div>
+            <p class="text-gray-500 text-sm"><span data-translate="currentHighScoreLabel"></span> <span
+                    id="final-high-score-display" class="font-semibold"></span></p>
             <div class="mt-6 flex flex-col gap-3">
-                <button id="play-again-button" data-translate="playAgain" class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl"></button>
-                <button id="change-level-button" data-translate="changeLevel" class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl"></button>
+                <button id="play-again-button" data-translate="playAgain"
+                        class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl"></button>
+                <button id="change-level-button" data-translate="changeLevel"
+                        class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl"></button>
             </div>
         </div>
     </div>
@@ -204,6 +278,7 @@
     let isAcceptingInput = false, currentCorrectAnswer = '', timerInterval, highScores = {};
     let usedQuestions = new Set();
     let mistakes = [];
+    let nextProblemTimeoutId = null;
 
     // --- Language Functions ---
     function setLanguage(lang) {
@@ -330,6 +405,10 @@
 
     // --- Game Flow ---
     function startGame() {
+        if (nextProblemTimeoutId) {
+            clearTimeout(nextProblemTimeoutId);
+            nextProblemTimeoutId = null;
+        }
         if (allCountries.length === 0) return;
         currentProblemNumber = 0;
         correctAnswers = 0;
@@ -462,7 +541,7 @@
             const btnValue = btn.dataset.value;
             if (btnValue === currentCorrectAnswer) {
                 correctButton = btn;
-                btn.className = btn.className.replace(/bg-gray-100|hover:bg-gray-200/g, 'bg-green-500 text-white');
+                btn.className = btn.className.replace(/bg-gray-100|hover:bg-gray-200/g, 'bg-green-500 text-white hover:bg-green-600');
             } else if (btn === selectedButton) {
                 btn.className = btn.className.replace(/bg-gray-100|hover:bg-gray-200/g, 'bg-red-500 text-white');
             }
@@ -484,10 +563,30 @@
         feedbackTextEl.classList.toggle('text-green-600', isCorrect);
         feedbackTextEl.classList.toggle('text-red-600', !isCorrect);
 
-        setTimeout(newProblem, 2500);
+        if (currentProblemNumber >= TOTAL_PROBLEMS) {
+            setTimeout(endGame, 2500);
+        } else {
+            nextProblemTimeoutId = setTimeout(newProblem, 60000); // 1 minute
+
+            if (correctButton) {
+                correctButton.disabled = false;
+                correctButton.onclick = () => {
+                    if (nextProblemTimeoutId) {
+                        clearTimeout(nextProblemTimeoutId);
+                        nextProblemTimeoutId = null;
+                    }
+                    correctButton.disabled = true;
+                    newProblem();
+                };
+            }
+        }
     }
 
     function endGame() {
+        if (nextProblemTimeoutId) {
+            clearTimeout(nextProblemTimeoutId);
+            nextProblemTimeoutId = null;
+        }
         gameView.classList.add('hidden');
         resultsView.classList.remove('hidden');
         highScoresTableContainer.classList.remove('hidden');
@@ -504,7 +603,14 @@
         const rect = button.getBoundingClientRect();
         const x = (rect.left + rect.right) / 2 / window.innerWidth;
         const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
-        confetti({ particleCount: 40, spread: 50, origin: { x, y }, scalar: 0.8, ticks: 150, disableForReducedMotion: true });
+        confetti({
+            particleCount: 40,
+            spread: 50,
+            origin: {x, y},
+            scalar: 0.8,
+            ticks: 150,
+            disableForReducedMotion: true
+        });
     }
 
     function startTimer(questionCountry) {
@@ -533,14 +639,22 @@
     }
 
     // --- Storage Functions (High Scores & Mistakes) ---
-    function loadHighScores() { highScores = JSON.parse(localStorage.getItem('flagHighScores')) || {}; }
-    function loadMistakes() { mistakes = JSON.parse(localStorage.getItem('flagMistakes')) || []; }
-    function saveMistakes() { localStorage.setItem('flagMistakes', JSON.stringify(mistakes)); }
+    function loadHighScores() {
+        highScores = JSON.parse(localStorage.getItem('flagHighScores')) || {};
+    }
+
+    function loadMistakes() {
+        mistakes = JSON.parse(localStorage.getItem('flagMistakes')) || [];
+    }
+
+    function saveMistakes() {
+        localStorage.setItem('flagMistakes', JSON.stringify(mistakes));
+    }
 
     function checkAndSaveHighScore() {
-        const levelHighScore = highScores[currentLevel] || { accuracy: 0, time: Infinity };
+        const levelHighScore = highScores[currentLevel] || {accuracy: 0, time: Infinity};
         if (correctAnswers > levelHighScore.accuracy || (correctAnswers === levelHighScore.accuracy && totalTimeElapsed < levelHighScore.time)) {
-            highScores[currentLevel] = { accuracy: correctAnswers, time: totalTimeElapsed };
+            highScores[currentLevel] = {accuracy: correctAnswers, time: totalTimeElapsed};
             localStorage.setItem('flagHighScores', JSON.stringify(highScores));
             newHighScoreBanner.classList.remove('hidden');
         }
