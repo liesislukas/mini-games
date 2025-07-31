@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" class="dark">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8JGRCWJN8F"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-8JGRCWJN8F');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xylophone Fun</title>
@@ -13,9 +22,6 @@
 
     <!-- Tone.js for audio synthesis -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
-
-    <!-- ml5.js for Pitch Detection -->
-    <script src="https://unpkg.com/ml5@0.9.0/dist/ml5.min.js"></script>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
@@ -32,11 +38,6 @@
             justify-content: center;
             align-items: flex-end;
             padding-bottom: 1rem;
-        }
-
-        .xylophone-key.disabled {
-            cursor: not-allowed;
-            opacity: 0.7;
         }
 
         .xylophone-key.active {
@@ -70,22 +71,10 @@
         }
 
         @keyframes fadeInOut {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            20% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            80% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
+            0% { opacity: 0; transform: translateY(20px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
         }
 
         select {
@@ -106,19 +95,16 @@
         .modal-overlay {
             transition: opacity 0.2s ease-in-out;
         }
-    </style>
-    <script>
-        function requestMicAccess() {
-            navigator.mediaDevices.getUserMedia({audio: true})
-                .then(function (stream) {
-                    console.log('Microphone access granted.');
-                    // You can now use the audio stream
-                })
-                .catch(function (err) {
-                    console.error('Microphone access denied:', err);
-                });
+
+        /* Custom class to hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-    </script>
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
 </head>
 <body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex flex-col items-center justify-center min-h-screen p-4">
 
@@ -133,8 +119,13 @@
     <div id="note-guide"
          class="flex flex-wrap justify-center items-center gap-x-2 md:gap-x-4 h-auto min-h-[4rem] mb-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md"></div>
 
-    <div id="xylophone"
-         class="flex flex-col md:flex-row justify-center items-center md:items-end md:space-x-2 space-y-2 md:space-y-0 p-4"></div>
+    <!-- Xylophone Container with horizontal scrolling -->
+    <div class="w-full overflow-x-auto no-scrollbar">
+        <div id="xylophone" class="inline-flex justify-center items-end space-x-2 p-4">
+            <!-- Xylophone keys will be dynamically inserted here -->
+        </div>
+    </div>
+
 
     <div class="mt-8 flex justify-center items-center space-x-4">
         <button id="autoplay-btn"
@@ -145,17 +136,6 @@
                 class="px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75">
             <i class="fas fa-undo mr-2"></i> Reset Song
         </button>
-    </div>
-
-    <!-- Microphone Controls -->
-    <div id="mic-controls" class="mt-6 p-4 bg-white dark:bg-gray-800 rounded-xl shadow-md">
-        <button
-                onclick="requestMicAccess()"
-                id="mic-btn"
-                class="px-6 py-3 bg-teal-500 hover:bg-teal-600 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105">
-            <i class="fas fa-microphone-alt mr-2"></i> Listen with Mic
-        </button>
-        <div id="mic-status" class="mt-2 text-gray-600 dark:text-gray-400 h-6">Mic is off</div>
     </div>
 
     <div id="progress-tracker" class="mt-8 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
@@ -196,8 +176,6 @@
             noteGuide: document.getElementById('note-guide'),
             autoplayBtn: document.getElementById('autoplay-btn'),
             resetBtn: document.getElementById('reset-btn'),
-            micBtn: document.getElementById('mic-btn'),
-            micStatus: document.getElementById('mic-status'),
             songSelector: document.getElementById('song-selector'),
             subtitle: document.getElementById('subtitle'),
             songsCompleted: document.getElementById('songs-completed'),
@@ -210,14 +188,11 @@
             modalCancelBtn: document.getElementById('modal-cancel-btn'),
         };
 
-        // --- Audio & Pitch Detection ---
+        // --- Audio Synthesis ---
         const synth = new Tone.Synth({
             oscillator: {type: 'sine'},
             envelope: {attack: 0.01, decay: 0.1, sustain: 0.3, release: 0.5}
         }).toDestination();
-        let pitch;
-        let audioContext;
-        let mic;
 
         // --- Game Data ---
         const songs = [
@@ -226,34 +201,19 @@
                 notes: ['C4', 'C4', 'D4', 'C4', 'F4', 'E4', 'C4', 'C4', 'D4', 'C4', 'G4', 'F4', 'C4', 'C4', 'C5', 'A4', 'F4', 'E4', 'D4', 'Bb4', 'Bb4', 'A4', 'F4', 'G4', 'F4']
             },
             {
-                name: "Twinkle Twinkle",
+                name: "Twinkle Twinkle Little Star",
                 notes: ['C4', 'C4', 'G4', 'G4', 'A4', 'A4', 'G4', 'F4', 'F4', 'E4', 'E4', 'D4', 'D4', 'C4', 'G4', 'G4', 'F4', 'F4', 'E4', 'E4', 'D4', 'G4', 'G4', 'F4', 'F4', 'E4', 'E4', 'D4', 'C4', 'C4', 'G4', 'G4', 'A4', 'A4', 'G4', 'F4', 'F4', 'E4', 'E4', 'D4', 'D4', 'C4']
             }
         ];
-        const noteFrequencies = {
-            'C4': 261.63,
-            'D4': 293.66,
-            'E4': 329.63,
-            'F4': 349.23,
-            'G4': 392.00,
-            'A4': 440.00,
-            'Bb4': 466.16,
-            'C5': 523.25
-        };
         const xylophoneKeysData = [
-            {note: 'C4', color: 'bg-red-500', height: 'h-48'}, {
-                note: 'D4',
-                color: 'bg-orange-500',
-                height: 'h-44'
-            }, {note: 'E4', color: 'bg-yellow-400', height: 'h-40'}, {
-                note: 'F4',
-                color: 'bg-green-500',
-                height: 'h-36'
-            }, {note: 'G4', color: 'bg-teal-500', height: 'h-32'}, {
-                note: 'A4',
-                color: 'bg-blue-500',
-                height: 'h-28'
-            }, {note: 'Bb4', color: 'bg-indigo-500', height: 'h-24'}, {note: 'C5', color: 'bg-pink-500', height: 'h-20'}
+            {note: 'C4', color: 'bg-red-500', height: 'h-48'},
+            {note: 'D4', color: 'bg-orange-500', height: 'h-44'},
+            {note: 'E4', color: 'bg-yellow-400', height: 'h-40'},
+            {note: 'F4', color: 'bg-green-500', height: 'h-36'},
+            {note: 'G4', color: 'bg-teal-500', height: 'h-32'},
+            {note: 'A4', color: 'bg-blue-500', height: 'h-28'},
+            {note: 'Bb4', color: 'bg-indigo-500', height: 'h-24'},
+            {note: 'C5', color: 'bg-pink-500', height: 'h-20'}
         ];
 
         // --- Game State ---
@@ -261,8 +221,6 @@
             currentSong: songs[0],
             currentNoteIndex: 0,
             isAutoplaying: false,
-            isListening: false,
-            lastDetectedNote: null,
             progress: {songsCompleted: 0, notesHit: 0},
         };
         const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -297,7 +255,7 @@
         function handleNoteInput(note) {
             if (state.isAutoplaying) return;
 
-            if (!state.isListening) playNote(note);
+            playNote(note);
 
             if (note === state.currentSong.notes[state.currentNoteIndex]) {
                 state.progress.notesHit++;
@@ -324,16 +282,15 @@
             xylophoneKeysData.forEach(keyData => {
                 const keyElement = document.createElement('div');
                 keyElement.dataset.note = keyData.note;
-                keyElement.className = `xylophone-key w-16 md:w-12 ${keyData.height} ${keyData.color} rounded-lg shadow-lg border-b-8 border-black/20`;
+                // Added flex-shrink-0 to prevent keys from shrinking
+                keyElement.className = `xylophone-key w-16 flex-shrink-0 ${keyData.height} ${keyData.color} rounded-lg shadow-lg border-b-8 border-black/20`;
 
                 const label = document.createElement('span');
                 label.className = 'key-label';
                 label.textContent = keyData.note.slice(0, -1).replace('b', '♭');
                 keyElement.appendChild(label);
 
-                keyElement.addEventListener('click', () => {
-                    if (!state.isListening) handleNoteInput(keyData.note);
-                });
+                keyElement.addEventListener('click', () => handleNoteInput(keyData.note));
                 appElements.xylophone.appendChild(keyElement);
             });
         }
@@ -357,87 +314,11 @@
             }
         }
 
-        async function setupMicrophone() {
-            try {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-                await audioContext.resume(); // Resume context on user gesture
-                mic = new p5.AudioIn();
-                await new Promise((resolve, reject) => mic.start(resolve, reject));
-                const modelURL = 'https://cdn.jsdelivr.net/gh/ml5js/ml5-data-and-models/models/pitch-detection/crepe/';
-                pitch = ml5.pitchDetection(modelURL, audioContext, mic.stream, modelLoaded);
-            } catch (err) {
-                appElements.micStatus.textContent = "Mic access failed.";
-                console.error("Error setting up microphone:", err);
-            }
-        }
-
-        function modelLoaded() {
-            appElements.micStatus.textContent = 'Listening...';
-            getPitch();
-        }
-
-        function getPitch() {
-            if (!state.isListening) return;
-            pitch.getPitch((err, frequency) => {
-                if (err) console.error(err);
-                if (frequency) {
-                    const detectedNote = frequencyToNote(frequency);
-                    if (detectedNote) {
-                        appElements.micStatus.textContent = `Heard: ${detectedNote}`;
-                        if (detectedNote !== state.lastDetectedNote) {
-                            handleNoteInput(detectedNote);
-                            state.lastDetectedNote = detectedNote;
-                            setTimeout(() => {
-                                state.lastDetectedNote = null;
-                            }, 500);
-                        }
-                    }
-                }
-                requestAnimationFrame(getPitch);
-            });
-        }
-
-        function frequencyToNote(frequency) {
-            let closestNote = null;
-            let smallestDifference = Infinity;
-            for (const note in noteFrequencies) {
-                const difference = Math.abs(frequency - noteFrequencies[note]);
-                if (difference < smallestDifference) {
-                    smallestDifference = difference;
-                    closestNote = note;
-                }
-            }
-            return smallestDifference < 30 ? closestNote : null;
-        }
-
-        function toggleListening() {
-            state.isListening = !state.isListening;
-            if (state.isListening) {
-                appElements.micBtn.innerHTML = '<i class="fas fa-microphone-alt-slash mr-2"></i> Stop Listening';
-                appElements.micBtn.classList.replace('bg-teal-500', 'bg-red-500');
-                appElements.micBtn.classList.replace('hover:bg-teal-600', 'hover:bg-red-600');
-                document.querySelectorAll('.xylophone-key').forEach(k => k.classList.add('disabled'));
-                if (!pitch) {
-                    appElements.micStatus.textContent = 'Starting mic...';
-                    setupMicrophone();
-                } else {
-                    getPitch();
-                }
-            } else {
-                appElements.micBtn.innerHTML = '<i class="fas fa-microphone-alt mr-2"></i> Listen with Mic';
-                appElements.micBtn.classList.replace('bg-red-500', 'bg-teal-500');
-                appElements.micBtn.classList.replace('hover:bg-red-600', 'hover:bg-teal-600');
-                appElements.micStatus.textContent = 'Mic is off';
-                document.querySelectorAll('.xylophone-key').forEach(k => k.classList.remove('disabled'));
-            }
-        }
-
         async function autoplaySong() {
-            if (state.isAutoplaying || state.isListening) return;
+            if (state.isAutoplaying) return;
             state.isAutoplaying = true;
             appElements.autoplayBtn.disabled = true;
             appElements.resetBtn.disabled = true;
-            appElements.micBtn.disabled = true;
 
             await Tone.start();
 
@@ -453,7 +334,6 @@
             state.isAutoplaying = false;
             appElements.autoplayBtn.disabled = false;
             appElements.resetBtn.disabled = false;
-            appElements.micBtn.disabled = false;
             resetSong();
         }
 
@@ -506,7 +386,6 @@
         appElements.autoplayBtn.addEventListener('click', autoplaySong);
         appElements.resetBtn.addEventListener('click', resetSong);
         appElements.songSelector.addEventListener('change', (e) => loadSong(e.target.value));
-        appElements.micBtn.addEventListener('click', toggleListening);
         appElements.resetProgressBtn.addEventListener('click', () => {
             showConfirmationModal("Reset all progress? This cannot be undone.", () => {
                 state.progress = {songsCompleted: 0, notesHit: 0};
