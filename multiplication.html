@@ -205,19 +205,17 @@
         const nums = LEVEL_NUMBERS[currentLevel];
 
         let num1, num2, problemKey;
-        let attempts = 0; // MODIFIED: Add an escape hatch counter
+        let attempts = 0;
 
         do {
-            // MODIFIED: If we get stuck in a loop, reset the rules to prevent a freeze
             if (attempts++ > 100) {
                 console.warn("Problem generation stuck, resetting constraints.");
                 usedProblems.clear();
+                zeroProblemCount = 0;
             }
-
             num1 = nums[Math.floor(Math.random() * nums.length)];
             num2 = nums[Math.floor(Math.random() * nums.length)];
             problemKey = [Math.min(num1, num2), Math.max(num1, num2)].join(',');
-
         } while (usedProblems.has(problemKey) || ((num1 === 0 || num2 === 0) && zeroProblemCount >= 2));
 
         if (num1 === 0 || num2 === 0) {
@@ -229,15 +227,43 @@
         currentCorrectAnswer = num1 * num2;
         problemEl.textContent = `${num1} × ${num2}`;
 
+        // --- MODIFIED: Smart answer generation ---
         const options = new Set([currentCorrectAnswer]);
-        while (options.size < 5) {
-            const offset = (Math.floor(Math.random() * 21) - 10) || 1;
-            const wrong = currentCorrectAnswer + offset;
-            // Ensure wrong answer isn't 0 unless the correct answer is also 0
-            if (wrong !== currentCorrectAnswer && (wrong > 0 || currentCorrectAnswer === 0) ) {
-                options.add(wrong);
-            }
+        const distractors = new Set();
+
+        // Strategy 1: "Off-by-one" operand errors
+        if (num1 > 0) distractors.add((num1 - 1) * num2);
+        distractors.add((num1 + 1) * num2);
+        if (num2 > 0) distractors.add(num1 * (num2 - 1));
+        distractors.add(num1 * (num2 + 1));
+
+        // Strategy 2: Add/subtract 10
+        distractors.add(currentCorrectAnswer + 10);
+        if (currentCorrectAnswer >= 10) distractors.add(currentCorrectAnswer - 10);
+
+        // Clean up the generated distractors
+        distractors.delete(currentCorrectAnswer);
+
+        const finalDistractors = Array.from(distractors)
+            .filter(d => d >= 0) // Ensure all are non-negative
+            .sort(() => Math.random() - 0.5);
+
+        // Add the best distractors to the options
+        for (const d of finalDistractors) {
+            if (options.size < 5) options.add(d);
         }
+
+        // Fallback: If we still don't have 5 options, add random nearby values
+        let fallbackAttempts = 0;
+        while (options.size < 5 && fallbackAttempts < 20) {
+            const offset = Math.floor(Math.random() * 10) + 1; // 1 to 10
+            const randomOption = currentCorrectAnswer + (Math.random() < 0.5 ? offset : -offset);
+            if (randomOption >= 0 && !options.has(randomOption)) {
+                options.add(randomOption);
+            }
+            fallbackAttempts++;
+        }
+        // --- End of modification ---
 
         Array.from(options).sort(() => Math.random() - 0.5).forEach((opt, i) => {
             const btn = document.createElement('button');
