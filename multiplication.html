@@ -139,12 +139,15 @@
     const TOTAL_PROBLEMS = 20;
     const TIME_PER_QUESTION = 5;
     const LEVEL_NUMBERS = {
-        easy: [2, 3, 4], mid: [3, 5, 9, 10], hard: [4, 6, 7, 8, 9], full: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        easy: [2, 3, 4, 10],
+        mid: [3, 4, 5, 9, 10],
+        hard: [4, 6, 7, 8, 9],
+        full: [2, 3, 4, 5, 6, 7, 8, 9, 10]
     };
 
     let currentLevel = 'easy', currentProblemNumber = 0, correctAnswers = 0, totalTimeElapsed = 0;
     let isAcceptingInput = false, currentCorrectAnswer = 0, timerInterval, highScores = {};
-    let usedProblems; // MODIFIED: To track used problems
+    let usedProblems;
 
     // --- Game Flow & Initialization ---
     function init() {
@@ -175,7 +178,7 @@
         currentProblemNumber = 0;
         correctAnswers = 0;
         totalTimeElapsed = 0;
-        usedProblems = new Set(); // MODIFIED: Reset used problems for the new game
+        usedProblems = new Set();
         levelSelectionView.classList.add('hidden');
         resultsView.classList.add('hidden');
         newHighScoreBanner.classList.add('hidden');
@@ -197,12 +200,10 @@
         progressEl.textContent = `${currentProblemNumber}/${TOTAL_PROBLEMS}`;
         timerEl.classList.remove('text-red-500', 'font-extrabold');
 
-        // --- MODIFIED: Logic to generate a unique problem ---
         const nums = LEVEL_NUMBERS[currentLevel];
         const n = nums.length;
-        const possibleCombinations = (n * (n + 1)) / 2; // Unique combinations with replacement
+        const possibleCombinations = (n * (n + 1)) / 2;
 
-        // If all unique problems for the level have been used, clear the set to allow repeats.
         if (usedProblems.size >= possibleCombinations) {
             usedProblems.clear();
         }
@@ -211,12 +212,10 @@
         do {
             num1 = nums[Math.floor(Math.random() * nums.length)];
             num2 = nums[Math.floor(Math.random() * nums.length)];
-            // Create a consistent key (e.g., "2,3" for both 2x3 and 3x2) to avoid duplicates
             problemKey = [Math.min(num1, num2), Math.max(num1, num2)].join(',');
         } while (usedProblems.has(problemKey));
 
         usedProblems.add(problemKey);
-        // --- End of modification ---
 
         currentCorrectAnswer = num1 * num2;
         problemEl.textContent = `${num1} × ${num2}`;
@@ -266,7 +265,6 @@
             }
         });
 
-        // Trigger confetti on ~20% of correct answers
         if (isCorrect && Math.random() < 0.2) {
             triggerConfetti(correctButton);
         }
