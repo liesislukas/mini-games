@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xylophone Fun</title>
+
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Tone.js for audio synthesis -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.7.77/Tone.js"></script>
+
+    <style>
+        /* Custom styles for a more polished look */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            -webkit-tap-highlight-color: transparent; /* Disable tap highlight on mobile */
+        }
+        .xylophone-key {
+            transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.1s ease;
+            cursor: pointer;
+        }
+        .xylophone-key.active {
+            transform: scale(0.95) translateY(4px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .note-guide-item.current {
+            transform: scale(1.2);
+            color: #3b82f6; /* A bright blue for the current note */
+        }
+        .dark .note-guide-item.current {
+            color: #60a5fa;
+        }
+        .note-guide-item {
+            transition: transform 0.2s ease-in-out, color 0.2s ease-in-out;
+        }
+        .success-message {
+            animation: fadeInOut 3s forwards;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            20% { opacity: 1; transform: translateY(0); }
+            80% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 flex flex-col items-center justify-center min-h-screen p-4">
+
+<div id="app" class="w-full max-w-4xl mx-auto text-center">
+    <!-- Header -->
+    <h1 class="text-4xl md:text-5xl font-bold mb-2">Xylophone Fun</h1>
+    <p class="text-lg text-gray-600 dark:text-gray-400 mb-6">Learn to play "Happy Birthday"</p>
+
+    <!-- Note Guide -->
+    <div id="note-guide" class="flex justify-center items-center space-x-2 md:space-x-4 h-16 mb-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-md">
+        <!-- Notes will be dynamically inserted here -->
+    </div>
+
+    <!-- Xylophone -->
+    <div id="xylophone" class="flex flex-col md:flex-row justify-center items-center md:items-end md:space-x-2 space-y-2 md:space-y-0 p-4">
+        <!-- Xylophone keys will be dynamically inserted here -->
+    </div>
+
+    <!-- Controls -->
+    <div class="mt-8 flex justify-center items-center space-x-4">
+        <button id="autoplay-btn" class="px-6 py-3 bg-blue-500 hover:bg-blue-600 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
+            <i class="fas fa-play mr-2"></i> Play Song
+        </button>
+        <button id="reset-btn" class="px-6 py-3 bg-gray-600 hover:bg-gray-700 text-white font-semibold rounded-lg shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-75">
+            <i class="fas fa-undo mr-2"></i> Reset
+        </button>
+    </div>
+
+    <!-- Success Message Placeholder -->
+    <div id="success-message" class="fixed top-1/4 left-1/2 -translate-x-1/2 text-2xl font-bold bg-green-500 text-white px-8 py-4 rounded-xl shadow-lg opacity-0" style="pointer-events: none;">
+        Great Job! 🎉
+    </div>
+
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- DOM Elements ---
+        const xylophoneContainer = document.getElementById('xylophone');
+        const noteGuideContainer = document.getElementById('note-guide');
+        const autoplayBtn = document.getElementById('autoplay-btn');
+        const resetBtn = document.getElementById('reset-btn');
+        const successMessage = document.getElementById('success-message');
+
+        // --- Audio Setup (Tone.js) ---
+        // Create a simple synth to play notes.
+        const synth = new Tone.Synth({
+            oscillator: { type: 'sine' },
+            envelope: { attack: 0.01, decay: 0.1, sustain: 0.3, release: 0.5 }
+        }).toDestination();
+
+        // --- Game State & Data ---
+        const song = {
+            name: "Happy Birthday",
+            notes: [
+                'C4', 'C4', 'D4', 'C4', 'F4', 'E4', // Happy birth-day to you
+                'C4', 'C4', 'D4', 'C4', 'G4', 'F4', // Happy birth-day to you
+                'C4', 'C4', 'C5', 'A4', 'F4', 'E4', 'D4', // Happy birth-day dear...
+                'Bb4', 'Bb4', 'A4', 'F4', 'G4', 'F4'  // Happy birth-day to you
+            ]
+        };
+
+        // The notes available on our xylophone.
+        const xylophoneKeysData = [
+            { note: 'C4', color: 'bg-red-500', height: 'h-48' },
+            { note: 'D4', color: 'bg-orange-500', height: 'h-44' },
+            { note: 'E4', color: 'bg-yellow-400', height: 'h-40' },
+            { note: 'F4', color: 'bg-green-500', height: 'h-36' },
+            { note: 'G4', color: 'bg-teal-500', height: 'h-32' },
+            { note: 'A4', color: 'bg-blue-500', height: 'h-28' },
+            { note: 'Bb4', color: 'bg-indigo-500', height: 'h-24' },
+            { note: 'B4', color: 'bg-purple-500', height: 'h-24' },
+            { note: 'C5', color: 'bg-pink-500', height: 'h-20' }
+        ];
+
+        let currentNoteIndex = 0;
+        let isAutoplaying = false;
+
+        // --- Functions ---
+
+        /**
+         * Plays a musical note and provides visual feedback on the key.
+         * @param {string} note - The note to play (e.g., 'C4').
+         * @param {string} duration - The duration of the note (e.g., '8n').
+         */
+        function playNote(note, duration = '8n') {
+            if (Tone.context.state !== 'running') {
+                Tone.context.resume();
+            }
+            synth.triggerAttackRelease(note, duration);
+
+            const keyElement = document.querySelector(`.xylophone-key[data-note="${note}"]`);
+            if (keyElement) {
+                keyElement.classList.add('active');
+                setTimeout(() => keyElement.classList.remove('active'), 200);
+            }
+        }
+
+        /**
+         * Renders the xylophone keys on the page.
+         */
+        function setupXylophone() {
+            xylophoneContainer.innerHTML = ''; // Clear existing keys
+            xylophoneKeysData.forEach(keyData => {
+                const keyElement = document.createElement('div');
+                keyElement.dataset.note = keyData.note;
+                keyElement.className = `xylophone-key w-16 md:w-12 ${keyData.height} ${keyData.color} rounded-lg shadow-lg border-b-8 border-black/20`;
+
+                // Add event listener for user interaction
+                keyElement.addEventListener('click', () => handleKeyPress(keyData.note));
+
+                xylophoneContainer.appendChild(keyElement);
+            });
+        }
+
+        /**
+         * Renders the notes for the current song in the guide area.
+         */
+        function renderNoteGuide() {
+            noteGuideContainer.innerHTML = ''; // Clear existing guide
+            song.notes.forEach((note, index) => {
+                const noteElement = document.createElement('div');
+                noteElement.textContent = note.replace('4', '').replace('5', "'"); // Simplify display name
+                noteElement.id = `note-guide-${index}`;
+                noteElement.className = 'note-guide-item text-xl md:text-2xl font-semibold text-gray-400 dark:text-gray-500';
+                noteGuideContainer.appendChild(noteElement);
+            });
+            highlightCurrentNote();
+        }
+
+        /**
+         * Highlights the current note the user needs to play.
+         */
+        function highlightCurrentNote() {
+            // Remove previous highlight
+            document.querySelectorAll('.note-guide-item.current').forEach(el => el.classList.remove('current'));
+
+            // Add new highlight
+            if (currentNoteIndex < song.notes.length) {
+                const currentNoteElement = document.getElementById(`note-guide-${currentNoteIndex}`);
+                if (currentNoteElement) {
+                    currentNoteElement.classList.add('current');
+                }
+            }
+        }
+
+        /**
+         * Handles the user clicking on a xylophone key.
+         * @param {string} pressedNote - The note of the key the user pressed.
+         */
+        function handleKeyPress(pressedNote) {
+            if (isAutoplaying) return; // Ignore clicks during autoplay
+
+            playNote(pressedNote);
+
+            if (pressedNote === song.notes[currentNoteIndex]) {
+                currentNoteIndex++;
+                highlightCurrentNote();
+
+                if (currentNoteIndex >= song.notes.length) {
+                    // Song finished!
+                    successMessage.classList.add('success-message');
+                    setTimeout(() => {
+                        successMessage.classList.remove('success-message');
+                        resetGame();
+                    }, 3000);
+                }
+            } else if (currentNoteIndex < song.notes.length) {
+                // Wrong note - maybe add a subtle shake or sound effect in the future
+                console.log("Wrong note!");
+            }
+        }
+
+        /**
+         * Automatically plays the song with visual cues.
+         */
+        async function autoplaySong() {
+            if (isAutoplaying) return;
+            isAutoplaying = true;
+            autoplayBtn.disabled = true;
+            autoplayBtn.classList.add('opacity-50', 'cursor-not-allowed');
+
+            // Ensure Tone.js is started
+            await Tone.start();
+
+            let time = Tone.now();
+            song.notes.forEach((note, index) => {
+                // Schedule the note to be played
+                Tone.Transport.scheduleOnce(t => {
+                    playNote(note, '4n');
+                    // Highlight the note in the guide as it plays
+                    document.querySelectorAll('.note-guide-item.current').forEach(el => el.classList.remove('current'));
+                    const noteElement = document.getElementById(`note-guide-${index}`);
+                    if (noteElement) noteElement.classList.add('current');
+
+                }, time);
+                time += 0.5; // Advance time for the next note
+            });
+
+            // Schedule the end of autoplay
+            Tone.Transport.scheduleOnce(() => {
+                isAutoplaying = false;
+                autoplayBtn.disabled = false;
+                autoplayBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                resetGame();
+            }, time);
+
+            Tone.Transport.start();
+        }
+
+        /**
+         * Resets the game to the beginning of the song.
+         */
+        function resetGame() {
+            currentNoteIndex = 0;
+            highlightCurrentNote();
+            Tone.Transport.stop();
+            Tone.Transport.cancel();
+        }
+
+        // --- Initialization ---
+        setupXylophone();
+        renderNoteGuide();
+        resetGame();
+
+        // --- Event Listeners ---
+        autoplayBtn.addEventListener('click', autoplaySong);
+        resetBtn.addEventListener('click', resetGame);
+    });
+</script>
+</body>
+</html>
