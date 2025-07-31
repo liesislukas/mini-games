@@ -13,22 +13,15 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
         .btn {
             transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
         }
-
         .btn:active, .option-button.active-key {
             transform: scale(0.98);
         }
-
         @keyframes score-pop-animation {
-            50% {
-                transform: scale(1.3);
-                color: #2563eb;
-            }
+            50% { transform: scale(1.3); color: #2563eb; }
         }
-
         .score-pop {
             animation: score-pop-animation 0.3s ease-in-out;
         }
@@ -40,9 +33,7 @@
     <div class="w-full max-w-md pb-4">
         <div class="flex justify-between items-center">
             <div class="pl-1">
-                <a href="https://liesislukas.github.io/mini-games/" class="p-2"><i class="fas fa-arrow-left"></i></a>
-            </div>
-            <div class="flex justify-end gap-x-3 mb-2 px-2">
+                <a href="https://liesislukas.github.io/mini-games/" class="p-2 text-gray-500 hover:text-gray-800"><i class="fas fa-arrow-left"></i></a>
             </div>
         </div>
     </div>
@@ -51,22 +42,10 @@
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
             <h1 class="text-2xl font-bold text-gray-800 mb-6">Select a Level</h1>
             <div class="grid grid-cols-1 gap-4">
-                <button data-level="easy"
-                        class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl">Easy
-                    (Sums up to 10)
-                </button>
-                <button data-level="mid"
-                        class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl">Mid (Sums
-                    up to 20)
-                </button>
-                <button data-level="hard"
-                        class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl">Hard (Sums
-                    up to 100)
-                </button>
-                <button data-level="max"
-                        class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl">Max (Sums
-                    up to 1000)
-                </button>
+                <button data-level="easy" class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl">Easy (Sums up to 10)</button>
+                <button data-level="mid" class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl">Mid (Sums up to 20)</button>
+                <button data-level="hard" class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl">Hard (Sums up to 100)</button>
+                <button data-level="max" class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl">Max (Sums up to 1000)</button>
             </div>
         </div>
     </div>
@@ -85,8 +64,7 @@
             <div class="mt-6 h-7"><p id="feedback-text" class="text-lg font-medium"></p></div>
         </div>
         <div class="text-center mt-4 text-gray-500 text-sm">
-            High Score (<span id="game-level-display" class="capitalize"></span>): <span id="high-score-display"
-                                                                                         class="font-semibold"></span>
+            High Score (<span id="game-level-display" class="capitalize"></span>): <span id="high-score-display" class="font-semibold"></span>
         </div>
     </div>
 
@@ -98,25 +76,19 @@
                 <div class="text-4xl font-bold text-blue-600"><span id="final-score">0</span> / 20</div>
                 <div class="text-sm text-gray-500 mt-1">Total Time: <span id="final-time">0.0</span>s</div>
             </div>
-            <div id="new-high-score-banner"
-                 class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5">🎉 New High Score!
-            </div>
-            <p class="text-gray-500 text-sm">Current High Score: <span id="final-high-score-display"
-                                                                       class="font-semibold"></span></p>
+            <div id="new-high-score-banner" class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5">🎉 New High Score!</div>
+            <p class="text-gray-500 text-sm">Current High Score: <span id="final-high-score-display" class="font-semibold"></span></p>
             <div class="mt-6 flex flex-col gap-3">
-                <button id="play-again-button"
-                        class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl">Play Again
-                </button>
-                <button id="change-level-button"
-                        class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl">Change
-                    Level
-                </button>
+                <button id="play-again-button" class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl">Play Again</button>
+                <button id="change-level-button" class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl">Change Level</button>
             </div>
         </div>
     </div>
 </main>
 
 <div id="high-scores-table-container" class="w-full max-w-md mt-8"></div>
+<div id="mistakes-table-container" class="w-full max-w-md mt-4"></div>
+
 
 <script>
     // --- DOM Elements ---
@@ -138,6 +110,8 @@
     const playAgainButton = document.getElementById('play-again-button');
     const changeLevelButton = document.getElementById('change-level-button');
     const highScoresTableContainer = document.getElementById('high-scores-table-container');
+    const mistakesTableContainer = document.getElementById('mistakes-table-container');
+
 
     // --- Game Constants & State ---
     const TOTAL_PROBLEMS = 20;
@@ -150,10 +124,11 @@
     };
     let currentLevel = 'easy', currentProblemNumber = 0, correctAnswers = 0, totalTimeElapsed = 0;
     let isAcceptingInput = false, currentCorrectAnswer = 0, timerInterval, highScores = {};
-    // --- NEW: A set to store problems that have already been asked in the current round ---
     let askedProblems;
+    let mistakes = [];
+    let problemQueue = [];
 
-    // --- NEW: Helper function to generate a random integer within a range (inclusive) ---
+    // --- Helper function ---
     function getRandomInt(min, max) {
         return Math.floor(Math.random() * (max - min + 1)) + min;
     }
@@ -161,11 +136,14 @@
     // --- Game Flow & Initialization ---
     function init() {
         loadHighScores();
+        loadMistakes();
         levelSelectionView.classList.remove('hidden');
         gameView.classList.add('hidden');
         resultsView.classList.add('hidden');
         highScoresTableContainer.classList.remove('hidden');
+        mistakesTableContainer.classList.remove('hidden');
         renderHighScoresTable();
+        renderMistakesTable();
 
         levelSelectionView.querySelectorAll('button').forEach(button => {
             button.onclick = () => {
@@ -176,9 +154,15 @@
         playAgainButton.addEventListener('click', startGame);
         changeLevelButton.addEventListener('click', init);
         document.addEventListener('keydown', handleKeyPress);
+
         highScoresTableContainer.addEventListener('click', (e) => {
             if (e.target.classList.contains('reset-score-btn')) {
                 resetHighScore(e.target.dataset.level);
+            }
+        });
+        mistakesTableContainer.addEventListener('click', (e) => {
+            if (e.target.id === 'clear-mistakes-btn') {
+                clearAllMistakes();
             }
         });
     }
@@ -187,13 +171,32 @@
         currentProblemNumber = 0;
         correctAnswers = 0;
         totalTimeElapsed = 0;
-        // --- NEW: Reset the set of asked problems at the start of each game ---
         askedProblems = new Set();
+
+        // --- UPDATED: Filter mistakes to match current level before creating queue ---
+        const { maxResult } = LEVEL_CONFIG[currentLevel];
+        const suitableMistakes = mistakes.filter(problemKey => {
+            const parts = problemKey.split(' ');
+            const num1 = parseInt(parts[0]);
+            const operation = parts[1];
+            // For subtraction, the first number must be within the level's max result.
+            // For addition, the sum (answer) must be within the level's max result.
+            if (operation === '−') {
+                return num1 <= maxResult;
+            } else { // operation is '+'
+                const num2 = parseInt(parts[2]);
+                return (num1 + num2) <= maxResult;
+            }
+        });
+
+        problemQueue = suitableMistakes.sort(() => Math.random() - 0.5);
+
         levelSelectionView.classList.add('hidden');
         resultsView.classList.add('hidden');
         newHighScoreBanner.classList.add('hidden');
         gameView.classList.remove('hidden');
         highScoresTableContainer.classList.add('hidden');
+        mistakesTableContainer.classList.add('hidden');
         updateHighScoreUI();
         newProblem();
     }
@@ -210,42 +213,45 @@
         progressEl.textContent = `${currentProblemNumber}/${TOTAL_PROBLEMS}`;
         timerEl.classList.remove('text-red-500', 'font-extrabold');
 
-        // --- UPDATED: Generate a unique Addition/Subtraction Problem ---
-        const {maxResult} = LEVEL_CONFIG[currentLevel];
+        const { maxResult } = LEVEL_CONFIG[currentLevel];
         let num1, num2, operation, answer, problemKey;
 
-        // Keep generating until a unique problem is found for this round.
-        do {
-            const isAddition = Math.random() > 0.5;
-            if (isAddition) {
-                operation = '+';
-                num1 = getRandomInt(1, maxResult - 1);
-                num2 = getRandomInt(1, maxResult - num1);
-                answer = num1 + num2;
-            } else { // Subtraction
-                operation = '−'; // Using the minus sign character for better display
-                num1 = getRandomInt(2, maxResult);
-                num2 = getRandomInt(1, num1 - 1);
-                answer = num1 - num2;
-            }
-            problemKey = `${num1} ${operation} ${num2}`;
-        } while (askedProblems.has(problemKey));
+        if (problemQueue.length > 0) {
+            problemKey = problemQueue.shift();
+            const parts = problemKey.split(' ');
+            num1 = parseInt(parts[0]);
+            operation = parts[1];
+            num2 = parseInt(parts[2]);
+            answer = operation === '+' ? num1 + num2 : num1 - num2;
+        } else {
+            do {
+                const isAddition = Math.random() > 0.5;
+                if (isAddition) {
+                    operation = '+';
+                    num1 = getRandomInt(1, maxResult - 1);
+                    num2 = getRandomInt(1, maxResult - num1);
+                    answer = num1 + num2;
+                } else {
+                    operation = '−';
+                    num1 = getRandomInt(2, maxResult);
+                    num2 = getRandomInt(1, num1 - 1);
+                    answer = num1 - num2;
+                }
+                problemKey = `${num1} ${operation} ${num2}`;
+            } while (askedProblems.has(problemKey));
+        }
 
-        askedProblems.add(problemKey); // Store the unique problem to prevent duplicates
-
+        askedProblems.add(problemKey);
         currentCorrectAnswer = answer;
         problemEl.textContent = problemKey;
-        // --- End of update ---
 
         const options = new Set([currentCorrectAnswer]);
         while (options.size < 5) {
-            // Generate wrong answers that are somewhat close to the correct one
-            const offset = (Math.floor(Math.random() * 11) - 5) || 1; // Random offset from -5 to 5, but not 0
+            const offset = (Math.floor(Math.random() * 11) - 5) || 1;
             const wrong = currentCorrectAnswer + offset;
             if (wrong >= 0) options.add(wrong);
         }
 
-        // Create and display option buttons
         Array.from(options).sort(() => Math.random() - 0.5).forEach((opt, i) => {
             const btn = document.createElement('button');
             btn.innerHTML = `<span class="text-gray-400 mr-2 text-sm">${i + 1}</span> ${opt}`;
@@ -262,18 +268,30 @@
         isAcceptingInput = false;
         clearInterval(timerInterval);
 
+        const problemKey = problemEl.textContent;
         const timeTaken = TIME_PER_QUESTION - (timerInterval ? parseFloat(timerEl.dataset.timeLeft) : 0);
         totalTimeElapsed += timeTaken;
         const isCorrect = selectedAnswer === currentCorrectAnswer;
 
-        let correctButton;
         if (isCorrect) {
             correctAnswers++;
-            // --- REMOVED: Sound play was here ---
             progressEl.classList.add('score-pop');
             setTimeout(() => progressEl.classList.remove('score-pop'), 300);
+
+            const mistakeIndex = mistakes.indexOf(problemKey);
+            if (mistakeIndex > -1) {
+                mistakes.splice(mistakeIndex, 1);
+                saveMistakes();
+            }
+
+        } else {
+            if (!mistakes.includes(problemKey)) {
+                mistakes.push(problemKey);
+                saveMistakes();
+            }
         }
 
+        let correctButton;
         optionsContainer.querySelectorAll('button').forEach(btn => {
             btn.disabled = true;
             const btnValue = parseInt(btn.dataset.value);
@@ -285,9 +303,7 @@
             }
         });
 
-        if (isCorrect && Math.random() < 0.2) {
-            triggerConfetti(correctButton);
-        }
+        if (isCorrect && Math.random() < 0.2) triggerConfetti(correctButton);
 
         feedbackTextEl.textContent = `Correct answer: ${currentCorrectAnswer}`;
         feedbackTextEl.classList.toggle('text-green-600', isCorrect);
@@ -300,25 +316,20 @@
         gameView.classList.add('hidden');
         resultsView.classList.remove('hidden');
         highScoresTableContainer.classList.remove('hidden');
+        mistakesTableContainer.classList.remove('hidden');
         finalScoreEl.textContent = correctAnswers;
         finalTimeEl.textContent = totalTimeElapsed.toFixed(1);
         resultsLevelEl.textContent = currentLevel;
         checkAndSaveHighScore();
+        renderMistakesTable();
     }
 
-    // --- Effects, High Scores, and Event Handlers ---
+    // --- Effects & Timers ---
     function triggerConfetti(button) {
         const rect = button.getBoundingClientRect();
         const x = (rect.left + rect.right) / 2 / window.innerWidth;
         const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
-        confetti({
-            particleCount: 40,
-            spread: 50,
-            origin: {x, y},
-            scalar: 0.8,
-            ticks: 150,
-            disableForReducedMotion: true
-        });
+        confetti({ particleCount: 40, spread: 50, origin: { x, y }, scalar: 0.8, ticks: 150, disableForReducedMotion: true });
     }
 
     function startTimer() {
@@ -338,14 +349,15 @@
         }, 100);
     }
 
+    // --- Data Management & Rendering ---
     function loadHighScores() {
         highScores = JSON.parse(localStorage.getItem('arithmeticHighScores')) || {};
     }
 
     function checkAndSaveHighScore() {
-        const levelHighScore = highScores[currentLevel] || {accuracy: 0, time: Infinity};
+        const levelHighScore = highScores[currentLevel] || { accuracy: 0, time: Infinity };
         if (correctAnswers > levelHighScore.accuracy || (correctAnswers === levelHighScore.accuracy && totalTimeElapsed < levelHighScore.time)) {
-            highScores[currentLevel] = {accuracy: correctAnswers, time: parseFloat(totalTimeElapsed.toFixed(1))};
+            highScores[currentLevel] = { accuracy: correctAnswers, time: parseFloat(totalTimeElapsed.toFixed(1)) };
             localStorage.setItem('arithmeticHighScores', JSON.stringify(highScores));
             newHighScoreBanner.classList.remove('hidden');
         }
@@ -362,6 +374,21 @@
         }
     }
 
+    function loadMistakes() {
+        mistakes = JSON.parse(localStorage.getItem('arithmeticMistakes')) || [];
+    }
+
+    function saveMistakes() {
+        localStorage.setItem('arithmeticMistakes', JSON.stringify(mistakes));
+    }
+
+    function clearAllMistakes() {
+        mistakes = [];
+        problemQueue = [];
+        saveMistakes();
+        renderMistakesTable();
+    }
+
     function updateHighScoreUI() {
         gameLevelDisplay.textContent = currentLevel;
         const levelHighScore = highScores[currentLevel];
@@ -372,30 +399,69 @@
 
     function renderHighScoresTable() {
         let tableHTML = `
-                <div class="bg-white p-4 rounded-2xl shadow-lg">
-                    <h3 class="text-center font-bold text-gray-700 mb-3">All High Scores</h3>
-                    <table class="w-full text-sm text-left">
-                        <thead class="text-xs text-gray-500 uppercase">
-                            <tr><th class="py-2 px-2">Level</th><th class="py-2 px-2">Score</th><th class="py-2 px-2">Action</th></tr>
-                        </thead>
-                        <tbody>`;
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+                <h3 class="text-center font-bold text-gray-700 mb-3">All High Scores</h3>
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs text-gray-500 uppercase">
+                        <tr><th class="py-2 px-2">Level</th><th class="py-2 px-2">Score</th><th class="py-2 px-2">Action</th></tr>
+                    </thead>
+                    <tbody>`;
         for (const level of Object.keys(LEVEL_CONFIG)) {
             const score = highScores[level];
             const scoreText = score ? `${score.accuracy}/${TOTAL_PROBLEMS} in ${score.time.toFixed(1)}s` : 'N/A';
             const buttonHTML = score ? `<button class="reset-score-btn text-red-500 hover:text-red-700 text-xs" data-level="${level}">Reset</button>` : '';
             tableHTML += `
-                    <tr class="border-t border-gray-200">
-                        <td class="py-2 px-2 capitalize font-medium">${level}</td>
-                        <td class="py-2 px-2">${scoreText}</td>
-                        <td class="py-2 px-2">${buttonHTML}</td>
-                    </tr>`;
+                <tr class="border-t border-gray-200">
+                    <td class="py-2 px-2 capitalize font-medium">${level}</td>
+                    <td class="py-2 px-2">${scoreText}</td>
+                    <td class="py-2 px-2 text-right">${buttonHTML}</td>
+                </tr>`;
         }
         tableHTML += `</tbody></table></div>`;
         highScoresTableContainer.innerHTML = tableHTML;
     }
 
+    // --- UPDATED: Renders the mistakes table with answers ---
+    function renderMistakesTable() {
+        if (mistakes.length === 0) {
+            mistakesTableContainer.innerHTML = '';
+            return;
+        }
+
+        let tableHTML = `
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+                <div class="flex justify-between items-center mb-3">
+                    <h3 class="text-center font-bold text-gray-700">Mistakes to Practice</h3>
+                    <button id="clear-mistakes-btn" class="text-red-500 hover:text-red-700 text-xs">Clear All</button>
+                </div>
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs text-gray-500 uppercase">
+                        <tr>
+                            <th class="py-2 px-2 w-3/4">Problem</th>
+                            <th class="py-2 px-2">Answer</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+        mistakes.forEach(problemKey => {
+            const parts = problemKey.split(' ');
+            const num1 = parseInt(parts[0]);
+            const operation = parts[1];
+            const num2 = parseInt(parts[2]);
+            const answer = operation === '+' ? num1 + num2 : num1 - num2;
+
+            tableHTML += `
+                <tr class="border-t border-gray-200">
+                    <td class="py-2 px-2 font-mono">${problemKey.replace('−', '-')}</td>
+                    <td class="py-2 px-2 font-mono font-semibold text-green-600">= ${answer}</td>
+                </tr>`;
+        });
+        tableHTML += `</tbody></table></div>`;
+        mistakesTableContainer.innerHTML = tableHTML;
+    }
+
     function handleKeyPress(e) {
         if (isAcceptingInput && e.key >= '1' && e.key <= '5') {
+            e.preventDefault();
             const keyIndex = parseInt(e.key) - 1;
             const buttons = optionsContainer.querySelectorAll('button');
             if (buttons[keyIndex]) {
