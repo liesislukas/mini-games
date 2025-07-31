@@ -487,7 +487,7 @@
         if (isCorrect) {
             // CORRECT: Automatically move on after a short delay.
             if (nextProblemTimeoutId) clearTimeout(nextProblemTimeoutId);
-            setTimeout(newProblem, 1500);
+            setTimeout(newProblem, 1000);
         } else {
             // INCORRECT: Wait for click on correct answer, with a 60s fallback.
             const nextAction = (currentProblemNumber >= TOTAL_PROBLEMS) ? endGame : newProblem;
