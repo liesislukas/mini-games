@@ -12,12 +12,15 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         .game-link {
             transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
         }
+
         .game-link:hover {
             transform: translateY(-2px);
         }
+
         .game-link:active {
             transform: scale(0.98) translateY(0);
         }
@@ -25,41 +28,41 @@
 </head>
 <body class="bg-gray-100 text-gray-900 flex items-center justify-center min-h-screen p-4">
 
-    <main class="w-full max-w-md">
-        <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-lg text-center">
-            
-            <h1 class="text-3xl font-bold text-gray-800 mb-2">Mini Games</h1>
-            <p class="text-gray-500 mb-8">Choose your challenge!</p>
+<main class="w-full max-w-md">
+    <div class="bg-white p-8 sm:p-12 rounded-2xl shadow-lg text-center">
 
-            <div class="grid grid-cols-1 gap-4">
-                
-                <!-- Link to Addition & Subtraction Game -->
-                <a href="addition-subtraction.html" 
-                   class="game-link group block bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
-                    <div class="flex items-center justify-center">
-                        <span>Addition & Subtraction</span>
-                    </div>
-                </a>
+        <h1 class="text-3xl font-bold text-gray-800 mb-2">Mini Games</h1>
+        <p class="text-gray-500 mb-8">Choose your challenge!</p>
 
-                <!-- Link to Multiplication Game -->
-                <a href="multiplication.html" 
-                   class="game-link group block bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
-                    <div class="flex items-center justify-center">
-                        <span>Multiplication</span>
-                    </div>
-                </a>
+        <div class="grid grid-cols-1 gap-4">
 
-                <!-- Link to Flags Game -->
-                <a href="flags.html" 
-                   class="game-link group block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
-                    <div class="flex items-center justify-center">
-                        <span>Flags</span>
-                    </div>
-                </a>
+            <!-- Link to Addition & Subtraction Game -->
+            <a href="addition-subtraction.html"
+               class="game-link group block bg-blue-500 hover:bg-blue-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
+                <div class="flex items-center justify-center">
+                    <span>Addition & Subtraction</span>
+                </div>
+            </a>
 
-            </div>
+            <!-- Link to Multiplication Game -->
+            <a href="multiplication.html"
+               class="game-link group block bg-purple-500 hover:bg-purple-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
+                <div class="flex items-center justify-center">
+                    <span>Multiplication</span>
+                </div>
+            </a>
+
+            <!-- Link to Flags Game -->
+            <a href="flags.html"
+               class="game-link group block bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl shadow-md hover:shadow-lg">
+                <div class="flex items-center justify-center">
+                    <span>Flags</span>
+                </div>
+            </a>
+
         </div>
-    </main>
+    </div>
+</main>
 
 </body>
 </html>

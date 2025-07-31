@@ -12,15 +12,22 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         .btn {
             transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
         }
+
         .btn:active, .option-button.active-key {
             transform: scale(0.98);
         }
+
         @keyframes score-pop-animation {
-            50% { transform: scale(1.3); color: #2563eb; }
+            50% {
+                transform: scale(1.3);
+                color: #2563eb;
+            }
         }
+
         .score-pop {
             animation: score-pop-animation 0.3s ease-in-out;
         }
@@ -33,10 +40,18 @@
         <div class="bg-white p-8 sm:p-10 rounded-2xl shadow-lg text-center">
             <h1 class="text-2xl font-bold text-gray-800 mb-6">Select a Level</h1>
             <div class="grid grid-cols-1 gap-4">
-                <button data-level="easy" class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl">Easy</button>
-                <button data-level="mid" class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl">Mid</button>
-                <button data-level="hard" class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl">Hard</button>
-                <button data-level="full" class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl">Full</button>
+                <button data-level="easy"
+                        class="btn w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 rounded-xl">Easy
+                </button>
+                <button data-level="mid"
+                        class="btn w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 rounded-xl">Mid
+                </button>
+                <button data-level="hard"
+                        class="btn w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 rounded-xl">Hard
+                </button>
+                <button data-level="full"
+                        class="btn w-full bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 rounded-xl">Full
+                </button>
             </div>
         </div>
     </div>
@@ -55,7 +70,8 @@
             <div class="mt-6 h-7"><p id="feedback-text" class="text-lg font-medium"></p></div>
         </div>
         <div class="text-center mt-4 text-gray-500 text-sm">
-            High Score (<span id="game-level-display" class="capitalize"></span>): <span id="high-score-display" class="font-semibold"></span>
+            High Score (<span id="game-level-display" class="capitalize"></span>): <span id="high-score-display"
+                                                                                         class="font-semibold"></span>
         </div>
     </div>
 
@@ -67,11 +83,19 @@
                 <div class="text-4xl font-bold text-blue-600"><span id="final-score">0</span> / 20</div>
                 <div class="text-sm text-gray-500 mt-1">Total Time: <span id="final-time">0.0</span>s</div>
             </div>
-            <div id="new-high-score-banner" class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5">🎉 New High Score!</div>
-            <p class="text-gray-500 text-sm">Current High Score: <span id="final-high-score-display" class="font-semibold"></span></p>
+            <div id="new-high-score-banner"
+                 class="hidden bg-green-100 text-green-800 font-semibold p-3 rounded-lg mb-5">🎉 New High Score!
+            </div>
+            <p class="text-gray-500 text-sm">Current High Score: <span id="final-high-score-display"
+                                                                       class="font-semibold"></span></p>
             <div class="mt-6 flex flex-col gap-3">
-                <button id="play-again-button" class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl">Play Again</button>
-                <button id="change-level-button" class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl">Change Level</button>
+                <button id="play-again-button"
+                        class="btn w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl">Play Again
+                </button>
+                <button id="change-level-button"
+                        class="btn w-full bg-gray-200 hover:bg-gray-300 text-gray-700 font-bold py-3 rounded-xl">Change
+                    Level
+                </button>
             </div>
         </div>
     </div>
@@ -120,7 +144,10 @@
         renderHighScoresTable();
 
         levelSelectionView.querySelectorAll('button').forEach(button => {
-            button.onclick = () => { currentLevel = button.dataset.level; startGame(); };
+            button.onclick = () => {
+                currentLevel = button.dataset.level;
+                startGame();
+            };
         });
         playAgainButton.addEventListener('click', startGame);
         changeLevelButton.addEventListener('click', init);
@@ -133,7 +160,9 @@
     }
 
     function startGame() {
-        currentProblemNumber = 0; correctAnswers = 0; totalTimeElapsed = 0;
+        currentProblemNumber = 0;
+        correctAnswers = 0;
+        totalTimeElapsed = 0;
         levelSelectionView.classList.add('hidden');
         resultsView.classList.add('hidden');
         newHighScoreBanner.classList.add('hidden');
@@ -144,7 +173,10 @@
     }
 
     function newProblem() {
-        if (currentProblemNumber >= TOTAL_PROBLEMS) { endGame(); return; }
+        if (currentProblemNumber >= TOTAL_PROBLEMS) {
+            endGame();
+            return;
+        }
         currentProblemNumber++;
         isAcceptingInput = true;
         feedbackTextEl.textContent = '';
@@ -167,7 +199,7 @@
 
         Array.from(options).sort(() => Math.random() - 0.5).forEach((opt, i) => {
             const btn = document.createElement('button');
-            btn.innerHTML = `<span class="text-gray-400 mr-2 text-sm">${i+1}</span> ${opt}`;
+            btn.innerHTML = `<span class="text-gray-400 mr-2 text-sm">${i + 1}</span> ${opt}`;
             btn.dataset.value = opt;
             btn.classList.add('option-button', 'btn', 'w-full', 'bg-gray-100', 'hover:bg-gray-200', 'text-gray-700', 'font-semibold', 'text-left', 'py-3', 'px-4', 'rounded-xl', 'focus:outline-none');
             btn.onclick = () => selectAnswer(opt, btn);
@@ -233,7 +265,14 @@
         const rect = button.getBoundingClientRect();
         const x = (rect.left + rect.right) / 2 / window.innerWidth;
         const y = (rect.top + rect.bottom) / 2 / window.innerHeight;
-        confetti({ particleCount: 40, spread: 50, origin: { x, y }, scalar: 0.8, ticks: 150, disableForReducedMotion: true });
+        confetti({
+            particleCount: 40,
+            spread: 50,
+            origin: {x, y},
+            scalar: 0.8,
+            ticks: 150,
+            disableForReducedMotion: true
+        });
     }
 
     function startTimer() {
@@ -245,16 +284,22 @@
             timerEl.dataset.timeLeft = timeLeft;
             timerEl.textContent = Math.ceil(timeLeft);
             if (timeLeft <= 2) timerEl.classList.add('text-red-500', 'font-extrabold');
-            if (timeLeft <= 0) { clearInterval(timerInterval); timerInterval = null; selectAnswer(null, null); }
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                selectAnswer(null, null);
+            }
         }, 100);
     }
 
-    function loadHighScores() { highScores = JSON.parse(localStorage.getItem('multiplicationHighScores')) || {}; }
+    function loadHighScores() {
+        highScores = JSON.parse(localStorage.getItem('multiplicationHighScores')) || {};
+    }
 
     function checkAndSaveHighScore() {
-        const levelHighScore = highScores[currentLevel] || { accuracy: 0, time: Infinity };
+        const levelHighScore = highScores[currentLevel] || {accuracy: 0, time: Infinity};
         if (correctAnswers > levelHighScore.accuracy || (correctAnswers === levelHighScore.accuracy && totalTimeElapsed < levelHighScore.time)) {
-            highScores[currentLevel] = { accuracy: correctAnswers, time: totalTimeElapsed };
+            highScores[currentLevel] = {accuracy: correctAnswers, time: totalTimeElapsed};
             localStorage.setItem('multiplicationHighScores', JSON.stringify(highScores));
             newHighScoreBanner.classList.remove('hidden');
         }
