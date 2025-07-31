@@ -145,7 +145,7 @@
         easy: [0, 2, 3, 4, 10],
         mid: [3, 4, 5, 9, 10],
         hard: [4, 6, 7, 8, 9],
-        full: [2, 3, 4, 5, 6, 7, 8, 9, 10]
+        full: [0, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     };
 
     let currentLevel = 'easy', currentProblemNumber = 0, correctAnswers = 0, totalTimeElapsed = 0;
@@ -191,7 +191,13 @@
         totalTimeElapsed = 0;
         usedProblems = new Set();
         zeroProblemCount = 0;
-        mistakeReviewQueue = [...mistakes].sort(() => Math.random() - 0.5);
+
+        // MODIFIED: Filter mistakes to only include those relevant to the current level
+        const levelNumbersSet = new Set(LEVEL_NUMBERS[currentLevel]);
+        const appropriateMistakes = mistakes.filter(m =>
+            levelNumbersSet.has(m.n1) && levelNumbersSet.has(m.n2)
+        );
+        mistakeReviewQueue = appropriateMistakes.sort(() => Math.random() - 0.5);
 
         levelSelectionView.classList.add('hidden');
         resultsView.classList.add('hidden');
@@ -209,7 +215,7 @@
             return;
         }
         currentProblemNumber++;
-        isReviewingMistake = false; // Reset flag for each new problem
+        isReviewingMistake = false;
         isAcceptingInput = true;
         feedbackTextEl.textContent = '';
         optionsContainer.innerHTML = '';
@@ -222,7 +228,7 @@
             const mistakeProblem = mistakeReviewQueue.pop();
             num1 = mistakeProblem.n1;
             num2 = mistakeProblem.n2;
-            isReviewingMistake = true; // Set flag when reviewing a mistake
+            isReviewingMistake = true;
         } else {
             const nums = LEVEL_NUMBERS[currentLevel];
             let attempts = 0;
@@ -306,13 +312,11 @@
             progressEl.classList.add('score-pop');
             setTimeout(() => progressEl.classList.remove('score-pop'), 300);
 
-            // If the correct answer was a mistake being reviewed, remove it
             if (isReviewingMistake) {
                 const problemKey = `${Math.min(currentNum1, currentNum2)},${Math.max(currentNum1, currentNum2)}`;
                 removeMistake(problemKey);
             }
         } else {
-            // If the answer is wrong, add it to mistakes (if not already there)
             addMistake(currentNum1, currentNum2);
         }
 
@@ -343,7 +347,7 @@
         resultsView.classList.remove('hidden');
         highScoresTableContainer.classList.remove('hidden');
         mistakesTableContainer.classList.remove('hidden');
-        renderMistakesTable(); // Show updated mistakes after game
+        renderMistakesTable();
         finalScoreEl.textContent = correctAnswers;
         finalTimeEl.textContent = totalTimeElapsed.toFixed(1);
         resultsLevelEl.textContent = currentLevel;
@@ -371,7 +375,6 @@
     function removeMistake(problemKey) {
         mistakes = mistakes.filter(m => `${Math.min(m.n1, m.n2)},${Math.max(m.n1, m.n2)}` !== problemKey);
         saveMistakes();
-        // No need to re-render here, it will happen after the round ends.
     }
 
     function renderMistakesTable() {
