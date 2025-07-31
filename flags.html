@@ -40,7 +40,12 @@
                 correctAnswer: "Correct answer:",
                 scoreInSeconds: "in",
                 timeUnit: "s",
-                notAvailable: "N/A"
+                notAvailable: "N/A",
+                mistakesTitle: "My Mistakes",
+                tableHeaderFlag: "Flag",
+                tableHeaderAnswer: "Answer",
+                tableHeaderLevelMade: "Level",
+                noMistakes: "No mistakes to show. Well done! 👍",
             },
             lt: {
                 htmlLang: "lt",
@@ -73,7 +78,12 @@
                 correctAnswer: "Teisingas atsakymas:",
                 scoreInSeconds: "per",
                 timeUnit: "s",
-                notAvailable: "Nėra"
+                notAvailable: "Nėra",
+                mistakesTitle: "Mano klaidos",
+                tableHeaderFlag: "Vėliava",
+                tableHeaderAnswer: "Atsakymas",
+                tableHeaderLevelMade: "Lygis",
+                noMistakes: "Klaidų nėra. Šaunu! 👍",
             }
         };
     </script>
@@ -83,74 +93,30 @@
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
-
-        .btn {
-            transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
-        }
-
-        .btn:active, .option-button.active-key {
-            transform: scale(0.98);
-        }
-
-        @keyframes score-pop-animation {
-            50% {
-                transform: scale(1.3);
-                color: #2563eb;
-            }
-        }
-
-        .score-pop {
-            animation: score-pop-animation 0.3s ease-in-out;
-        }
-
-        .flag-image {
-            width: 128px;
-            height: 85px;
-            object-fit: contain;
-            border-radius: 0.5rem;
-            box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.08), 0 1px 2px -2px rgb(0 0 0 / 0.05);
-        }
-
-        .option-flag-image {
-            width: 40px;
-            height: auto;
-            border-radius: 0.25rem;
-            box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            flex-shrink: 0;
-        }
-
-        .lang-flag {
-            cursor: pointer;
-            height: 1.5rem;
-            border-radius: 0.25rem;
-            box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
-            transition: all 0.2s ease-in-out;
-            border: 2px solid transparent;
-        }
-        .lang-flag:hover {
-            transform: scale(1.1);
-        }
-        .lang-flag.active {
-            border-color: #2563eb; /* blue-600 */
-            transform: scale(1.05);
-            opacity: 1;
-        }
-        .lang-flag:not(.active) {
-            opacity: 0.5;
-        }
+        .btn { transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out; }
+        .btn:active, .option-button.active-key { transform: scale(0.98); }
+        @keyframes score-pop-animation { 50% { transform: scale(1.3); color: #2563eb; } }
+        .score-pop { animation: score-pop-animation 0.3s ease-in-out; }
+        .flag-image { width: 128px; height: 85px; object-fit: contain; border-radius: 0.5rem; box-shadow: 0 2px 4px -1px rgb(0 0 0 / 0.08), 0 1px 2px -2px rgb(0 0 0 / 0.05); }
+        .option-flag-image { width: 40px; height: auto; border-radius: 0.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); flex-shrink: 0; }
+        .lang-flag { cursor: pointer; height: 1.5rem; border-radius: 0.25rem; box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); transition: all 0.2s ease-in-out; border: 2px solid transparent; }
+        .lang-flag:hover { transform: scale(1.1); }
+        .lang-flag.active { border-color: #2563eb; transform: scale(1.05); opacity: 1; }
+        .lang-flag:not(.active) { opacity: 0.5; }
+        .mistake-flag { width: 30px; height: auto; border-radius: 0.25rem; box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05); flex-shrink: 0; }
     </style>
 </head>
 <body class="bg-gray-100 text-gray-900 flex flex-col items-center min-h-screen p-4 pt-4 sm:pt-6 select-none">
 
 <div class="w-full max-w-md pb-4">
     <div class="flex justify-between items-center">
-    <div class="pl-1">
-        <a href="https://liesislukas.github.io/mini-games/" class="p-2"><i class="fas fa-arrow-left"></i></a>
-    </div>
-    <div class="flex justify-end gap-x-3 mb-2 px-2">
-        <img id="lang-lt" data-lang="lt" src="https://flagcdn.com/w40/lt.png" alt="Lietuvių" class="lang-flag">
-        <img id="lang-en" data-lang="en" src="https://flagcdn.com/w40/gb.png" alt="English" class="lang-flag">
-    </div>
+        <div class="pl-1">
+            <a href="https://liesislukas.github.io/mini-games/" class="p-2"><i class="fas fa-arrow-left"></i></a>
+        </div>
+        <div class="flex justify-end gap-x-3 mb-2 px-2">
+            <img id="lang-lt" data-lang="lt" src="https://flagcdn.com/w40/lt.png" alt="Lietuvių" class="lang-flag">
+            <img id="lang-en" data-lang="en" src="https://flagcdn.com/w40/gb.png" alt="English" class="lang-flag">
+        </div>
     </div>
 </div>
 
@@ -204,6 +170,7 @@
 </main>
 
 <div id="high-scores-table-container" class="w-full max-w-md mt-8"></div>
+<div id="mistakes-table-container" class="w-full max-w-md mt-8"></div>
 
 <script>
     // --- DOM Elements ---
@@ -225,16 +192,18 @@
     const playAgainButton = document.getElementById('play-again-button');
     const changeLevelButton = document.getElementById('change-level-button');
     const highScoresTableContainer = document.getElementById('high-scores-table-container');
+    const mistakesTableContainer = document.getElementById('mistakes-table-container');
 
     // --- Game Constants & State ---
     const TOTAL_PROBLEMS = 20;
-    const TIME_PER_QUESTION = 5;
+    const TIME_PER_QUESTION = 60;
     let rawCountryData = [];
     let allCountries = [];
     let currentLanguage;
     let currentLevel = 'europe', currentProblemNumber = 0, correctAnswers = 0, totalTimeElapsed = 0;
     let isAcceptingInput = false, currentCorrectAnswer = '', timerInterval, highScores = {};
     let usedQuestions = new Set();
+    let mistakes = [];
 
     // --- Language Functions ---
     function setLanguage(lang) {
@@ -265,6 +234,7 @@
         });
         updateHighScoreUI();
         renderHighScoresTable();
+        renderMistakesTable();
     }
 
     function loadLanguage() {
@@ -323,11 +293,13 @@
 
         await fetchAndProcessData();
         loadHighScores();
+        loadMistakes();
 
         levelSelectionView.classList.remove('hidden');
         gameView.classList.add('hidden');
         resultsView.classList.add('hidden');
         highScoresTableContainer.classList.remove('hidden');
+        mistakesTableContainer.classList.remove('hidden');
 
         updateUIText();
 
@@ -345,6 +317,7 @@
             gameView.classList.add('hidden');
             resultsView.classList.add('hidden');
             highScoresTableContainer.classList.remove('hidden');
+            mistakesTableContainer.classList.remove('hidden');
             updateUIText();
         });
         document.addEventListener('keydown', handleKeyPress);
@@ -367,6 +340,7 @@
         newHighScoreBanner.classList.add('hidden');
         gameView.classList.remove('hidden');
         highScoresTableContainer.classList.add('hidden');
+        mistakesTableContainer.classList.add('hidden');
         updateHighScoreUI();
         newProblem();
     }
@@ -384,23 +358,41 @@
         progressEl.textContent = `${currentProblemNumber}/${TOTAL_PROBLEMS}`;
         timerEl.classList.remove('text-red-500', 'font-extrabold');
 
-        const levelCountries = currentLevel === 'all' ? [...allCountries] : allCountries.filter(c => c.continent.toLowerCase() === currentLevel);
-        const availableCountries = levelCountries.filter(c => !usedQuestions.has(c.code));
+        let questionCountry;
 
-        if (availableCountries.length === 0 || levelCountries.length < 5) {
-            if (availableCountries.length === 0) {
-                console.log("No more unique countries available for this level.");
+        // --- Prioritize Mistakes ---
+        const eligibleMistakes = mistakes.filter(mistake => {
+            // Rule: Mistake from 'all' can only be asked on 'all'.
+            if (mistake.level === 'all') {
+                return currentLevel === 'all';
             }
-            if (levelCountries.length < 5) {
+            // Rule: Mistake from a continent can be asked on that continent or on 'all'.
+            return currentLevel === mistake.level || currentLevel === 'all';
+        });
+
+        const newMistakesToAsk = eligibleMistakes.filter(m => !usedQuestions.has(m.code));
+
+        if (newMistakesToAsk.length > 0) {
+            const mistakeToAsk = newMistakesToAsk[0]; // Ask the first available mistake
+            questionCountry = allCountries.find(c => c.code === mistakeToAsk.code);
+        } else {
+            // --- Original Logic for Random Question ---
+            const levelCountries = currentLevel === 'all' ? [...allCountries] : allCountries.filter(c => c.continent.toLowerCase() === currentLevel);
+            const availableCountries = levelCountries.filter(c => !usedQuestions.has(c.code));
+
+            if (availableCountries.length === 0 || levelCountries.length < 5) {
                 problemContainer.innerHTML = `<p class="text-sm text-red-500">${translations[currentLanguage].notEnoughCountries}</p>`;
                 setTimeout(endGame, 2000);
-            } else {
-                endGame();
+                return;
             }
+            questionCountry = availableCountries[Math.floor(Math.random() * availableCountries.length)];
+        }
+
+        if (!questionCountry) { // Fallback if something goes wrong
+            endGame();
             return;
         }
 
-        const questionCountry = availableCountries[Math.floor(Math.random() * availableCountries.length)];
         usedQuestions.add(questionCountry.code);
         currentCorrectAnswer = questionCountry.name;
 
@@ -412,8 +404,10 @@
 
         const optionsMap = new Map();
         optionsMap.set(questionCountry.name, questionCountry);
+        const allPossibleOptions = currentLevel === 'all' ? [...allCountries] : allCountries.filter(c => c.continent.toLowerCase() === currentLevel);
+
         while (optionsMap.size < 5) {
-            const randomCountry = levelCountries[Math.floor(Math.random() * levelCountries.length)];
+            const randomCountry = allPossibleOptions[Math.floor(Math.random() * allPossibleOptions.length)];
             optionsMap.set(randomCountry.name, randomCountry);
         }
 
@@ -423,13 +417,13 @@
             btn.dataset.value = country.name;
             btn.dataset.code = country.code;
             btn.classList.add('option-button', 'btn', 'w-full', 'bg-gray-100', 'hover:bg-gray-200', 'text-gray-700', 'font-semibold', 'text-left', 'py-3', 'px-4', 'rounded-xl', 'focus:outline-none');
-            btn.onclick = () => selectAnswer(country.name, btn);
+            btn.onclick = () => selectAnswer(country.name, btn, questionCountry);
             optionsContainer.appendChild(btn);
         });
-        startTimer();
+        startTimer(questionCountry);
     }
 
-    function selectAnswer(selectedAnswer, selectedButton) {
+    function selectAnswer(selectedAnswer, selectedButton, questionCountry) {
         if (!isAcceptingInput) return;
         isAcceptingInput = false;
         clearInterval(timerInterval);
@@ -438,13 +432,31 @@
         totalTimeElapsed += timeTaken;
         const isCorrect = selectedAnswer === currentCorrectAnswer;
 
-        let correctButton;
         if (isCorrect) {
             correctAnswers++;
             progressEl.classList.add('score-pop');
             setTimeout(() => progressEl.classList.remove('score-pop'), 300);
+
+            // If it was a mistake, remove it from the list
+            const mistakeIndex = mistakes.findIndex(m => m.code === questionCountry.code);
+            if (mistakeIndex > -1) {
+                mistakes.splice(mistakeIndex, 1);
+                saveMistakes();
+            }
+        } else {
+            // If it was an incorrect answer, add to mistakes if not already present
+            const isAlreadyMistake = mistakes.some(m => m.code === questionCountry.code);
+            if (!isAlreadyMistake) {
+                mistakes.push({
+                    code: questionCountry.code,
+                    name: currentCorrectAnswer,
+                    level: currentLevel
+                });
+                saveMistakes();
+            }
         }
 
+        let correctButton;
         optionsContainer.querySelectorAll('button').forEach(btn => {
             btn.disabled = true;
             const btnValue = btn.dataset.value;
@@ -458,11 +470,10 @@
             const countryCode = btn.dataset.code;
             const countryName = btn.dataset.value;
             btn.innerHTML = `
-                    <div class="flex items-center w-full">
-                        <img src="https://flagcdn.com/w80/${countryCode}.png" alt="${countryName}" class="option-flag-image mr-4">
-                        <span class="truncate">${countryName}</span>
-                    </div>
-                `;
+                <div class="flex items-center w-full">
+                    <img src="https://flagcdn.com/w80/${countryCode}.png" alt="${countryName}" class="option-flag-image mr-4">
+                    <span class="truncate">${countryName}</span>
+                </div>`;
         });
 
         if (isCorrect && Math.random() < 0.2) {
@@ -480,10 +491,12 @@
         gameView.classList.add('hidden');
         resultsView.classList.remove('hidden');
         highScoresTableContainer.classList.remove('hidden');
+        mistakesTableContainer.classList.remove('hidden');
         finalScoreEl.textContent = correctAnswers;
         finalTimeEl.textContent = totalTimeElapsed.toFixed(1);
         resultsLevelEl.textContent = currentLevel;
         checkAndSaveHighScore();
+        renderMistakesTable(); // Refresh mistake table after a game
     }
 
     // --- Effects, High Scores, and Event Handlers ---
@@ -494,7 +507,7 @@
         confetti({ particleCount: 40, spread: 50, origin: { x, y }, scalar: 0.8, ticks: 150, disableForReducedMotion: true });
     }
 
-    function startTimer() {
+    function startTimer(questionCountry) {
         let timeLeft = TIME_PER_QUESTION;
         timerEl.textContent = timeLeft;
         timerEl.dataset.timeLeft = timeLeft;
@@ -502,16 +515,14 @@
         timerInterval = setInterval(() => {
             timeLeft -= 0.1;
 
-            // First, check if time has run out to prevent negative display.
             if (timeLeft <= 0) {
                 clearInterval(timerInterval);
-                timerEl.textContent = 0; // Set display to 0 definitively.
+                timerEl.textContent = 0;
                 timerInterval = null;
-                selectAnswer(null, null); // End the turn.
-                return; // Exit the interval callback.
+                selectAnswer(null, null, questionCountry); // Pass question country on timeout
+                return;
             }
 
-            // If time has not run out, update the display.
             timerEl.dataset.timeLeft = timeLeft;
             timerEl.textContent = Math.ceil(timeLeft);
 
@@ -521,9 +532,10 @@
         }, 100);
     }
 
-    function loadHighScores() {
-        highScores = JSON.parse(localStorage.getItem('flagHighScores')) || {};
-    }
+    // --- Storage Functions (High Scores & Mistakes) ---
+    function loadHighScores() { highScores = JSON.parse(localStorage.getItem('flagHighScores')) || {}; }
+    function loadMistakes() { mistakes = JSON.parse(localStorage.getItem('flagMistakes')) || []; }
+    function saveMistakes() { localStorage.setItem('flagMistakes', JSON.stringify(mistakes)); }
 
     function checkAndSaveHighScore() {
         const levelHighScore = highScores[currentLevel] || { accuracy: 0, time: Infinity };
@@ -561,22 +573,22 @@
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
 
-
+    // --- Table Rendering ---
     function renderHighScoresTable() {
         const t = translations[currentLanguage];
         if (!t) return;
         let tableHTML = `
-                <div class="bg-white p-4 rounded-2xl shadow-lg">
-                    <h3 class="text-center font-bold text-gray-700 mb-3">${t.allHighScores}</h3>
-                    <table class="w-full text-sm text-left">
-                        <thead class="text-xs text-gray-500 uppercase">
-                            <tr>
-                                <th class="py-2 px-2">${t.tableHeaderLevel}</th>
-                                <th class="py-2 px-2">${t.tableHeaderScore}</th>
-                                <th class="py-2 px-2">${t.tableHeaderAction}</th>
-                            </tr>
-                        </thead>
-                        <tbody>`;
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+                <h3 class="text-center font-bold text-gray-700 mb-3">${t.allHighScores}</h3>
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs text-gray-500 uppercase">
+                        <tr>
+                            <th class="py-2 px-2">${t.tableHeaderLevel}</th>
+                            <th class="py-2 px-2">${t.tableHeaderScore}</th>
+                            <th class="py-2 px-2">${t.tableHeaderAction}</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
         const levels = ['europe', 'africa', 'asia', 'americas', 'oceania', 'all'];
         for (const level of levels) {
             const score = highScores[level];
@@ -584,24 +596,63 @@
             const buttonHTML = score ? `<button class="reset-score-btn text-red-500 hover:text-red-700 text-xs" data-level="${level}">${t.reset}</button>` : '';
             const translatedLevel = t[`continent${capitalizeFirstLetter(level)}`]
             tableHTML += `
-                    <tr class="border-t border-gray-200">
-                        <td class="py-2 px-2 capitalize font-medium">${translatedLevel}</td>
-                        <td class="py-2 px-2">${scoreText}</td>
-                        <td class="py-2 px-2">${buttonHTML}</td>
-                    </tr>`;
+                <tr class="border-t border-gray-200">
+                    <td class="py-2 px-2 capitalize font-medium">${translatedLevel}</td>
+                    <td class="py-2 px-2">${scoreText}</td>
+                    <td class="py-2 px-2">${buttonHTML}</td>
+                </tr>`;
         }
         tableHTML += `</tbody></table></div>`;
         highScoresTableContainer.innerHTML = tableHTML;
     }
 
+    function renderMistakesTable() {
+        const t = translations[currentLanguage];
+        if (!t) return;
+
+        if (mistakes.length === 0) {
+            mistakesTableContainer.innerHTML = `
+                <div class="bg-white p-4 rounded-2xl shadow-lg text-center">
+                    <h3 class="font-bold text-gray-700 mb-2">${t.mistakesTitle}</h3>
+                    <p class="text-sm text-gray-500">${t.noMistakes}</p>
+                </div>`;
+            return;
+        }
+
+        let tableHTML = `
+            <div class="bg-white p-4 rounded-2xl shadow-lg">
+                <h3 class="text-center font-bold text-gray-700 mb-3">${t.mistakesTitle}</h3>
+                <table class="w-full text-sm text-left">
+                    <thead class="text-xs text-gray-500 uppercase">
+                        <tr>
+                            <th class="py-2 px-2">${t.tableHeaderFlag}</th>
+                            <th class="py-2 px-2">${t.tableHeaderAnswer}</th>
+                            <th class="py-2 px-2">${t.tableHeaderLevelMade}</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+        for (const mistake of mistakes) {
+            const translatedLevel = t[`continent${capitalizeFirstLetter(mistake.level)}`] || mistake.level;
+            tableHTML += `
+                <tr class="border-t border-gray-200">
+                    <td class="py-2 px-2"><img src="https://flagcdn.com/w40/${mistake.code}.png" alt="${mistake.name}" class="mistake-flag"></td>
+                    <td class="py-2 px-2 font-medium">${mistake.name}</td>
+                    <td class="py-2 px-2 capitalize">${translatedLevel}</td>
+                </tr>`;
+        }
+        tableHTML += `</tbody></table></div>`;
+        mistakesTableContainer.innerHTML = tableHTML;
+    }
+
     function handleKeyPress(e) {
         if (isAcceptingInput && e.key >= '1' && e.key <= '5') {
+            e.preventDefault();
             const keyIndex = parseInt(e.key) - 1;
             const buttons = optionsContainer.querySelectorAll('button');
             if (buttons[keyIndex]) {
                 buttons[keyIndex].classList.add('active-key');
                 setTimeout(() => buttons[keyIndex].classList.remove('active-key'), 100);
-                selectAnswer(buttons[keyIndex].dataset.value, buttons[keyIndex]);
+                buttons[keyIndex].click(); // Programmatically click the button to trigger its onclick handler
             }
         }
     }
