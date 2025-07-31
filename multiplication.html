@@ -148,6 +148,7 @@
     let currentLevel = 'easy', currentProblemNumber = 0, correctAnswers = 0, totalTimeElapsed = 0;
     let isAcceptingInput = false, currentCorrectAnswer = 0, timerInterval, highScores = {};
     let usedProblems;
+    let zeroProblemCount;
 
     // --- Game Flow & Initialization ---
     function init() {
@@ -179,6 +180,7 @@
         correctAnswers = 0;
         totalTimeElapsed = 0;
         usedProblems = new Set();
+        zeroProblemCount = 0;
         levelSelectionView.classList.add('hidden');
         resultsView.classList.add('hidden');
         newHighScoreBanner.classList.add('hidden');
@@ -201,19 +203,26 @@
         timerEl.classList.remove('text-red-500', 'font-extrabold');
 
         const nums = LEVEL_NUMBERS[currentLevel];
-        const n = nums.length;
-        const possibleCombinations = (n * (n + 1)) / 2;
-
-        if (usedProblems.size >= possibleCombinations) {
-            usedProblems.clear();
-        }
 
         let num1, num2, problemKey;
+        let attempts = 0; // MODIFIED: Add an escape hatch counter
+
         do {
+            // MODIFIED: If we get stuck in a loop, reset the rules to prevent a freeze
+            if (attempts++ > 100) {
+                console.warn("Problem generation stuck, resetting constraints.");
+                usedProblems.clear();
+            }
+
             num1 = nums[Math.floor(Math.random() * nums.length)];
             num2 = nums[Math.floor(Math.random() * nums.length)];
             problemKey = [Math.min(num1, num2), Math.max(num1, num2)].join(',');
-        } while (usedProblems.has(problemKey));
+
+        } while (usedProblems.has(problemKey) || ((num1 === 0 || num2 === 0) && zeroProblemCount >= 2));
+
+        if (num1 === 0 || num2 === 0) {
+            zeroProblemCount++;
+        }
 
         usedProblems.add(problemKey);
 
@@ -224,7 +233,10 @@
         while (options.size < 5) {
             const offset = (Math.floor(Math.random() * 21) - 10) || 1;
             const wrong = currentCorrectAnswer + offset;
-            if (wrong > 0 && wrong !== currentCorrectAnswer) options.add(wrong);
+            // Ensure wrong answer isn't 0 unless the correct answer is also 0
+            if (wrong !== currentCorrectAnswer && (wrong > 0 || currentCorrectAnswer === 0) ) {
+                options.add(wrong);
+            }
         }
 
         Array.from(options).sort(() => Math.random() - 0.5).forEach((opt, i) => {
